@@ -12,18 +12,19 @@ kernelspec:
   name: python3
 ---
 
-# Python
-
-## Basics
+# Python - Basics
 
 Python is a verstile high-level programming language known for its simplicity and readability. It's widely used in data science. Its rich ecosystem of libraries, such as NumPy, Pandas, and Matplotlib, provides powerful tools for data manipulation, analysis, and visualization. Python's simplicity and flexibility make it a popular choice for data scientists, enabling them to efficiently tackle complex data-driven problems.
 
 **Input and Output:**
 
 In Python, you can use the `input` function to prompt the user for input. It displays a message to the user, waits for them to enter a value, and then returns the input as a string.
+
 ```{code-cell}
 # name = input('Please enter your name: ')
 ```
+
+The `print` function is used to display data as output. It takes one or more arguments and prints them to the console or standard output stream, separated by spaces.
 
 ```{code-cell}
 print('Hello World!')
@@ -37,13 +38,15 @@ print("Hello World! This is the number: " + str(one))  # print without space
 
 **Assignment:**
 
-```{code-cell}
-a = 'apple'                            # assignment
+The `=` operator is used for assignment. It assigns the value on the right side to the variable on the left side.
 
-a, b, c = 'apple', 'banana', 'cherry'  # multiple assignment
+```{code-cell}
+a = 'apple'                             # assignment
+
+a, b, c = 'apple', 'banana', 'cherry'   # multiple assignment
 a = b = c = 'apple'
 
-fruits = ['apple', 'banana', 'cherry']
+fruits = ['apple', 'banana', 'cherry']  
 a, b, c = fruits
 ```
 
@@ -57,7 +60,7 @@ a, b, c = fruits
 | `\n`     | newline       |
 | `\t`     | tab           |
 
-**Basic Operations:**
+## Basic Operations
 
 **Arithmetic**
 
@@ -100,7 +103,7 @@ a, b, c = fruits
 | `x not in y` | is not `x` in `y`? |
 
 
-**Basic Arithmetic Functions:**
+**Basic Arithmetic Functions**
 
 | Type                      | Library   | Function                                    |
 | :--:                      | :-----:   | :------:                                    |
@@ -112,9 +115,9 @@ a, b, c = fruits
 | Trigonometryc             | `math`    | `sin`, `cos`, `tan`, `asin`, `acos`, `atan` |
 
 
-**Variables:**
+## Variables
 
-**Data Types**
+### Data Types
 
 | Category | Type                      |
 | :------: | :--:                      |
