@@ -150,7 +150,7 @@ Get Length: `len` function
 
 ## Strings
 
-Strings are sequences of characters enclosed in single or double quotes. They are immutable, meaning their values cannot be changed after creation. Strings support various operations like slicing, concatenation and formatting, making them suitable for text manipulation and data representation
+Strings are sequences of characters enclosed in single or double quotes. They are immutable, meaning their values cannot be changed after creation. Strings support various operations like slicing, concatenation and formatting, making them suitable for text manipulation and data representation.
 
 **Basic Operations**
 
