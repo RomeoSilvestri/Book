@@ -12,6 +12,8 @@ kernelspec:
   name: python3
 ---
 
+# Numpy
+
 ```{code-cell}
 import numpy as np
 ```
@@ -25,7 +27,9 @@ import numpy as np
 | Object   | `object` |
 | String   | `str`, `unicode` |
 
-**Creation:**
+
+## Creation
+
 ```{code-cell}
 my_array = np.array([1, 2, 3, 4, 5])  # simple array creation
 print(my_array)
@@ -94,8 +98,7 @@ np.random.rand(5, 2)
 ```
 
 
-
-**Access:**
+## Access
 
 Array **indexing** is the same as accessing an array element.\
 You can access an array element by referring to its index number.\
@@ -168,10 +171,9 @@ print(arr[arr % 2 == 0])
 ```
 
 
+## Operations
 
-**Operations:**
-
-**Elementwise:**
+**Elementwise**
 
 ```{code-cell}
 array_x = np.array([[1,2,3], [4,5,6]])  # 2x3
@@ -206,7 +208,7 @@ np.dot(array_x, array_z)  #
 array_z + array_w  # broadcasting
 ```
 
-**Reshape:**
+**Reshape**
 
 ```{code-cell}
 arr.reshape(6, 2)  # 
@@ -222,7 +224,7 @@ arr.reshape(2, 3, 2)
 arr.flatten()
 ```
 
-**Sort:**
+**Sort**
 
 ```{code-cell}
 np.sort(arr)
@@ -252,8 +254,7 @@ np.dsplit(array_x, 3)
 ```
 
 
-**Methods:**
-
+## Methods
 
 | Category   | Function | Description | 
 | :------:   | :------: | :---------: |
