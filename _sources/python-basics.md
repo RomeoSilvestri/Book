@@ -148,7 +148,7 @@ Get Type: `type` function\
 Get Length: `len` function
 
 
-## Strings
+### Strings
 
 Strings are sequences of characters enclosed in single or double quotes. They are immutable, meaning their values cannot be changed after creation. Strings support various operations like slicing, concatenation and formatting, making them suitable for text manipulation and data representation.
 
@@ -200,7 +200,7 @@ print(w3)
 | `upper`                   | /                         | Converts a string into upper case |
 
 
-## Tuple
+### Tuple
 
 Tuples are ordered collections of elements enclosed in parentheses. They are immutable, meaning their values cannot be modified once defined. Tuples can store different data types and are commonly used to group related data or as return values for functions, providing a convenient way to ensure data integrity and prevent accidental modification.
 
@@ -306,7 +306,7 @@ print(tp_new)
 | `index` | element     | Searches the tuple for a specified value and returns the position of where it was found |
 
 
-## List
+### List
 
 Lists are ordered and mutable collections of elements enclosed in square brackets. They can hold values of different types and allow for dynamic resizing, appending, and modification of elements. Lists are versatile data structures, supporting operations like indexing, slicing, and list comprehensions, making them useful for storing and manipulating data in a flexible manner.
 
@@ -470,7 +470,7 @@ print(ls_new)
 | `sort`    | reverse=True/False, key=function | Sorts the list |
 
 
-## Set
+### Set
 
 Sets are unordered and mutable collections of unique elements. They provide efficient membership testing and operations like union, intersection, and difference. Sets do not allow duplicate values, making them useful for eliminating duplicates or checking for membership in a collection of items.
 
@@ -610,7 +610,7 @@ print(st_new)
 | `update`                      | iterable        | Update the set with the union of this set and other iterables |
 
 
-## Dictionary
+### Dictionary
 
 Dictionaries are unordered collections of key-value pairs enclosed. They provide efficient value retrieval based on unique keys. Dictionaries allow for adding, modifying, and deleting key-value pairs, making them useful for organizing and accessing data based on custom identifiers.
 

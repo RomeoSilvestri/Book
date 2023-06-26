@@ -356,12 +356,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">Set</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set">Set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">Flow Control</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else">If-Else</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except">Try-Except</a></li>
@@ -661,9 +663,8 @@ Hello World! This is the number: 1
 <p>Casting: refers to the explicit conversion of an object or value from one data type to another. It is achieved using functions like <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, etc. Casting allows for changing the type of data, facilitating compatibility and desired operations between different data types.</p>
 <p>Get Type: <code class="docutils literal notranslate"><span class="pre">type</span></code> function<br />
 Get Length: <code class="docutils literal notranslate"><span class="pre">len</span></code> function</p>
-</section>
 <section id="strings">
-<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h2>
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
 <p>Strings are sequences of characters enclosed in single or double quotes. They are immutable, meaning their values cannot be changed after creation. Strings support various operations like slicing, concatenation and formatting, making them suitable for text manipulation and data representation.</p>
 <p><strong>Basic Operations</strong></p>
 <div class="cell docutils container">
@@ -795,7 +796,7 @@ False
 </table>
 </section>
 <section id="tuple">
-<h2>Tuple<a class="headerlink" href="#tuple" title="Permalink to this heading">#</a></h2>
+<h3>Tuple<a class="headerlink" href="#tuple" title="Permalink to this heading">#</a></h3>
 <p>Tuples are ordered collections of elements enclosed in parentheses. They are immutable, meaning their values cannot be modified once defined. Tuples can store different data types and are commonly used to group related data or as return values for functions, providing a convenient way to ensure data integrity and prevent accidental modification.</p>
 <p><strong>Creation</strong></p>
 <div class="cell docutils container">
@@ -969,7 +970,7 @@ False
 </table>
 </section>
 <section id="list">
-<h2>List<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h2>
+<h3>List<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h3>
 <p>Lists are ordered and mutable collections of elements enclosed in square brackets. They can hold values of different types and allow for dynamic resizing, appending, and modification of elements. Lists are versatile data structures, supporting operations like indexing, slicing, and list comprehensions, making them useful for storing and manipulating data in a flexible manner.</p>
 <p><strong>Creation</strong></p>
 <div class="cell docutils container">
@@ -1245,7 +1246,7 @@ False
 </table>
 </section>
 <section id="set">
-<h2>Set<a class="headerlink" href="#set" title="Permalink to this heading">#</a></h2>
+<h3>Set<a class="headerlink" href="#set" title="Permalink to this heading">#</a></h3>
 <p>Sets are unordered and mutable collections of unique elements. They provide efficient membership testing and operations like union, intersection, and difference. Sets do not allow duplicate values, making them useful for eliminating duplicates or checking for membership in a collection of items.</p>
 <p><strong>Creation</strong></p>
 <div class="cell docutils container">
@@ -1267,8 +1268,8 @@ False
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>orange
 banana
-cherry
 apple
+cherry
 </pre></div>
 </div>
 </div>
@@ -1317,10 +1318,10 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;strawberry&#39;, &#39;orange&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;apple&#39;}
-{&#39;banana&#39;, &#39;lemon&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;lime&#39;}
-{&#39;orange&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;apple&#39;}
-{&#39;strawberry&#39;, &#39;orange&#39;, &#39;banana&#39;, &#39;lemon&#39;, &#39;cherry&#39;, &#39;apple&#39;, &#39;lime&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;apple&#39;, &#39;banana&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;cherry&#39;}
+{&#39;apple&#39;, &#39;banana&#39;, &#39;lemon&#39;, &#39;orange&#39;, &#39;lime&#39;, &#39;cherry&#39;}
+{&#39;orange&#39;, &#39;banana&#39;, &#39;apple&#39;, &#39;cherry&#39;}
+{&#39;lemon&#39;, &#39;apple&#39;, &#39;lime&#39;, &#39;banana&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;cherry&#39;}
 </pre></div>
 </div>
 </div>
@@ -1355,8 +1356,8 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;strawberry&#39;, &#39;orange&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;apple&#39;}
-{&#39;orange&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;apple&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;apple&#39;, &#39;banana&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;cherry&#39;}
+{&#39;banana&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;cherry&#39;}
 </pre></div>
 </div>
 </div>
@@ -1375,7 +1376,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;orange&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;banana&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;strawberry&#39;]
 </pre></div>
 </div>
 </div>
@@ -1397,8 +1398,8 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cherry&#39;, &#39;banana&#39;, &#39;orange&#39;, &#39;apple&#39;}
-{&#39;cherry&#39;, &#39;banana&#39;, &#39;orange&#39;, &#39;apple&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;orange&#39;, &#39;strawberry&#39;, &#39;cherry&#39;}
+{&#39;banana&#39;, &#39;orange&#39;, &#39;strawberry&#39;, &#39;cherry&#39;}
 </pre></div>
 </div>
 </div>
@@ -1413,7 +1414,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;orange&#39;, &#39;apple&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;orange&#39;, &#39;strawberry&#39;}
 </pre></div>
 </div>
 </div>
@@ -1499,7 +1500,7 @@ False
 </table>
 </section>
 <section id="dictionary">
-<h2>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this heading">#</a></h2>
+<h3>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this heading">#</a></h3>
 <p>Dictionaries are unordered collections of key-value pairs enclosed. They provide efficient value retrieval based on unique keys. Dictionaries allow for adding, modifying, and deleting key-value pairs, making them useful for organizing and accessing data based on custom identifiers.</p>
 <p><strong>Creation</strong></p>
 <div class="cell docutils container">
@@ -1795,6 +1796,7 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </tr>
 </tbody>
 </table>
+</section>
 </section>
 <section id="flow-control">
 <h2>Flow Control<a class="headerlink" href="#flow-control" title="Permalink to this heading">#</a></h2>
@@ -2236,12 +2238,14 @@ Hello, my name is John
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">Set</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set">Set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">Flow Control</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else">If-Else</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except">Try-Except</a></li>
