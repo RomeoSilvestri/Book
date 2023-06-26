@@ -61,10 +61,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'PP';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python-basics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="numpy.html" />
+    <link rel="next" title="&lt;no title&gt;" href="python-numpy.html" />
     <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -233,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPP.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython-basics.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -263,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/PP.md" target="_blank"
+      <li><a href="_sources/python-basics.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -356,10 +356,20 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">Set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">Flow Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else">If-Else</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except">Try-Except</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function">Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class">Class</a></li>
 </ul>
             </nav>
         </div>
@@ -374,7 +384,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="python-basics">
 <h1>Python - Basics<a class="headerlink" href="#python-basics" title="Permalink to this heading">#</a></h1>
 <p>Python is a verstile high-level programming language known for its simplicity and readability. It’s widely used in data science. Its rich ecosystem of libraries, such as NumPy, Pandas, and Matplotlib, provides powerful tools for data manipulation, analysis, and visualization. Python’s simplicity and flexibility make it a popular choice for data scientists, enabling them to efficiently tackle complex data-driven problems.</p>
-<p><strong>Input and Output:</strong></p>
+<p><strong>Input and Output</strong></p>
 <p>In Python, you can use the <code class="docutils literal notranslate"><span class="pre">input</span></code> function to prompt the user for input. It displays a message to the user, waits for them to enter a value, and then returns the input as a string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -411,7 +421,7 @@ Hello World! This is the number: 1
 </div>
 </div>
 </div>
-<p><strong>Assignment:</strong></p>
+<p><strong>Assignment</strong></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">=</span></code> operator is used for assignment. It assigns the value on the right side to the variable on the left side.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -426,7 +436,7 @@ Hello World! This is the number: 1
 </div>
 </div>
 </div>
-<p><strong>Escape Characters:</strong></p>
+<p><strong>Escape Characters</strong></p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Operator</p></th>
@@ -591,8 +601,7 @@ Hello World! This is the number: 1
 </section>
 <section id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h2>
-<section id="data-types">
-<h3>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h3>
+<p><strong>Data Types</strong></p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Category</p></th>
@@ -649,15 +658,18 @@ Hello World! This is the number: 1
 <li><p>Set: unordered (and unindexed), unchangeable and without duplicates</p></li>
 <li><p>Dictionary: ordered*, changeable and without duplicate members</p></li>
 </ol>
-<p>Constructor:<br />
-Casting:<br />
-Get Type: <code class="docutils literal notranslate"><span class="pre">type</span></code> function<br />
+<p>Casting: refers to the explicit conversion of an object or value from one data type to another. It is achieved using functions like <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, etc. Casting allows for changing the type of data, facilitating compatibility and desired operations between different data types.</p>
+<p>Get Type: <code class="docutils literal notranslate"><span class="pre">type</span></code> function<br />
 Get Length: <code class="docutils literal notranslate"><span class="pre">len</span></code> function</p>
-<p><strong>Strings:</strong></p>
-<p>Basic Operations:</p>
+</section>
+<section id="strings">
+<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h2>
+<p>Strings are sequences of characters enclosed in single or double quotes. They are immutable, meaning their values cannot be changed after creation. Strings support various operations like slicing, concatenation and formatting, making them suitable for text manipulation and data representation</p>
+<p><strong>Basic Operations</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;Hello, World!&#39;</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">sentence</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">))</span>
 </pre></div>
@@ -707,7 +719,7 @@ False
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w1</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>        <span class="c1"># concatenate</span>
 <span class="n">w2</span> <span class="o">=</span> <span class="s1">&#39;World&#39;</span>
 
-<span class="n">w3</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">w2</span>
+<span class="n">w3</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">w2</span>  
 <span class="nb">print</span><span class="p">(</span><span class="n">w3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -718,7 +730,7 @@ False
 </div>
 </div>
 </div>
-<p>Methods:</p>
+<p><strong>Methods</strong></p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Method</p></th>
@@ -781,8 +793,11 @@ False
 </tr>
 </tbody>
 </table>
-<p><strong>Tuple:</strong></p>
-<p>Creation:</p>
+</section>
+<section id="tuple">
+<h2>Tuple<a class="headerlink" href="#tuple" title="Permalink to this heading">#</a></h2>
+<p>Tuples are ordered collections of elements enclosed in parentheses. They are immutable, meaning their values cannot be modified once defined. Tuples can store different data types and are commonly used to group related data or as return values for functions, providing a convenient way to ensure data integrity and prevent accidental modification.</p>
+<p><strong>Creation</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span> <span class="o">=</span> <span class="p">()</span>                                       <span class="c1"># empty</span>
@@ -792,7 +807,7 @@ False
 </div>
 </div>
 </div>
-<p>Access:</p>
+<p><strong>Access</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tp</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># slicing</span>
@@ -812,7 +827,7 @@ orange
 </div>
 </div>
 </div>
-<p>Check Elements:</p>
+<p><strong>Check Elements</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cherry&#39;</span> <span class="ow">in</span> <span class="n">tp</span><span class="p">)</span>
@@ -827,7 +842,7 @@ False
 </div>
 </div>
 </div>
-<p>Insertion:</p>
+<p><strong>Insertion</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) conversion into a list (with list constructor)</span>
@@ -847,7 +862,7 @@ False
 </div>
 </div>
 </div>
-<p>Deletion:</p>
+<p><strong>Deletion</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) conversion into a list</span>
@@ -859,7 +874,7 @@ False
 </div>
 </div>
 </div>
-<p>Update:</p>
+<p><strong>Update</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># conversion into a list</span>
@@ -867,7 +882,7 @@ False
 </div>
 </div>
 </div>
-<p>Sort:</p>
+<p><strong>Sort</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) conversion into a list</span>
@@ -887,7 +902,7 @@ False
 </div>
 </div>
 </div>
-<p>Copy:</p>
+<p><strong>Copy</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) slicing</span>
@@ -910,7 +925,7 @@ False
 </div>
 </div>
 </div>
-<p>Unpack:</p>
+<p><strong>Unpack</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="p">,</span> <span class="n">cherry</span><span class="p">,</span> <span class="n">banana</span><span class="p">,</span> <span class="n">orange</span> <span class="o">=</span> <span class="n">tp</span>
@@ -919,7 +934,7 @@ False
 </div>
 </div>
 </div>
-<p>Comprehension</p>
+<p><strong>Comprehension</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp_new</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tp</span> <span class="k">if</span> <span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)</span>
@@ -933,7 +948,7 @@ False
 </div>
 </div>
 </div>
-<p>Methods:</p>
+<p><strong>Methods</strong></p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Method</p></th>
@@ -952,8 +967,11 @@ False
 </tr>
 </tbody>
 </table>
-<p><strong>List:</strong></p>
-<p>Creation:</p>
+</section>
+<section id="list">
+<h2>List<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h2>
+<p>Lists are ordered and mutable collections of elements enclosed in square brackets. They can hold values of different types and allow for dynamic resizing, appending, and modification of elements. Lists are versatile data structures, supporting operations like indexing, slicing, and list comprehensions, making them useful for storing and manipulating data in a flexible manner.</p>
+<p><strong>Creation</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>                                       <span class="c1"># empty</span>
@@ -962,7 +980,7 @@ False
 </div>
 </div>
 </div>
-<p>Access:</p>
+<p><strong>Access</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># slicing</span>
@@ -982,7 +1000,7 @@ orange
 </div>
 </div>
 </div>
-<p>Check Elements:</p>
+<p><strong>Check Elements</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cherry&#39;</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">)</span>
@@ -997,7 +1015,7 @@ False
 </div>
 </div>
 </div>
-<p>Insertion:</p>
+<p><strong>Insertion</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) &#39;+&#39; operator</span>
@@ -1037,7 +1055,7 @@ False
 </div>
 </div>
 </div>
-<p>Deletion:</p>
+<p><strong>Deletion</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) remove: removes the element with the specified value</span>
@@ -1074,7 +1092,7 @@ False
 </div>
 </div>
 </div>
-<p>Update:</p>
+<p><strong>Update</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;grapes&#39;</span>  <span class="c1"># slicing</span>
@@ -1088,7 +1106,7 @@ False
 </div>
 </div>
 </div>
-<p>Sort:</p>
+<p><strong>Sort</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) sort method</span>
@@ -1118,7 +1136,7 @@ False
 </div>
 </div>
 </div>
-<p>Copy:</p>
+<p><strong>Copy</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) slicing</span>
@@ -1147,7 +1165,7 @@ False
 </div>
 </div>
 </div>
-<p>Unpack:</p>
+<p><strong>Unpack</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">strawberry</span><span class="p">,</span> <span class="n">orange</span><span class="p">,</span> <span class="n">lemon</span><span class="p">,</span> <span class="n">grapes</span><span class="p">,</span> <span class="n">apple</span> <span class="o">=</span> <span class="n">ls</span>
@@ -1156,7 +1174,7 @@ False
 </div>
 </div>
 </div>
-<p>Comprehension</p>
+<p><strong>Comprehension</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ls_new</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ls</span> <span class="k">if</span> <span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
@@ -1170,7 +1188,7 @@ False
 </div>
 </div>
 </div>
-<p>Methods:</p>
+<p><strong>Methods</strong></p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Method</p></th>
@@ -1225,8 +1243,11 @@ False
 </tr>
 </tbody>
 </table>
-<p><strong>Set:</strong></p>
-<p>Creation:</p>
+</section>
+<section id="set">
+<h2>Set<a class="headerlink" href="#set" title="Permalink to this heading">#</a></h2>
+<p>Sets are unordered and mutable collections of unique elements. They provide efficient membership testing and operations like union, intersection, and difference. Sets do not allow duplicate values, making them useful for eliminating duplicates or checking for membership in a collection of items.</p>
+<p><strong>Creation</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>                                    <span class="c1"># empty</span>
@@ -1235,7 +1256,7 @@ False
 </div>
 </div>
 </div>
-<p>Access:</p>
+<p><strong>Access</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">st</span><span class="p">:</span>  <span class="c1"># loop</span>
@@ -1244,15 +1265,15 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>orange
-apple
-banana
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apple
 cherry
+orange
+banana
 </pre></div>
 </div>
 </div>
 </div>
-<p>Check Elements:</p>
+<p><strong>Check Elements</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cherry&#39;</span> <span class="ow">in</span> <span class="n">tp</span><span class="p">)</span>
@@ -1267,7 +1288,7 @@ False
 </div>
 </div>
 </div>
-<p>Insertion:</p>
+<p><strong>Insertion</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) add: adds an element to the set</span>
@@ -1296,15 +1317,15 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;apple&#39;}
-{&#39;banana&#39;, &#39;lemon&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;apple&#39;, &#39;lime&#39;}
-{&#39;orange&#39;, &#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;}
-{&#39;banana&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;lime&#39;, &#39;lemon&#39;, &#39;cherry&#39;, &#39;apple&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;apple&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;banana&#39;, &#39;strawberry&#39;}
+{&#39;lemon&#39;, &#39;banana&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;lime&#39;}
+{&#39;apple&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;banana&#39;}
+{&#39;apple&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;lemon&#39;, &#39;lime&#39;, &#39;banana&#39;, &#39;strawberry&#39;}
 </pre></div>
 </div>
 </div>
 </div>
-<p>Deletion:</p>
+<p><strong>Deletion</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) remove / discard : removes the element with the specified value</span>
@@ -1334,14 +1355,14 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;apple&#39;}
-{&#39;strawberry&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;apple&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;apple&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;banana&#39;, &#39;strawberry&#39;}
+{&#39;cherry&#39;, &#39;orange&#39;, &#39;banana&#39;, &#39;strawberry&#39;}
 </pre></div>
 </div>
 </div>
 </div>
-<p>Update: impossible</p>
-<p>Sort:</p>
+<p><strong>Update:</strong> impossible</p>
+<p><strong>Sort</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) conversion into a list</span>
@@ -1354,12 +1375,12 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;apple&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;strawberry&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;banana&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;strawberry&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Copy:</p>
+<p><strong>Copy</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) constructor</span>
@@ -1376,14 +1397,14 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;orange&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;strawberry&#39;}
-{&#39;orange&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;strawberry&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cherry&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;banana&#39;}
+{&#39;cherry&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;banana&#39;}
 </pre></div>
 </div>
 </div>
 </div>
-<p>Unpack: impossible</p>
-<p>Comprehension:</p>
+<p><strong>Unpack:</strong> impossible</p>
+<p><strong>Comprehension</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st_new</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">st</span> <span class="k">if</span> <span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">}</span>
@@ -1392,12 +1413,12 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;orange&#39;, &#39;apple&#39;, &#39;strawberry&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;orange&#39;, &#39;strawberry&#39;, &#39;banana&#39;}
 </pre></div>
 </div>
 </div>
 </div>
-<p>Methods:</p>
+<p><strong>Methods</strong></p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Method</p></th>
@@ -1476,8 +1497,11 @@ False
 </tr>
 </tbody>
 </table>
-<p><strong>Dictionary:</strong></p>
-<p>Creation:</p>
+</section>
+<section id="dictionary">
+<h2>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this heading">#</a></h2>
+<p>Dictionaries are unordered collections of key-value pairs enclosed. They provide efficient value retrieval based on unique keys. Dictionaries allow for adding, modifying, and deleting key-value pairs, making them useful for organizing and accessing data based on custom identifiers.</p>
+<p><strong>Creation</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span> <span class="o">=</span> <span class="p">{</span>
@@ -1489,7 +1513,7 @@ False
 </div>
 </div>
 </div>
-<p>Access:</p>
+<p><strong>Access</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) all keys</span>
@@ -1583,7 +1607,7 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </div>
 </div>
 </div>
-<p>Insertion:</p>
+<p><strong>Insertion</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) slicing</span>
@@ -1606,7 +1630,7 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </div>
 </div>
 </div>
-<p>Deletion:</p>
+<p><strong>Deletion</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) pop / del : removes the item with the specified key</span>
@@ -1637,7 +1661,7 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </div>
 </div>
 </div>
-<p>Update:</p>
+<p><strong>Update</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="p">[</span><span class="s1">&#39;brand&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Ferrari&#39;</span>
@@ -1652,7 +1676,7 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </div>
 </div>
 </div>
-<p>Sort:</p>
+<p><strong>Sort</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc_key_sort</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dc</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -1670,7 +1694,7 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </div>
 </div>
 </div>
-<p>Copy:</p>
+<p><strong>Copy</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) constructor</span>
@@ -1693,7 +1717,7 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </div>
 </div>
 </div>
-<p>Unpack:</p>
+<p><strong>Unpack</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">brand</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -1702,7 +1726,7 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </div>
 </div>
 </div>
-<p>Comprehension:</p>
+<p><strong>Comprehension</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc_new</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">dc</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="n">y</span><span class="p">}</span>
@@ -1716,7 +1740,7 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </div>
 </div>
 </div>
-<p>Methods:</p>
+<p><strong>Methods</strong></p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Method</p></th>
@@ -1771,8 +1795,14 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </tr>
 </tbody>
 </table>
-<p><strong>Flow Control</strong></p>
-<p><strong>If-Else:</strong></p>
+</section>
+<section id="flow-control">
+<h2>Flow Control<a class="headerlink" href="#flow-control" title="Permalink to this heading">#</a></h2>
+<section id="if-else">
+<h3>If-Else<a class="headerlink" href="#if-else" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code>: executes a block of code if a certain condition is true<br />
+<code class="docutils literal notranslate"><span class="pre">elif</span></code>: provides an additional condition to check if the preceding if statement is false<br />
+<code class="docutils literal notranslate"><span class="pre">else</span></code>: specifies a block of code to execute when all preceding conditions in the if and elif statements are false</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
@@ -1802,7 +1832,12 @@ dict_items([(&#39;brand&#39;, &#39;Ford&#39;), (&#39;model&#39;, &#39;Mustang&#3
 </div>
 </div>
 </div>
-<p><strong>Try-Except:</strong></p>
+</section>
+<section id="try-except">
+<h3>Try-Except<a class="headerlink" href="#try-except" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">try</span></code>: tries to execute a block of code checking for exceptions<br />
+<code class="docutils literal notranslate"><span class="pre">except</span></code>: catches and handles specific exceptions that may occur within the try block<br />
+<code class="docutils literal notranslate"><span class="pre">else</span></code>: specifies a block of code to execute if no exceptions are raised in the try block</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -1835,13 +1870,15 @@ Nothing went wrong
 </div>
 </div>
 </div>
-<p><strong>Loops:</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">while</span></code>: execute a set of statements as long as a condition is true<br />
-<code class="docutils literal notranslate"><span class="pre">for</span></code>: execute a set of statements, once for each item in an object</p>
-<p><code class="docutils literal notranslate"><span class="pre">break</span></code>: stop the loop even if the while condition is true<br />
-<code class="docutils literal notranslate"><span class="pre">continue</span></code>: stop the current iteration, and continue with the next<br />
+</section>
+<section id="loops">
+<h3>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">while</span></code>: executes a set of statements as long as a condition is true<br />
+<code class="docutils literal notranslate"><span class="pre">for</span></code>: executes a set of statements, once for each item in an object</p>
+<p><code class="docutils literal notranslate"><span class="pre">break</span></code>: stops the loop even if the while condition is true<br />
+<code class="docutils literal notranslate"><span class="pre">continue</span></code>: stops the current iteration, and continue with the next<br />
 <code class="docutils literal notranslate"><span class="pre">pass</span></code>: allows to avoid syntax errors and keep the structure of the code intact, even if there is no specific implementation for a certain part</p>
-<p>WHILE:</p>
+<p><strong>While</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>       
@@ -1901,7 +1938,7 @@ Nothing went wrong
 </div>
 </div>
 </div>
-<p>FOR:</p>
+<p><strong>For</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
@@ -1977,7 +2014,11 @@ tasty cherry
 </div>
 </div>
 </div>
-<p><strong>Function:</strong></p>
+</section>
+</section>
+<section id="function">
+<h2>Function<a class="headerlink" href="#function" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">def</span></code> statement is used to define functions, allowing the creation of reusable blocks of code. The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement is used within a function to specify the value to be outputted or returned. It provides the result back to the caller and terminates the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>                <span class="c1"># simple function</span>
@@ -2055,11 +2096,13 @@ tasty cherry
 </div>
 </div>
 </div>
-<p><strong>Class:</strong></p>
+</section>
+<section id="class">
+<h2>Class<a class="headerlink" href="#class" title="Permalink to this heading">#</a></h2>
+<p>In Python, classes are blueprints for creating objects that encapsulate data and functionality. They define the structure and behavior of objects through attributes (variables) and methods (functions). Classes provide a way to organize and modularize code, promoting code reusability and maintainability. Objects created from classes have their own unique state and can interact with each other through method calls and attribute access.</p>
 <p><code class="docutils literal notranslate"><span class="pre">self</span></code> parameter: is a reference to the current instance of the class, and is used to access variables that belongs to the class; it can have any name<br />
 <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>: is always executed when the class is being initiated; it’s used to assign values to object properties, or other operations that are necessary to do when the object is being created<br />
 <code class="docutils literal notranslate"><span class="pre">__str__()</span></code>: controls what should be returned when the class object is represented as a string; if it’s not set, the string representation of the object is returned</p>
-<p>methods: functions that belong to the object</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
@@ -2124,7 +2167,6 @@ Hello, my name is John
 <p>There is a third kind of method called a static method. Static methods do not operate on either the instance or the class, they are just simple functions. But we might want to include them in the class because they are somehow related to the class. They are defined using the <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> decorator.</p>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2167,7 +2209,7 @@ Hello, my name is John
       </div>
     </a>
     <a class="right-next"
-       href="numpy.html"
+       href="python-numpy.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -2194,10 +2236,20 @@ Hello, my name is John
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set">Set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionary">Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control">Flow Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else">If-Else</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#try-except">Try-Except</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function">Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class">Class</a></li>
 </ul>
   </nav></div>
 
