@@ -18,6 +18,8 @@ kernelspec:
 import numpy as np
 ```
 
+**Data Types**
+
 | Category | Type                      |
 | :------: | :--:                      |
 | Boolean  | `bool` |
@@ -249,8 +251,8 @@ np.array_split(array_x, 3)
 np.array_split(array_x, 3, axis=1)
 
 np.hsplit(array_x, 3)
-np.vsplit(array_x, 3)
-np.dsplit(array_x, 3)
+# np.vsplit(array_x, 2)
+# np.dsplit(array_x, 3)
 ```
 
 

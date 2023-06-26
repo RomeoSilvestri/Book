@@ -21,34 +21,30 @@ np.array_split(array_x, 3)
 np.array_split(array_x, 3, axis=1)
 
 np.hsplit(array_x, 3)
-np.vsplit(array_x, 3)
+np.vsplit(array_x, 2)
 np.dsplit(array_x, 3)
 ------------------
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mValueError[0m                                Traceback (most recent call last)
-Cell [1;32mIn[33], line 5[0m
-[0;32m      2[0m np[38;5;241m.[39marray_split(array_x, [38;5;241m3[39m, axis[38;5;241m=[39m[38;5;241m1[39m)
+Cell [1;32mIn[33], line 6[0m
 [0;32m      4[0m np[38;5;241m.[39mhsplit(array_x, [38;5;241m3[39m)
-[1;32m----> 5[0m [43mnp[49m[38;5;241;43m.[39;49m[43mvsplit[49m[43m([49m[43marray_x[49m[43m,[49m[43m [49m[38;5;241;43m3[39;49m[43m)[49m
-[0;32m      6[0m np[38;5;241m.[39mdsplit(array_x, [38;5;241m3[39m)
+[0;32m      5[0m np[38;5;241m.[39mvsplit(array_x, [38;5;241m2[39m)
+[1;32m----> 6[0m [43mnp[49m[38;5;241;43m.[39;49m[43mdsplit[49m[43m([49m[43marray_x[49m[43m,[49m[43m [49m[38;5;241;43m3[39;49m[43m)[49m
 
-File [1;32m<__array_function__ internals>:200[0m, in [0;36mvsplit[1;34m(*args, **kwargs)[0m
+File [1;32m<__array_function__ internals>:200[0m, in [0;36mdsplit[1;34m(*args, **kwargs)[0m
 
-File [1;32m~\anaconda3\lib\site-packages\numpy\lib\shape_base.py:997[0m, in [0;36mvsplit[1;34m(ary, indices_or_sections)[0m
-[0;32m    995[0m [38;5;28;01mif[39;00m _nx[38;5;241m.[39mndim(ary) [38;5;241m<[39m [38;5;241m2[39m:
-[0;32m    996[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m'[39m[38;5;124mvsplit only works on arrays of 2 or more dimensions[39m[38;5;124m'[39m)
-[1;32m--> 997[0m [38;5;28;01mreturn[39;00m [43msplit[49m[43m([49m[43mary[49m[43m,[49m[43m [49m[43mindices_or_sections[49m[43m,[49m[43m [49m[38;5;241;43m0[39;49m[43m)[49m
+File [1;32m~\anaconda3\lib\site-packages\numpy\lib\shape_base.py:1041[0m, in [0;36mdsplit[1;34m(ary, indices_or_sections)[0m
+[0;32m   1002[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[0;32m   1003[0m [38;5;124;03mSplit array into multiple sub-arrays along the 3rd axis (depth).[39;00m
+[0;32m   1004[0m 
+[1;32m   (...)[0m
+[0;32m   1038[0m [38;5;124;03marray([], shape=(2, 2, 0), dtype=float64)][39;00m
+[0;32m   1039[0m [38;5;124;03m"""[39;00m
+[0;32m   1040[0m [38;5;28;01mif[39;00m _nx[38;5;241m.[39mndim(ary) [38;5;241m<[39m [38;5;241m3[39m:
+[1;32m-> 1041[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m'[39m[38;5;124mdsplit only works on arrays of 3 or more dimensions[39m[38;5;124m'[39m)
+[0;32m   1042[0m [38;5;28;01mreturn[39;00m split(ary, indices_or_sections, [38;5;241m2[39m)
 
-File [1;32m<__array_function__ internals>:200[0m, in [0;36msplit[1;34m(*args, **kwargs)[0m
-
-File [1;32m~\anaconda3\lib\site-packages\numpy\lib\shape_base.py:872[0m, in [0;36msplit[1;34m(ary, indices_or_sections, axis)[0m
-[0;32m    870[0m     N [38;5;241m=[39m ary[38;5;241m.[39mshape[axis]
-[0;32m    871[0m     [38;5;28;01mif[39;00m N [38;5;241m%[39m sections:
-[1;32m--> 872[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
-[0;32m    873[0m             [38;5;124m'[39m[38;5;124marray split does not result in an equal division[39m[38;5;124m'[39m) [38;5;28;01mfrom[39;00m [38;5;28;01mNone[39;00m
-[0;32m    874[0m [38;5;28;01mreturn[39;00m array_split(ary, indices_or_sections, axis)
-
-[1;31mValueError[0m: array split does not result in an equal division
-ValueError: array split does not result in an equal division
+[1;31mValueError[0m: dsplit only works on arrays of 3 or more dimensions
+ValueError: dsplit only works on arrays of 3 or more dimensions
 
