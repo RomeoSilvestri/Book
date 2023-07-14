@@ -17,34 +17,44 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-np.array_split(array_x, 3)
-np.array_split(array_x, 3, axis=1)
+array_split1 = np.array_split(array_x, 2)          # splits an array into n arrays by columns
+print(array_split1)
+print(np.shape(array_split1))
 
-np.hsplit(array_x, 3)
-np.vsplit(array_x, 2)
-np.dsplit(array_x, 3)
+array_split2 = np.array_split(array_x, 2, axis=1)  # splits an array into n arrays by rows
+print(array_split2)
+print(np.shape(array_split2))
+
+# np.hsplit(array_x, 2)
+# np.vsplit(array_x, 2)
+# np.dsplit(array_x, 2)
 ------------------
 
 [1;31m---------------------------------------------------------------------------[0m
+[1;31mAttributeError[0m                            Traceback (most recent call last)
+File [1;32m~\anaconda3\lib\site-packages\numpy\core\fromnumeric.py:2033[0m, in [0;36mshape[1;34m(a)[0m
+[0;32m   2032[0m [38;5;28;01mtry[39;00m:
+[1;32m-> 2033[0m     result [38;5;241m=[39m [43ma[49m[38;5;241;43m.[39;49m[43mshape[49m
+[0;32m   2034[0m [38;5;28;01mexcept[39;00m [38;5;167;01mAttributeError[39;00m:
+
+[1;31mAttributeError[0m: 'list' object has no attribute 'shape'
+
+During handling of the above exception, another exception occurred:
+
 [1;31mValueError[0m                                Traceback (most recent call last)
-Cell [1;32mIn[33], line 6[0m
-[0;32m      4[0m np[38;5;241m.[39mhsplit(array_x, [38;5;241m3[39m)
-[0;32m      5[0m np[38;5;241m.[39mvsplit(array_x, [38;5;241m2[39m)
-[1;32m----> 6[0m [43mnp[49m[38;5;241;43m.[39;49m[43mdsplit[49m[43m([49m[43marray_x[49m[43m,[49m[43m [49m[38;5;241;43m3[39;49m[43m)[49m
+Cell [1;32mIn[44], line 7[0m
+[0;32m      5[0m array_split2 [38;5;241m=[39m np[38;5;241m.[39marray_split(array_x, [38;5;241m2[39m, axis[38;5;241m=[39m[38;5;241m1[39m)  [38;5;66;03m# splits an array into n arrays by rows[39;00m
+[0;32m      6[0m [38;5;28mprint[39m(array_split2)
+[1;32m----> 7[0m [38;5;28mprint[39m([43mnp[49m[38;5;241;43m.[39;49m[43mshape[49m[43m([49m[43marray_split2[49m[43m)[49m)
 
-File [1;32m<__array_function__ internals>:200[0m, in [0;36mdsplit[1;34m(*args, **kwargs)[0m
+File [1;32m<__array_function__ internals>:200[0m, in [0;36mshape[1;34m(*args, **kwargs)[0m
 
-File [1;32m~\anaconda3\lib\site-packages\numpy\lib\shape_base.py:1041[0m, in [0;36mdsplit[1;34m(ary, indices_or_sections)[0m
-[0;32m   1002[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
-[0;32m   1003[0m [38;5;124;03mSplit array into multiple sub-arrays along the 3rd axis (depth).[39;00m
-[0;32m   1004[0m 
-[1;32m   (...)[0m
-[0;32m   1038[0m [38;5;124;03marray([], shape=(2, 2, 0), dtype=float64)][39;00m
-[0;32m   1039[0m [38;5;124;03m"""[39;00m
-[0;32m   1040[0m [38;5;28;01mif[39;00m _nx[38;5;241m.[39mndim(ary) [38;5;241m<[39m [38;5;241m3[39m:
-[1;32m-> 1041[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m'[39m[38;5;124mdsplit only works on arrays of 3 or more dimensions[39m[38;5;124m'[39m)
-[0;32m   1042[0m [38;5;28;01mreturn[39;00m split(ary, indices_or_sections, [38;5;241m2[39m)
+File [1;32m~\anaconda3\lib\site-packages\numpy\core\fromnumeric.py:2035[0m, in [0;36mshape[1;34m(a)[0m
+[0;32m   2033[0m     result [38;5;241m=[39m a[38;5;241m.[39mshape
+[0;32m   2034[0m [38;5;28;01mexcept[39;00m [38;5;167;01mAttributeError[39;00m:
+[1;32m-> 2035[0m     result [38;5;241m=[39m [43masarray[49m[43m([49m[43ma[49m[43m)[49m[38;5;241m.[39mshape
+[0;32m   2036[0m [38;5;28;01mreturn[39;00m result
 
-[1;31mValueError[0m: dsplit only works on arrays of 3 or more dimensions
-ValueError: dsplit only works on arrays of 3 or more dimensions
+[1;31mValueError[0m: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (2, 2) + inhomogeneous part.
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (2, 2) + inhomogeneous part.
 

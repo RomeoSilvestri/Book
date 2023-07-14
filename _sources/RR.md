@@ -14,8 +14,6 @@ kernelspec:
 
 # R
 
-ciao
-
 **Output:**
 
 Print strings: *print*\
