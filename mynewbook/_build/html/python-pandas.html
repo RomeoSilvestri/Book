@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>R &#8212; My sample book</title>
+    <title>Pandas &#8212; My sample book</title>
   
   
   
@@ -61,11 +61,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'RR';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python-pandas';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="R" href="RR.html" />
     <link rel="prev" title="Numpy" href="python-numpy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -163,7 +162,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-basics.html">Python - Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python-numpy.html">Numpy</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">R</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RR.html">R</a></li>
 </ul>
 
     </div>
@@ -235,7 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRR.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython-pandas.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -265,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/RR.md" target="_blank"
+      <li><a href="_sources/python-pandas.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -345,7 +345,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>R</h1>
+    <h1>Pandas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -359,124 +359,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="r">
-<h1>R<a class="headerlink" href="#r" title="Permalink to this heading">#</a></h1>
-<p><strong>Output:</strong></p>
-<p>Print strings: <em>print</em><br />
-Print strings + variables: <em>paste</em>, <em>paste0</em></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas">
+<h1>Pandas<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h1>
+<p>Pandas is a powerful Python library for data manipulation and analysis. It provides data structures and functions to efficiently work with structured data, such as tabular data and time series. Pandas introduces two primary data structures, namely Series and DataFrame, which allow for easy indexing, slicing, filtering, and transformation of data. With Pandas, you can handle missing data, perform statistical calculations, apply data reshaping operations, and visualize data. It also integrates well with other libraries, such as NumPy and Matplotlib, making it a popular choice for data analysis tasks, data cleaning, preprocessing, and exploratory data analysis (EDA).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="s">&#39;Hello World!&#39;</span><span class="p">)</span>
-
-<span class="n">one</span><span class="o">=</span><span class="m">1</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Hello World! I&#39;m the number:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="p">))</span><span class="w">    </span><span class="c1"># print with space</span>
-<span class="nf">print</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;Hello World! I&#39;m the number: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">one</span><span class="p">))</span><span class="w">  </span><span class="c1"># print without space</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Hello World!&quot;
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Hello World! I&#39;m the number: 1&quot;
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Hello World! I&#39;m the number: 1&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Basic arithmetic operations:</strong></p>
-<p>+ addition, - subtraction, * multiplication, / division<br />
-^ power, %% modulus, %/% integer division\</p>
-<p><em>Comparison</em>
-== equal, != not equal<br />
-&lt; less than, &lt;= less than or equal to, &gt; greater than, &gt;= greater than or equal to\</p>
-<p><em>Logical</em>
-&amp; and, | or, !() not<br />
-&amp;&amp; , ||  lazy versions (the execution of an operation is aborted as soon as a condition is not met)<br />
-<br />
-<em>Identity</em><br />
-Identity operators are used to compare the objects, not if they are equal,<br />
-but if they are actually the same object, with the same memory location<br />
-is, is not<br />
-<br />
-<em>Membership</em><br />
-Membership operators are used to test if a sequence is presented in an object\</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w">    </span><span class="c1"># -&gt; 7</span>
-<span class="m">5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w">    </span><span class="c1"># -&gt; 3</span>
-<span class="m">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w">    </span><span class="c1"># -&gt; 10</span>
-<span class="m">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w">    </span><span class="c1"># -&gt; 2.5</span>
-<span class="m">5</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="m">2</span><span class="w">    </span><span class="c1"># -&gt; 25</span>
-<span class="m">5</span><span class="w"> </span><span class="o">%%</span><span class="w"> </span><span class="m">2</span><span class="w">   </span><span class="c1"># -&gt; 1</span>
-<span class="m">5</span><span class="w"> </span><span class="o">%/%</span><span class="w"> </span><span class="m">2</span><span class="w">  </span><span class="c1"># -&gt; 2</span>
-
-<span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="w">  </span><span class="c1"># -&gt; False  comparison</span>
-<span class="m">5</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">2</span><span class="w">  </span><span class="c1"># -&gt; True</span>
-
-<span class="m">5</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">10</span><span class="w">     </span><span class="c1"># -&gt; True  logical</span>
-<span class="m">5</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">10</span><span class="w">    </span><span class="c1"># -&gt; True</span>
-<span class="o">!</span><span class="p">(</span><span class="m">5</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w">  </span><span class="c1"># -&gt; False</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">7</div><div class="output text_html">3</div><div class="output text_html">10</div><div class="output text_html">2.5</div><div class="output text_html">25</div><div class="output text_html">1</div><div class="output text_html">2</div><div class="output text_html">FALSE</div><div class="output text_html">TRUE</div><div class="output text_html">TRUE</div><div class="output text_html">TRUE</div><div class="output text_html">FALSE</div></div>
-</div>
-<p><strong>Basic arithmetic functions:</strong><br />
-Exponential and Logarithm: exp(), log()<br />
-Trigonometric functions: sin(), cos(), tan(), asin(), acos(), atan()<br />
-Other mathematical functions: abs(), sqrt()</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">exp</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="w">    </span><span class="c1"># -&gt; 148.413</span>
-<span class="nf">log</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="w">    </span><span class="c1"># -&gt; 1.609  natural logarithm</span>
-<span class="nf">log</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">2</span><span class="p">)</span><span class="w">  </span><span class="c1"># -&gt; 2.322  logarithm in base 2</span>
-<span class="nf">sin</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span><span class="w">  </span><span class="c1"># -&gt; 0.479</span>
-<span class="nf">abs</span><span class="p">(</span><span class="m">-5</span><span class="p">)</span><span class="w">   </span><span class="c1"># -&gt; 5</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">148.413159102577</div><div class="output text_html">1.6094379124341</div><div class="output text_html">2.32192809488736</div><div class="output text_html">0.479425538604203</div><div class="output text_html">5</div></div>
-</div>
-<p><br />
-<strong>Variables:</strong><br />
-<br />
-<em>Data Types</em><br />
-Numeric Types: <em>integer</em>, <em>numeric</em>, <em>complex</em><br />
-Text Type: <em>character</em><br />
-Boolean Type:	<em>logical</em><br />
-Binary Types:	<em>raw</em></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assignment</span>
-
-<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
-<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;John&#39;</span>
-<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;apple&#39;</span><span class="w">  </span><span class="c1"># multiple assignment</span>
-
-
-<span class="c1"># Casting</span>
-
-<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.integer</span><span class="p">(</span><span class="m">5.8</span><span class="p">)</span><span class="w">  </span><span class="c1"># -&gt; 5</span>
-<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.integer</span><span class="p">(</span><span class="s">&#39;5&#39;</span><span class="p">)</span><span class="w">  </span><span class="c1"># -&gt; 5</span>
-<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="w">    </span><span class="c1"># -&gt; 5.0</span>
-<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="w">  </span><span class="c1"># -&gt; &#39;5&#39;</span>
-
-
-<span class="c1"># Get Type</span>
-
-<span class="nf">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">  </span><span class="c1"># basic type of the object</span>
-<span class="nf">class</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">   </span><span class="c1"># class of the object, which may be a base class or a user-defined class</span>
-<span class="nf">mode</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">    </span><span class="c1"># mode of the object, which indicates how the data is stored in memory</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">'double'</div><div class="output text_html">'numeric'</div><div class="output text_html">'numeric'</div></div>
 </div>
 </section>
 
@@ -489,16 +380,16 @@ Binary Types:	<em>raw</em></p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "r"
+            mode: "python"
         },
         kernelOptions: {
-            name: "ir",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ir'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -519,6 +410,15 @@ Binary Types:	<em>raw</em></p>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Numpy</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="RR.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">R</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   

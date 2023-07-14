@@ -12,18 +12,19 @@ kernelspec:
   name: python3
 ---
 
-# Python
-
-## Basics
+# Python - Basics
 
 Python is a verstile high-level programming language known for its simplicity and readability. It's widely used in data science. Its rich ecosystem of libraries, such as NumPy, Pandas, and Matplotlib, provides powerful tools for data manipulation, analysis, and visualization. Python's simplicity and flexibility make it a popular choice for data scientists, enabling them to efficiently tackle complex data-driven problems.
 
-**Input and Output:**
+**Input and Output**
 
 In Python, you can use the `input` function to prompt the user for input. It displays a message to the user, waits for them to enter a value, and then returns the input as a string.
+
 ```{code-cell}
 # name = input('Please enter your name: ')
 ```
+
+The `print` function is used to display data as output. It takes one or more arguments and prints them to the console or standard output stream, separated by spaces.
 
 ```{code-cell}
 print('Hello World!')
@@ -35,19 +36,21 @@ print("Hello World! This is the number:", one)         # print with space
 print("Hello World! This is the number: " + str(one))  # print without space
 ```
 
-**Assignment:**
+**Assignment**
+
+The `=` operator is used for assignment. It assigns the value on the right side to the variable on the left side.
 
 ```{code-cell}
-a = 'apple'                            # assignment
+a = 'apple'                             # assignment
 
-a, b, c = 'apple', 'banana', 'cherry'  # multiple assignment
+a, b, c = 'apple', 'banana', 'cherry'   # multiple assignment
 a = b = c = 'apple'
 
-fruits = ['apple', 'banana', 'cherry']
+fruits = ['apple', 'banana', 'cherry']  
 a, b, c = fruits
 ```
 
-**Escape Characters:**
+**Escape Characters**
 
 | Operator | Description   |
 | :------: | :---------:   |
@@ -57,7 +60,7 @@ a, b, c = fruits
 | `\n`     | newline       |
 | `\t`     | tab           |
 
-**Basic Operations:**
+## Basic Operations
 
 **Arithmetic**
 
@@ -99,8 +102,7 @@ a, b, c = fruits
 | `x in y` | is `x` in `y`?         |
 | `x not in y` | is not `x` in `y`? |
 
-
-**Basic Arithmetic Functions:**
+**Basic Arithmetic Functions**
 
 | Type                      | Library   | Function                                    |
 | :--:                      | :-----:   | :------:                                    |
@@ -112,7 +114,7 @@ a, b, c = fruits
 | Trigonometryc             | `math`    | `sin`, `cos`, `tan`, `asin`, `acos`, `atan` |
 
 
-**Variables:**
+## Variables
 
 **Data Types**
 
@@ -140,17 +142,21 @@ Data Structures Features:
 3) Set: unordered (and unindexed), unchangeable and without duplicates
 4) Dictionary: ordered*, changeable and without duplicate members
 
-Constructor:\
-Casting:\
+Casting: refers to the explicit conversion of an object or value from one data type to another. It is achieved using functions like `int`, `float`, `str`, etc. Casting allows for changing the type of data, facilitating compatibility and desired operations between different data types.
+
 Get Type: `type` function\
 Get Length: `len` function
 
 
-**Strings:**
+### Strings
 
-Basic Operations:
+Strings are sequences of characters enclosed in single or double quotes. They are immutable, meaning their values cannot be changed after creation. Strings support various operations like slicing, concatenation and formatting, making them suitable for text manipulation and data representation.
+
+**Basic Operations**
+
 ```{code-cell}
 sentence = 'Hello, World!'
+
 print(type(sentence))
 print(len(sentence))
 ```
@@ -171,11 +177,11 @@ print("World" not in sentence)
 w1 = 'Hello'        # concatenate
 w2 = 'World'
 
-w3 = w1 + ' ' + w2
+w3 = w1 + ' ' + w2  
 print(w3)
 ```
 
-Methods:
+**Methods**
 
 | Method | Paramethers | Description |
 | :----: | :---------: | :---------: |
@@ -194,16 +200,20 @@ Methods:
 | `upper`                   | /                         | Converts a string into upper case |
 
 
-**Tuple:**
+### Tuple
 
-Creation:
+Tuples are ordered collections of elements enclosed in parentheses. They are immutable, meaning their values cannot be modified once defined. Tuples can store different data types and are commonly used to group related data or as return values for functions, providing a convenient way to ensure data integrity and prevent accidental modification.
+
+**Creation**
+
 ```{code-cell}
 tp = ()                                       # empty
 tp = ('apple',)                               # one element
 tp = ('apple', 'cherry', 'banana', 'orange')
 ```
 
-Access:
+**Access**
+
 ```{code-cell}
 print(tp[:2])  # slicing
 
@@ -211,13 +221,15 @@ for x in tp:   # loop (all elements)
   print(x)
 ```
 
-Check Elements:
+**Check Elements**
+
 ```{code-cell}
 print('cherry' in tp)
 print('cherry' not in tp)
 ```
 
-Insertion:
+**Insertion**
+
 ```{code-cell}
 # 1) conversion into a list (with list constructor)
 
@@ -229,7 +241,8 @@ tp_3 = tp_1 + tp_2
 print(tp_3)
 ```
 
-Deletion:
+**Deletion**
+
 ```{code-cell}
 # 1) conversion into a list
 
@@ -238,12 +251,14 @@ Deletion:
 # del tp
 ```
 
-Update:
+**Update**
+
 ```{code-cell}
 # conversion into a list
 ```
 
-Sort:
+**Sort**
+
 ```{code-cell}
 # 1) conversion into a list
 
@@ -254,7 +269,8 @@ print(tp)
 print(tp_sort)
 ```
 
-Copy:
+**Copy**
+
 ```{code-cell}
 # 1) slicing
 
@@ -268,19 +284,21 @@ tp_copy = tuple(tp)
 print(tp_copy)
 ```
 
-Unpack:
+**Unpack**
+
 ```{code-cell}
 apple, cherry, banana, orange = tp
 apple, *others = tp
 ```
 
-Comprehension
+**Comprehension**
+
 ```{code-cell}
 tp_new = tuple(x for x in tp if 'a' in x)
 print(tp_new)
 ```
 
-Methods:
+**Methods**
 
 | Method  | Paramethers | Description |
 | :----:  | :---------: | :---------: |
@@ -288,15 +306,19 @@ Methods:
 | `index` | element     | Searches the tuple for a specified value and returns the position of where it was found |
 
 
-**List:**
+### List
 
-Creation:
+Lists are ordered and mutable collections of elements enclosed in square brackets. They can hold values of different types and allow for dynamic resizing, appending, and modification of elements. Lists are versatile data structures, supporting operations like indexing, slicing, and list comprehensions, making them useful for storing and manipulating data in a flexible manner.
+
+**Creation**
+
 ```{code-cell}
 ls = []                                       # empty
 ls = ['apple', 'cherry', 'banana', 'orange']
 ```
 
-Access:
+**Access**
+
 ```{code-cell}
 print(ls[:2])  # slicing
 
@@ -304,13 +326,15 @@ for x in ls:   # loop
   print(x)
 ```
 
-Check Elements:
+**Check Elements**
+
 ```{code-cell}
 print('cherry' in ls)
 print('cherry' not in ls)
 ```
 
-Insertion:
+**Insertion**
+
 ```{code-cell}
 # 1) '+' operator
 
@@ -339,7 +363,8 @@ ls.extend(ls_ext)
 print(ls)
 ```
 
-Deletion:
+**Deletion**
+
 ```{code-cell}
 # 1) remove: removes the element with the specified value
 
@@ -366,13 +391,15 @@ print(ls)
 # print(ls)
 ```
 
-Update:
+**Update**
+
 ```{code-cell}
 ls[1] = 'grapes'  # slicing
 print(ls)
 ```
 
-Sort:
+**Sort**
+
 ```{code-cell}
 # 1) sort method
 
@@ -392,7 +419,8 @@ ls_sort = sorted(ls)
 print(ls_sort)
 ```
 
-Copy:
+**Copy**
+
 ```{code-cell}
 # 1) slicing
 
@@ -411,19 +439,21 @@ ls_copy = ls.copy()
 print(ls_copy)
 ```
 
-Unpack:
+**Unpack**
+
 ```{code-cell}
 strawberry, orange, lemon, grapes, apple = ls
 strawberry, *others = ls
 ```
 
-Comprehension
+**Comprehension**
+
 ```{code-cell}
 ls_new = [x for x in ls if 'a' in x]
 print(ls_new)
 ```
 
-Methods:
+**Methods**
 
 | Method    | Paramethers | Description |
 | :----:    | :---------: | :---------: |
@@ -440,27 +470,33 @@ Methods:
 | `sort`    | reverse=True/False, key=function | Sorts the list |
 
 
-**Set:**
+### Set
 
-Creation:
+Sets are unordered and mutable collections of unique elements. They provide efficient membership testing and operations like union, intersection, and difference. Sets do not allow duplicate values, making them useful for eliminating duplicates or checking for membership in a collection of items.
+
+**Creation**
+
 ```{code-cell}
 st = set()                                    # empty
 st = {'apple', 'cherry', 'banana', 'orange'}
 ```
 
-Access:
+**Access**
+
 ```{code-cell}
 for x in st:  # loop
   print(x)
 ```
 
-Check Elements:
+**Check Elements**
+
 ```{code-cell}
 print('cherry' in tp)
 print('cherry' not in tp)
 ```
 
-Insertion:
+**Insertion**
+
 ```{code-cell}
 # 1) add: adds an element to the set
 
@@ -486,7 +522,8 @@ st.update(st_plus)
 print(st)
 ```
 
-Deletion:
+**Deletion**
+
 ```{code-cell}
 # 1) remove / discard : removes the element with the specified value
 # - > discard doesn't give errors
@@ -513,10 +550,10 @@ print(st)
 # print(st)
 ```
 
-Update: impossible
+**Update:** impossible
 
+**Sort**
 
-Sort:
 ```{code-cell}
 # 1) conversion into a list
 
@@ -526,7 +563,8 @@ st_sort = sorted(st)
 print(st_sort)
 ```
 
-Copy:
+**Copy**
+
 ```{code-cell}
 # 1) constructor
 
@@ -540,17 +578,16 @@ st_copy = st.copy()
 print(st_copy)
 ```
 
-Unpack: impossible
+**Unpack:** impossible
 
+**Comprehension**
 
-Comprehension:
 ```{code-cell}
 st_new = {x for x in st if 'a' in x}
 print(st_new)
 ```
 
-
-Methods:
+**Methods**
 
 | Method                        | Paramethers     | Description |
 | :----:                        | :---------:     | :---------: |
@@ -573,9 +610,12 @@ Methods:
 | `update`                      | iterable        | Update the set with the union of this set and other iterables |
 
 
-**Dictionary:**
+### Dictionary
 
-Creation:
+Dictionaries are unordered collections of key-value pairs enclosed. They provide efficient value retrieval based on unique keys. Dictionaries allow for adding, modifying, and deleting key-value pairs, making them useful for organizing and accessing data based on custom identifiers.
+
+**Creation**
+
 ```{code-cell}
 dc = {
   'brand': 'Ford',
@@ -584,7 +624,8 @@ dc = {
 }
 ```
 
-Access:
+**Access**
+
 ```{code-cell}
 # 1) all keys
 
@@ -632,7 +673,8 @@ dc_item = dc.items()  # list of items
 print(dc_item)
 ```
 
-Insertion:
+**Insertion**
+
 ```{code-cell}
 # 1) slicing
 
@@ -646,7 +688,8 @@ dc.update({'color': 'red'})
 print(dc)
 ```
 
-Deletion:
+**Deletion**
+
 ```{code-cell}
 # 1) pop / del : removes the item with the specified key
 # - > del can delete the whole dictionary
@@ -668,14 +711,16 @@ print(dc)
 # print(dc)
 ```
 
-Update:
+**Update**
+
 ```{code-cell}
 dc['brand'] = 'Ferrari'
 dc['model'] = 'California'
 print(dc)
 ```
 
-Sort:
+**Sort**
+
 ```{code-cell}
 dc_key_sort = sorted(dc.keys())
 dc_val_sort = sorted(dc.values())
@@ -684,7 +729,8 @@ print(dc_key_sort)
 print(dc_val_sort)
 ```
 
-Copy:
+**Copy**
+
 ```{code-cell}
 # 1) constructor
 
@@ -698,19 +744,21 @@ dc_copy = dc.copy()
 print(dc_copy)
 ```
 
-Unpack:
+**Unpack**
+
 ```{code-cell}
 brand, model = dc.keys()
 Ferrari, California = dc.values()
 ```
 
-Comprehension:
+**Comprehension**
+
 ```{code-cell}
 dc_new = {x: y for x, y in dc.items() if 'a' in y}
 print(dc_new)
 ```
 
-Methods:
+**Methods**
 
 | Method       | Paramethers | Description |
 | :----:       | :---------: | :---------: |
@@ -727,9 +775,14 @@ Methods:
 | `update`     | iterable    | Updates the dictionary with the union of this dictionary and other iterables |
 
 
-**Flow Control**
+## Flow Control
 
-**If-Else:**
+### If-Else
+
+`if`: executes a block of code if a certain condition is true\
+`elif`: provides an additional condition to check if the preceding if statement is false\
+`else`: specifies a block of code to execute when all preceding conditions in the if and elif statements are false
+
 ```{code-cell}
 a = 5
 b = 10
@@ -748,7 +801,13 @@ if a > b:  # if statement cannot be empty, so put the pass statement to avoid
   pass
 ```
 
-**Try-Except:**
+
+### Try-Except
+
+`try`: tries to execute a block of code checking for exceptions\
+`except`: catches and handles specific exceptions that may occur within the try block\
+`else`: specifies a block of code to execute if no exceptions are raised in the try block
+
 ```{code-cell}
 try:
   print(X)
@@ -770,16 +829,18 @@ else:
   print('Nothing went wrong')
 ```
 
-**Loops:**
 
-`while`: execute a set of statements as long as a condition is true\
-`for`: execute a set of statements, once for each item in an object
+### Loops
 
-`break`: stop the loop even if the while condition is true\
-`continue`: stop the current iteration, and continue with the next\
+`while`: executes a set of statements as long as a condition is true\
+`for`: executes a set of statements, once for each item in an object
+
+`break`: stops the loop even if the while condition is true\
+`continue`: stops the current iteration, and continue with the next\
 `pass`: allows to avoid syntax errors and keep the structure of the code intact, even if there is no specific implementation for a certain part
 
-WHILE:
+**While**
+
 ```{code-cell}
 i = 0       
 while i < 6:
@@ -805,7 +866,8 @@ while i < 6:
   print(i)
 ```
 
-FOR:
+**For**
+
 ```{code-cell}
 for x in range(1, 6):
   print(x)
@@ -831,7 +893,9 @@ for x in adj:
 ```
 
 
-**Function:**
+## Function
+
+The `def` statement is used to define functions, allowing the creation of reusable blocks of code. The `return` statement is used within a function to specify the value to be outputted or returned. It provides the result back to the caller and terminates the function.
 
 ```{code-cell}
 def my_function():                # simple function
@@ -855,6 +919,7 @@ my_function('Germany')
 ```
 
 If the number of arguments to be passed into a function is unknown, add an `*` before the parameter name in the function definition. This way, the function will receive a tuple of parameters and can access the items accordingly.
+
 ```{code-cell}
 def my_function(*kids):  # function with an arbitrary number of parameters
   print('The youngest child is ' + kids[2])
@@ -863,6 +928,7 @@ my_function('Emil', 'Tobias', 'Linus')
 ```
 
 If the number of keyword arguments to be passed into the function is unknown, two asterisks `**` should be added before the parameter name in the function definition. This way, the function will receive a dictionary of arguments and can access the items accordingly.
+
 ```{code-cell}
 def my_function(**kid):
   print('His last name is ' + kid['lname'])
@@ -871,13 +937,13 @@ my_function(fname = 'Tobias', lname = 'Rossi')
 ```
 
 
-**Class:**
+## Class
+
+In Python, classes are blueprints for creating objects that encapsulate data and functionality. They define the structure and behavior of objects through attributes (variables) and methods (functions). Classes provide a way to organize and modularize code, promoting code reusability and maintainability. Objects created from classes have their own unique state and can interact with each other through method calls and attribute access.
 
 `self` parameter: is a reference to the current instance of the class, and is used to access variables that belongs to the class; it can have any name\
 `__init__()`: is always executed when the class is being initiated; it's used to assign values to object properties, or other operations that are necessary to do when the object is being created\
 `__str__()`: controls what should be returned when the class object is represented as a string; if it's not set, the string representation of the object is returned
-
-methods: functions that belong to the object
 
 ```{code-cell}
 class Person:
@@ -901,6 +967,7 @@ person_1.my_function()
 ```
 
 The methods we’ve seen so far are sometimes calles "regular" methods, they act on an instance of the class (i.e., take self as an argument). There are also class methods that act on the actual class. Class methods are often used as constructors and they are defined using the `@classmethod` decorator.
+
 ```{code-cell}
 class Member:
 
