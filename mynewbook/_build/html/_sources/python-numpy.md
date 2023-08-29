@@ -45,9 +45,9 @@ my_array
 print(type(my_array))
 ```
 
-`ndim`: return the number of dimensions of an array\
-`shape`: return the number of elements in each dimension (like calling *len* on each dimension)\
-`size`: return the total number of elements in an array (i.e., the product of *shape*)
+`ndim`: returns the number of dimensions of an array\
+`shape`: returns the number of elements in each dimension (like calling *len* on each dimension)\
+`size`: returns the total number of elements in an array (i.e., the product of *shape*)
 
 ```{code-cell}
 array_0d = np.array(1)                                                
