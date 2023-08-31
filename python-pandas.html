@@ -401,9 +401,9 @@ Name: sum_10, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sr_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>  <span class="c1"># creation with indexes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sr2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>  <span class="c1"># creation with indexes</span>
           <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
-<span class="n">sr_2</span>
+<span class="n">sr2</span>
 </pre></div>
 </div>
 </div>
@@ -418,8 +418,8 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sr_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>  <span class="c1"># creation from dictionary</span>
-<span class="n">sr_3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sr3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>  <span class="c1"># creation from dictionary</span>
+<span class="n">sr3</span>
 </pre></div>
 </div>
 </div>
@@ -460,8 +460,52 @@ RangeIndex(start=0, stop=3, step=1)
 </div>
 </div>
 </div>
-<p><strong>Access</strong>, <strong>Operations</strong>, <strong>Methods</strong></p>
+<p><strong>Access</strong>, <strong>Operations</strong>, <strong>Functions</strong></p>
 <p>Just as Numpy’s arrays</p>
+<p><strong>Series of Strings Methods</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Method</p></th>
+<th class="head text-center"><p>Paramethers</p></th>
+<th class="head text-center"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">str.cat</span></code></p></td>
+<td class="text-center"><p>others=None, sep=None</p></td>
+<td class="text-center"><p>Concatenates strings in the series with given separator</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">str.split</span></code></p></td>
+<td class="text-center"><p>pat*=None, n=-1</p></td>
+<td class="text-center"><p>Splits strings in the series around given separator from the beginning</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">str.rsplit</span></code></p></td>
+<td class="text-center"><p>pat*=None, n=-1</p></td>
+<td class="text-center"><p>Splits strings in the series around given separator from the end</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">str.get</span></code></p></td>
+<td class="text-center"><p>i</p></td>
+<td class="text-center"><p>Extracts element from each component at specified position in the series</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">str.join</span></code></p></td>
+<td class="text-center"><p>sep</p></td>
+<td class="text-center"><p>Joins lists contained as elements in the series with passed delimiter</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">str.get_dummies</span></code></p></td>
+<td class="text-center"><p>sep*=’</p></td>
+<td class="text-center"><p>‘</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">str.contains</span></code></p></td>
+<td class="text-center"><p>pat, regex*=True</p></td>
+<td class="text-center"><p>Returns boolean series if each string contains pattern/regex</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">str.replace</span></code></p></td>
+<td class="text-center"><p>pat, repl, n=-1, regex*=True</p></td>
+<td class="text-center"><p>Replaces occurrences of pattern/regex with some other string or the return value of a callable given the occurrence</p></td>
+</tr>
+</tbody>
+</table>
+<p>Others as python-basics: <code class="docutils literal notranslate"><span class="pre">str.capitalize</span></code>, <code class="docutils literal notranslate"><span class="pre">str.casefold</span></code>, <code class="docutils literal notranslate"><span class="pre">str.lower</span></code>, <code class="docutils literal notranslate"><span class="pre">str.upper</span></code>, <code class="docutils literal notranslate"><span class="pre">str.len</span></code>, …</p>
 </section>
 <section id="dataframe">
 <h2>Dataframe<a class="headerlink" href="#dataframe" title="Permalink to this heading">#</a></h2>
@@ -1602,8 +1646,8 @@ memory usage: 1.7+ KB
 </table>
 </div></div></div>
 </div>
-<p><em><strong>Add and Remove</strong></em></p>
-<p>This section only considers cases where only one row/column is to be added or deleted. The results can be easily generalized to the case of multiple rows or columns (see also the next section), for example, using Dataframes insted of Series.</p>
+<p><em><strong>Add</strong></em> and <em><strong>Remove</strong></em></p>
+<p>This section only considers cases where only one row/column is to be added or deleted. The results can be easily generalized to the case of multiple rows or columns (see also the next section), for example, using Dataframes instead of Series.</p>
 <ol class="arabic simple">
 <li><p>Add Column</p></li>
 </ol>
@@ -1974,6 +2018,509 @@ memory usage: 1.7+ KB
 </table>
 </div></div></div>
 </div>
+<p><em><strong>Reshape</strong></em></p>
+<ol class="arabic simple">
+<li><p>Pivot</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;baz&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+                    <span class="s1">&#39;zoo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">]})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="s1">&#39;baz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>bar</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+    <tr>
+      <th>foo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Stack</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">)]</span>
+<span class="n">multi_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">index_tuples</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">])</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]}</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">multi_index</span><span class="p">)</span>
+
+<span class="n">df_stacked</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+<span class="n">df_stacked</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>first  second   
+bar    one     A    1
+               B    2
+       two     A    3
+               B    4
+baz    one     A    5
+               B    6
+       two     A    7
+               B    8
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Unstack</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_stacked</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+
+<span class="c1"># df_stacked.unstack(0)  or  df_stacked.unstack(&#39;first&#39;)</span>
+<span class="c1"># df_stacked.unstack(1)  or  df_stacked.unstack(&#39;second&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+    <tr>
+      <th>first</th>
+      <th>second</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">bar</th>
+      <th>one</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">baz</th>
+      <th>one</th>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Melt</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;Bo&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">],</span>
+                    <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">130</span><span class="p">,</span> <span class="mi">150</span><span class="p">]})</span>
+                    
+<span class="n">df3</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>height</td>
+      <td>5.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mary</td>
+      <td>Bo</td>
+      <td>height</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>John</td>
+      <td>Doe</td>
+      <td>weight</td>
+      <td>130.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Mary</td>
+      <td>Bo</td>
+      <td>weight</td>
+      <td>150.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><em><strong>Multiple Dataframes</strong></em></p>
+<p>Concatenating two DataFrames in pandas is the process of combining them together to create a single DataFrame. This can be done either by concatenating along rows, which results in vertically stacking the DataFrames, or by concatenating along columns, which results in horizontally expanding the DataFrame. The distinction lies in whether the DataFrames are being extended vertically (rows) or horizontally (columns). The <code class="docutils literal notranslate"><span class="pre">concat</span></code> function in pandas is used for this operation, allowing for flexible combination of DataFrames based on the desired axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+                    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">]})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># concatenate by rows</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>11</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># concatenate by columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>4</td>
+      <td>9</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>6</td>
+      <td>11</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Merging two DataFrames in pandas is akin to performing SQL joins. It involves combining datasets based on common columns or indices, resulting in a unified DataFrame. The process, achieved using the <code class="docutils literal notranslate"><span class="pre">merge</span></code> function, is conceptually similar to SQL joins, where you define key columns for matching and specify the type of join (inner, outer, left, right) to determine how non-matching entries are handled. This enables you to consolidate data from distinct sources into a cohesive DataFrame, much like SQL joins bring together information from different database tables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Magneto&#39;</span><span class="p">,</span> <span class="s1">&#39;Storm&#39;</span><span class="p">,</span> <span class="s1">&#39;Mystique&#39;</span><span class="p">,</span> <span class="s1">&#39;Batman&#39;</span><span class="p">,</span> <span class="s1">&#39;Joker&#39;</span><span class="p">,</span> <span class="s1">&#39;Catwoman&#39;</span><span class="p">,</span> <span class="s1">&#39;Hellboy&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;alignment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;bad&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;bad&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;bad&#39;</span><span class="p">,</span> <span class="s1">&#39;bad&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;gender&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;publisher&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Marvel&#39;</span><span class="p">,</span> <span class="s1">&#39;Marvel&#39;</span><span class="p">,</span> <span class="s1">&#39;Marvel&#39;</span><span class="p">,</span> <span class="s1">&#39;DC&#39;</span><span class="p">,</span> <span class="s1">&#39;DC&#39;</span><span class="p">,</span> <span class="s1">&#39;DC&#39;</span><span class="p">,</span> <span class="s1">&#39;Dark Horse Comics&#39;</span><span class="p">]})</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;publisher&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;DC&#39;</span><span class="p">,</span> <span class="s1">&#39;Marvel&#39;</span><span class="p">,</span> <span class="s1">&#39;Image&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;year_founded&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1934</span><span class="p">,</span> <span class="mi">1939</span><span class="p">,</span> <span class="mi">1992</span><span class="p">]})</span>
+                    
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;publisher&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>alignment</th>
+      <th>gender</th>
+      <th>publisher</th>
+      <th>year_founded</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Magneto</td>
+      <td>bad</td>
+      <td>male</td>
+      <td>Marvel</td>
+      <td>1939</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Storm</td>
+      <td>good</td>
+      <td>female</td>
+      <td>Marvel</td>
+      <td>1939</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Mystique</td>
+      <td>bad</td>
+      <td>female</td>
+      <td>Marvel</td>
+      <td>1939</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Batman</td>
+      <td>good</td>
+      <td>male</td>
+      <td>DC</td>
+      <td>1934</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Joker</td>
+      <td>bad</td>
+      <td>male</td>
+      <td>DC</td>
+      <td>1934</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Catwoman</td>
+      <td>bad</td>
+      <td>female</td>
+      <td>DC</td>
+      <td>1934</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Methods</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Method</p></th>
+<th class="head text-center"><p>Paramethers</p></th>
+<th class="head text-center"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">apply</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">applymap</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">drop_duplicates</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">dropna</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">duplicated</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">fillna</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">groupby</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sort_values</span></code></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 

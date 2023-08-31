@@ -30,14 +30,14 @@ sr
 ```
 
 ```{code-cell}
-sr_2 = pd.Series(data = [10, 20, 30],  # creation with indexes
+sr2 = pd.Series(data = [10, 20, 30],  # creation with indexes
           index = ['a', 'b', 'c'])
-sr_2
+sr2
 ```
 
 ```{code-cell}      
-sr_3 = pd.Series(data = {'a': 10, 'b': 20, 'c': 30})  # creation from dictionary
-sr_3
+sr3 = pd.Series(data = {'a': 10, 'b': 20, 'c': 30})  # creation from dictionary
+sr3
 ```
 
 `name`: returns the name of the series\
@@ -54,9 +54,25 @@ print(sr.index)
 print(sr.to_numpy())
 ```
 
-**Access**, **Operations**, **Methods**
+**Access**, **Operations**, **Functions**
 
 Just as Numpy's arrays
+
+
+**Series of Strings Methods**
+
+| Method | Paramethers | Description |
+| :----: | :---------: | :---------: |
+| `str.cat`         | others=None, sep=None | Concatenates strings in the series with given separator |
+| `str.split`       | pat*=None, n=-1       | Splits strings in the series around given separator from the beginning |
+| `str.rsplit`      | pat*=None, n=-1       | Splits strings in the series around given separator from the end |
+| `str.get`         | i                     | Extracts element from each component at specified position in the series |
+| `str.join`        | sep                   | Joins lists contained as elements in the series with passed delimiter |
+| `str.get_dummies` | sep*='|'              | Splits strings on the separator returning dataframe of dummy variables |
+| `str.contains`    | pat, regex*=True      | Returns boolean series if each string contains pattern/regex |
+| `str.replace`     | pat, repl, n=-1, regex*=True | Replaces occurrences of pattern/regex with some other string or the return value of a callable given the occurrence |
+
+Others as python-basics: `str.capitalize`, `str.casefold`, `str.lower`, `str.upper`, `str.len`, ...
 
 
 ## Dataframe
@@ -233,9 +249,9 @@ df = df.reset_index()
 df.head()
 ```
 
-***Add and Remove***
+***Add*** and ***Remove***
 
-This section only considers cases where only one row/column is to be added or deleted. The results can be easily generalized to the case of multiple rows or columns (see also the next section), for example, using Dataframes insted of Series.
+This section only considers cases where only one row/column is to be added or deleted. The results can be easily generalized to the case of multiple rows or columns (see also the next section), for example, using Dataframes instead of Series.
 
 1) Add Column
 ```{code-cell}
@@ -276,3 +292,90 @@ df = df.drop(index=[30, 31, 32, 33])
 
 df.tail()
 ```
+
+***Reshape***
+
+1) Pivot
+```{code-cell}
+df = pd.DataFrame({'foo': ['one', 'one', 'one', 'two', 'two', 'two'],
+                    'bar': ['A', 'B', 'C', 'A', 'B', 'C'],
+                    'baz': [1, 2, 3, 4, 5, 6],
+                    'zoo': ['x', 'y', 'z', 'q', 'w', 't']})
+df.pivot(index = 'foo', columns = 'bar', values = 'baz')
+```
+
+2) Stack
+```{code-cell}
+index_tuples = [('bar', 'one'), ('bar', 'two'), ('baz', 'one'), ('baz', 'two')]
+multi_index = pd.MultiIndex.from_tuples(index_tuples, names=['first', 'second'])
+
+data = {'A': [1, 3, 5, 7],
+        'B': [2, 4, 6, 8]}
+df2 = pd.DataFrame(data, index=multi_index)
+
+df_stacked = df2.stack()
+df_stacked
+```
+
+3) Unstack
+```{code-cell}
+df_stacked.unstack()
+
+# df_stacked.unstack(0)  or  df_stacked.unstack('first')
+# df_stacked.unstack(1)  or  df_stacked.unstack('second')
+```
+
+4) Melt
+```{code-cell}
+df3 = pd.DataFrame({'first': ['John', 'Mary'],
+                    'last': ['Doe', 'Bo'],
+                    'height': [5.5, 6.0],
+                    'weight': [130, 150]})
+                    
+df3.melt(id_vars=['first', 'last'])
+```
+
+***Multiple Dataframes***
+
+Concatenating two DataFrames in pandas is the process of combining them together to create a single DataFrame. This can be done either by concatenating along rows, which results in vertically stacking the DataFrames, or by concatenating along columns, which results in horizontally expanding the DataFrame. The distinction lies in whether the DataFrames are being extended vertically (rows) or horizontally (columns). The `concat` function in pandas is used for this operation, allowing for flexible combination of DataFrames based on the desired axis.
+
+```{code-cell}
+df1 = pd.DataFrame({'A': [1, 3, 5],
+                    'B': [2, 4, 6]})
+df2 = pd.DataFrame({'A': [7, 9, 11],
+                    'B': [8, 10, 12]})
+```
+
+```{code-cell}
+pd.concat((df1, df2), axis=0, ignore_index=True)  # concatenate by rows
+```
+
+```{code-cell}
+pd.concat((df1, df2), axis=1, ignore_index=True)  # concatenate by columns
+```
+
+Merging two DataFrames in pandas is akin to performing SQL joins. It involves combining datasets based on common columns or indices, resulting in a unified DataFrame. The process, achieved using the `merge` function, is conceptually similar to SQL joins, where you define key columns for matching and specify the type of join (inner, outer, left, right) to determine how non-matching entries are handled. This enables you to consolidate data from distinct sources into a cohesive DataFrame, much like SQL joins bring together information from different database tables.
+
+```{code-cell}
+df1 = pd.DataFrame({"name": ['Magneto', 'Storm', 'Mystique', 'Batman', 'Joker', 'Catwoman', 'Hellboy'],
+                    'alignment': ['bad', 'good', 'bad', 'good', 'bad', 'bad', 'good'],
+                    'gender': ['male', 'female', 'female', 'male', 'male', 'female', 'male'],
+                    'publisher': ['Marvel', 'Marvel', 'Marvel', 'DC', 'DC', 'DC', 'Dark Horse Comics']})
+df2 = pd.DataFrame({'publisher': ['DC', 'Marvel', 'Image'],
+                    'year_founded': [1934, 1939, 1992]})
+                    
+pd.merge(df1, df2, how='inner', on='publisher')
+```
+
+**Methods**
+
+| Method | Paramethers | Description |
+| :----: | :---------: | :---------: |
+| `apply`           |  |  |
+| `applymap`        |  |  |
+| `drop_duplicates` |  |  |
+| `dropna`          |  |  |
+| `duplicated`      |  |  |
+| `fillna`          |  |  |
+| `groupby`         |  |  |
+| `sort_values`     |  |  |

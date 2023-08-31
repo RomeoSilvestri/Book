@@ -347,7 +347,7 @@ print(array_split2)
 ```
 
 
-## Methods
+## Functions
 
 | Category | Transformation | Function | Description | 
 | :------: | :------------: | :------: | :---------: |

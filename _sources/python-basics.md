@@ -939,7 +939,7 @@ my_function(fname = 'Tobias', lname = 'Rossi')
 
 ## Class
 
-In Python, classes are blueprints for creating objects that encapsulate data and functionality. They define the structure and behavior of objects through attributes (variables) and methods (functions). Classes provide a way to organize and modularize code, promoting code reusability and maintainability. Objects created from classes have their own unique state and can interact with each other through method calls and attribute access.
+In Python, classes are blueprints for creating objects that encapsulate data and functionality. They define the structure and behavior of objects through attributes (variables) and methods (specific functions). Classes provide a way to organize and modularize code, promoting code reusability and maintainability. Objects created from classes have their own unique state and can interact with each other through method calls and attribute access.
 
 `self` parameter: is a reference to the current instance of the class, and is used to access variables that belongs to the class; it can have any name\
 `__init__()`: is always executed when the class is being initiated; it's used to assign values to object properties, or other operations that are necessary to do when the object is being created\
