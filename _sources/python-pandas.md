@@ -22,7 +22,7 @@ import pandas as pd
 
 ## Series
 
-**Creation**
+### Creation
 
 ```{code-cell}
 sr = pd.Series(data = [10, 20, 30], name = 'sum_10')  # simple creation with name
@@ -54,12 +54,12 @@ print(sr.index)
 print(sr.to_numpy())
 ```
 
-**Access**, **Operations**, **Functions**
+### Access, Operations, Functions
 
 Just as Numpy's arrays
 
 
-**Series of Strings Methods**
+### Series of Strings Methods
 
 | Method | Paramethers | Description |
 | :----: | :---------: | :---------: |
@@ -77,7 +77,7 @@ Others as python-basics: `str.capitalize`, `str.casefold`, `str.lower`, `str.upp
 
 ## Dataframe
 
-**Creation**
+### Creation
 
 ```{code-cell}
 df = pd.DataFrame([[1, 2, 3],  # simple dataframe creation (from lists)
@@ -93,7 +93,7 @@ df = pd.DataFrame([[1, 2, 3],  # creation with indexes and colunms names
              columns = ['C1', 'C2', 'C3'])
 ```
 
-***Creation from a Support***
+**Creation from a Support**
 
 | Support | Example |
 | :-----: | :-----: |
@@ -104,7 +104,7 @@ df = pd.DataFrame([[1, 2, 3],  # creation with indexes and colunms names
 | Series | `pd.DataFrame({'Name': pd.Series(['Tom', 'Mike', 'Tiffany']), 'Number': pd.Series([7, 15, 3])})` |
 | Tuple | `pd.DataFrame(zip(['Tom', 'Mike', 'Tiffany'], [7, 15, 3]))` |
 
-***Creation from File***
+**Creation from File**
 
 | File | Function |
 | :--: | :------: |
@@ -114,7 +114,7 @@ df = pd.DataFrame([[1, 2, 3],  # creation with indexes and colunms names
 | Json | `read_json` |
 | Text | `read_csv` with `delimiter='\t'` |
 
-**Access**
+### Access
 
 1) Indexing with `[]`
 
@@ -168,7 +168,7 @@ df.query('C1 > 1 & C2 == 5')
 ```
 It returns an Object for single selection, Series for one row/column, otherwise DataFrame
 
-**Inspection**
+### Inspection
 
 ```{code-cell}
 df = pd.read_csv('cycling_data.csv')
@@ -209,7 +209,7 @@ df.describe()
 # df.describe(include='all')  include all the summaries
 ```
 
-**View vs Copy**
+### View vs Copy
 
 A **view** of a DataFrame is a representation that provides access to a subset of the original data. Changes made to the view will affect the original DataFrame, as they both share the same underlying data.
 
@@ -221,9 +221,9 @@ df_copy = df.copy()
 
 It is important to note that accessing the dataframe via [], Boolean indexing, or query generates a copy of the original dataframe, whereas the loc and iloc functions use a view. Consequently, it is necessary to use these two functions to modify values within the original dataset.
 
-**Operations**
+### Operations
 
-***Rename***
+**Rename**
 
 ```{code-cell}
 df = df.rename(columns={'Date': 'Datetime', 'Comments': 'Notes'})  # rename columns
@@ -249,7 +249,7 @@ df = df.reset_index()
 df.head()
 ```
 
-***Add*** and ***Remove***
+**Add** and **Remove**
 
 This section only considers cases where only one row/column is to be added or deleted. The results can be easily generalized to the case of multiple rows or columns (see also the next section), for example, using Dataframes instead of Series.
 
@@ -293,9 +293,12 @@ df = df.drop(index=[30, 31, 32, 33])
 df.tail()
 ```
 
-***Reshape***
+**Reshape**
 
 1) Pivot
+
+![](reshaping_pivot.png)
+
 ```{code-cell}
 df = pd.DataFrame({'foo': ['one', 'one', 'one', 'two', 'two', 'two'],
                     'bar': ['A', 'B', 'C', 'A', 'B', 'C'],
@@ -305,6 +308,9 @@ df.pivot(index = 'foo', columns = 'bar', values = 'baz')
 ```
 
 2) Stack
+
+![](reshaping_stack.png)
+
 ```{code-cell}
 index_tuples = [('bar', 'one'), ('bar', 'two'), ('baz', 'one'), ('baz', 'two')]
 multi_index = pd.MultiIndex.from_tuples(index_tuples, names=['first', 'second'])
@@ -318,6 +324,11 @@ df_stacked
 ```
 
 3) Unstack
+
+![](reshaping_unstack.png)
+![](reshaping_unstack_0.png)
+![](reshaping_unstack_1.png)
+
 ```{code-cell}
 df_stacked.unstack()
 
@@ -326,6 +337,9 @@ df_stacked.unstack()
 ```
 
 4) Melt
+
+![](reshaping_melt.png)
+
 ```{code-cell}
 df3 = pd.DataFrame({'first': ['John', 'Mary'],
                     'last': ['Doe', 'Bo'],
@@ -335,7 +349,7 @@ df3 = pd.DataFrame({'first': ['John', 'Mary'],
 df3.melt(id_vars=['first', 'last'])
 ```
 
-***Multiple Dataframes***
+**Multiple Dataframes**
 
 Concatenating two DataFrames in pandas is the process of combining them together to create a single DataFrame. This can be done either by concatenating along rows, which results in vertically stacking the DataFrames, or by concatenating along columns, which results in horizontally expanding the DataFrame. The distinction lies in whether the DataFrames are being extended vertically (rows) or horizontally (columns). The `concat` function in pandas is used for this operation, allowing for flexible combination of DataFrames based on the desired axis.
 
@@ -367,15 +381,55 @@ df2 = pd.DataFrame({'publisher': ['DC', 'Marvel', 'Image'],
 pd.merge(df1, df2, how='inner', on='publisher')
 ```
 
-**Methods**
+### Methods
 
 | Method | Paramethers | Description |
 | :----: | :---------: | :---------: |
-| `apply`           |  |  |
-| `applymap`        |  |  |
-| `drop_duplicates` |  |  |
-| `dropna`          |  |  |
-| `duplicated`      |  |  |
-| `fillna`          |  |  |
-| `groupby`         |  |  |
-| `sort_values`     |  |  |
+| `apply`           | func, axis=0                                  | Applies a function along an axis of the dataframe |
+| `drop_duplicates` | subset*=None, inplace=False                   | Returns dataFrame with duplicate rows removed |
+| `dropna`          | axis=0, subset*=None, inplace=False           | Removes missing values |
+| `duplicated`      | subset*=None                                  | Returns boolean series denoting duplicate rows |
+| `fillna`          | value=None, method=None, inplace=False        | Fills na/nan values using the specified method |
+| `groupby`         | by=None                                       | Groups dataframe using a mapper or by a series of columns |
+| `map`             | func                                          | Apples a function to a dataframe elementwise |
+| `sort_values`     | by, axis=0, ascending=True, inplace=False     | Sorts by the values along either axis |
+
+**Examples**
+
+```{code-cell}
+import numpy as np
+
+df = pd.DataFrame({
+  'Name': ['Alice', 'Alice', 'Alice', 'Bob', 'Bob', 'Charlie', 'David'],
+  'Age': [22, 22, 22, 23, 23, 20, 19],
+  'Grade': [85, 85, np.nan, 78, 69, 85, 92]})
+```
+
+```{code-cell}
+df['Grade_sqrt'] = df['Grade'].apply(np.sqrt)
+df
+```
+
+```{code-cell}
+age_mapping = {True: 'Young', False: 'Old'}
+df['Age_category'] = df['Age'] <= 22
+df['Age_category'] = df['Age_category'].map(age_mapping)
+df
+```
+
+```{code-cell}
+df.sort_values(by='Age')
+```
+
+```{code-cell}
+df.groupby('Age')['Grade'].mean()
+```
+
+```{code-cell}
+df['Duplicated'] = df.duplicated(subset='Name')
+df
+```
+
+```{code-cell}
+df.drop_duplicates(subset='Name', inplace=True)
+```

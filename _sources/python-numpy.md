@@ -85,7 +85,7 @@ print(np.size(array_2d))
 | `random.randint` | low, high*=None, size*=None, dtype*=None | Generates random integer values between *start* and *end* in a given shape |
 | `zeros`       | shape, dtype*=float ... | Returns a new array of given shape and type, filled with zeros |
 
-**Examples**
+***Examples***
 
 ```{code-cell}
 np.arange(1, 5)
