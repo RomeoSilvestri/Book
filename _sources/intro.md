@@ -1,4 +1,6 @@
-# Welcome to your Jupyter Book
+# The Data Science Odyssey
+
+## Mastering Programming, Analytics, Machine Learning, and Cloud
 
 This is a small sample book to give you a feel for how book content is
 structured.
