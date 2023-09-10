@@ -1,14 +1,19 @@
 # Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: The Data Science Odyssey
+subtitle: Mastering Programming, Analytics, Machine Learning, and Cloud
+author: Romeo Silvestri
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/RomeoSilvestri/Data_Science-Book
+  path_to_book: ""
+  branch: main
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -19,14 +24,15 @@ latex:
 bibtex_bibfiles:
   - references.bib
 
-# Information about where the book exists on the web
-repository:
-  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
 
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# HTML-specific settings
 html:
-  use_issues_button: true
-  use_repository_button: true
+  favicon                   : "logo.png"  # A path to a favicon image
+  navbar_number_sections    : false  # Add a number to each section in your left navbar
+  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_repository_button     : true  # Whether to add a link to your repository button
+  use_issues_button         : false  # Whether to add an "open an issue" button
+  extra_navbar              : <a href="https://www.linkedin.com/in/romeo-silvestri/">Tomas Beuzen</a>  # Will be displayed underneath the left navbar.
+  extra_footer              : ""  # Will be displayed underneath the footer.
+  google_analytics_id       : ""  # A GA id that can be used to track book views.
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
