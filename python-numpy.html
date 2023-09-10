@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Numpy &#8212; My sample book</title>
+    <title>Numpy &#8212; The Data Science Odyssey</title>
   
   
   
@@ -62,6 +62,8 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python-numpy';</script>
+    <link rel="canonical" href="https://www.tomasbeuzen.com/python-programming-for-data-science/python-numpy.html" />
+    <link rel="shortcut icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Pandas" href="python-pandas.html" />
@@ -152,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    The Data Science Odyssey
                 </a>
             </li>
         </ul>
@@ -204,50 +206,18 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="article-header-buttons">
 
 
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
+<a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
    title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython-numpy.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
 
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
 
 
 
@@ -585,12 +555,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.47032823e-323, 1.29776431e-311, 1.29776431e-311,
-        1.29776431e-311],
-       [1.29776431e-311, 1.29776431e-311, 1.29776431e-311,
-        4.45061031e-308],
-       [1.29776431e-311, 4.89542731e-307, 1.89143671e-307,
-        4.24399158e-313]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8.94370330e-312, 3.16202013e-322, 0.00000000e+000,
+        0.00000000e+000],
+       [7.56587583e-307, 3.06246300e-057, 1.37100228e-071,
+        6.45608422e+170],
+       [6.45606205e+170, 1.95138497e+160, 1.58692627e-047,
+        1.32346294e-071]])
 </pre></div>
 </div>
 </div>
@@ -670,9 +640,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 1, 2, 4],
-       [3, 5, 4, 4],
-       [1, 5, 5, 2]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 5, 1, 5],
+       [3, 1, 5, 1],
+       [1, 5, 3, 1]])
 </pre></div>
 </div>
 </div>
@@ -684,9 +654,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.30004577, 0.8094728 , 0.15099763, 0.75049539],
-       [0.52791582, 0.31547159, 0.82300688, 0.76102679],
-       [0.53831846, 0.74801414, 0.04360145, 0.32576364]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.8737076 , 0.9012808 , 0.31773583, 0.03487404],
+       [0.51637366, 0.53863736, 0.53577583, 0.10232544],
+       [0.28945134, 0.89365587, 0.10619647, 0.73147054]])
 </pre></div>
 </div>
 </div>
@@ -698,9 +668,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[18, -8, 18, -8],
-       [ 4, -1, 18, 32],
-       [47, 44, -9, 15]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-9,  1, 16, 11],
+       [48, 13, -4,  8],
+       [49,  9, 26, 22]])
 </pre></div>
 </div>
 </div>
@@ -1463,7 +1433,7 @@ b&#39;8&#39;
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Romeo Silvestri
 </p>
 
   </div>
