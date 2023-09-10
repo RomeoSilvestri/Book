@@ -1,6 +1,6 @@
 # The Data Science Odyssey
 
-## Mastering Programming, Analytics, Machine Learning, and Cloud
+**Mastering Programming, Analytics, Machine Learning, and Cloud**
 
 **By [Romeo Silvestri](https://www.linkedin.com/in/romeo-silvestri/) 🚀**
 
