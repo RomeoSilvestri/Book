@@ -3,11 +3,10 @@
 title: The Data Science Odyssey
 subtitle: Mastering Programming, Analytics, Machine Learning, and Cloud
 author: Romeo Silvestri
+copyright: "2023" 
 logo: logo.png
+exclude_patterns: ["cache"]
 
-# Force re-execution of notebooks on each build.
-execute:
-  execute_notebooks: force
 
 # Information about where the book exists on the web
 repository:
@@ -15,24 +14,28 @@ repository:
   path_to_book: ""
   branch: main
 
+
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
     targetname: book.tex
 
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
+
+# Force re-execution of notebooks on each build.
+execute:
+  execute_notebooks         : "cache"  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
+  cache                     : "cache"
 
 
 # HTML-specific settings
 html:
   favicon                   : "logo.png"  # A path to a favicon image
   navbar_number_sections    : false  # Add a number to each section in your left navbar
-  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages
   use_repository_button     : true  # Whether to add a link to your repository button
   use_issues_button         : false  # Whether to add an "open an issue" button
-  extra_navbar              : <a href="https://www.linkedin.com/in/romeo-silvestri/">Tomas Beuzen</a>  # Will be displayed underneath the left navbar.
+  extra_navbar              : <a href="https://www.linkedin.com/in/romeo-silvestri/">Romeo Silvestri</a>  # Will be displayed underneath the left navbar.
   extra_footer              : ""  # Will be displayed underneath the footer.
   google_analytics_id       : ""  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : "https://romeosilvestri.github.io/Data_Science-Book/README.html"  # The base URL where your book will be hosted
