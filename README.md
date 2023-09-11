@@ -55,6 +55,3 @@ Selection of the appropriate communication format (reports, presentations, dashb
 Presentation of results in a clear, accurate, and understandable manner to the target audience
 Interpretation of results for business decision making
 Proposal of new actions based on the results
-
-```{tableofcontents}
-```
