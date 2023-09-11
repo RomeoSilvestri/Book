@@ -1,9 +1,29 @@
 format: jb-book
 root: README
+
 options:
-  caption: Chapters
+  caption: Programming Basics
 chapters:
 - file: python-basics
 - file: python-numpy
 - file: python-pandas
 - file: RR
+
+options:
+  caption: Problem Definition
+options:
+  caption: Data Collection
+options:
+  caption: Data Pre-processing
+options:  
+  caption: Exploratory Data Analysis
+options:
+  caption: Model Development
+options:
+  caption: Model Evaluation
+options:
+  caption: Model Deployment
+options:
+  caption: Model Monitoring and Maintenance
+options:  
+  caption: Results Communication
