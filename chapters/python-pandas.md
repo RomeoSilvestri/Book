@@ -297,7 +297,7 @@ df.tail()
 
 1) Pivot
 
-![](reshaping_pivot.png)
+![](images/reshaping_pivot.png)
 
 ```{code-cell}
 df = pd.DataFrame({'foo': ['one', 'one', 'one', 'two', 'two', 'two'],
@@ -309,7 +309,7 @@ df.pivot(index = 'foo', columns = 'bar', values = 'baz')
 
 2) Stack
 
-![](reshaping_stack.png)
+![](images/reshaping_stack.png)
 
 ```{code-cell}
 index_tuples = [('bar', 'one'), ('bar', 'two'), ('baz', 'one'), ('baz', 'two')]
@@ -325,9 +325,9 @@ df_stacked
 
 3) Unstack
 
-![](reshaping_unstack.png)
-![](reshaping_unstack_0.png)
-![](reshaping_unstack_1.png)
+![](images/reshaping_unstack.png)
+![](images/reshaping_unstack_0.png)
+![](images/reshaping_unstack_1.png)
 
 ```{code-cell}
 df_stacked.unstack()
@@ -338,7 +338,7 @@ df_stacked.unstack()
 
 4) Melt
 
-![](reshaping_melt.png)
+![](images/reshaping_melt.png)
 
 ```{code-cell}
 df3 = pd.DataFrame({'first': ['John', 'Mary'],

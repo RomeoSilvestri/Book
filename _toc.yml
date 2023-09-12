@@ -4,10 +4,10 @@ root: README
 parts:
   - caption: Programming Basics
     chapters:
-    - file: python-basics
-    - file: python-numpy
-    - file: python-pandas
-    - file: RR
+    - file: chapters/python-basics
+    - file: chapters/python-numpy
+    - file: chapters/python-pandas
+    - file: chapters/RR
   - caption: Problem Definition
     chapters:
-    - file: problem_definition
+    - file: chapters/problem_definition
