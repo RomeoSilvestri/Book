@@ -344,8 +344,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function">Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class">Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
 </ul>
             </nav>
         </div>
@@ -385,8 +387,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World! This is the number:&quot;</span><span class="p">,</span> <span class="n">one</span><span class="p">)</span>         <span class="c1"># print with space</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World! This is the number: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">one</span><span class="p">))</span>  <span class="c1"># print without space</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World! This is the number:&#39;</span><span class="p">,</span> <span class="n">one</span><span class="p">)</span>         <span class="c1"># print with space</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World! This is the number: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">one</span><span class="p">))</span>  <span class="c1"># print without space</span>
 </pre></div>
 </div>
 </div>
@@ -413,6 +415,7 @@ Hello World! This is the number: 1
 </div>
 </div>
 <p><strong>Escape Characters</strong></p>
+<p>Escape characters in programming are special characters, typically preceded by a backslash (). They are used to change the interpretation of the character that follows, often for including special characters in strings or representing hard-to-type characters in code.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Operator</p></th>
@@ -549,7 +552,7 @@ Hello World! This is the number: 1
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-center"><p>Absolute Value</p></td>
-<td class="text-center"><p>/</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
 <td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">abs</span></code></p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Exponential and Logarithm</p></td>
@@ -565,7 +568,7 @@ Hello World! This is the number: 1
 <td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">pow</span></code>, <code class="docutils literal notranslate"><span class="pre">sqrt</span></code></p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>Rounding</p></td>
-<td class="text-center"><p>/, <code class="docutils literal notranslate"><span class="pre">math</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code></p></td>
 <td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">round</span></code>, <code class="docutils literal notranslate"><span class="pre">floor</span></code>, <code class="docutils literal notranslate"><span class="pre">ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">trunc</span></code></p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Trigonometryc</p></td>
@@ -577,7 +580,9 @@ Hello World! This is the number: 1
 </section>
 <section id="variables">
 <h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h2>
+<p>In programming languages, variables are placeholders for storing and manipulating data.</p>
 <p><strong>Data Types</strong></p>
+<p>Data Types represent individual pieces of data and define the type of information they can hold. Common data types include integers, floating-point numbers, characters, and Boolean values.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Category</p></th>
@@ -606,6 +611,7 @@ Hello World! This is the number: 1
 </tbody>
 </table>
 <p><strong>Data Structures</strong></p>
+<p>Data Structures are more complex than basic data types and can hold collections of data.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p>Category</p></th>
@@ -635,7 +641,8 @@ Hello World! This is the number: 1
 <li><p>Dictionary: ordered*, changeable and without duplicate members</p></li>
 </ol>
 <p>Casting: refers to the explicit conversion of an object or value from one data type to another. It is achieved using functions like <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, etc. Casting allows for changing the type of data, facilitating compatibility and desired operations between different data types.</p>
-<p>Get Type: <code class="docutils literal notranslate"><span class="pre">type</span></code> function<br />
+<p>Basic Operations:<br />
+Get Type: <code class="docutils literal notranslate"><span class="pre">type</span></code> function<br />
 Get Length: <code class="docutils literal notranslate"><span class="pre">len</span></code> function</p>
 <section id="strings">
 <h3>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
@@ -1240,10 +1247,10 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>orange
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apple
+orange
 cherry
 banana
-apple
 </pre></div>
 </div>
 </div>
@@ -1292,10 +1299,10 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;orange&#39;, &#39;cherry&#39;, &#39;banana&#39;, &#39;strawberry&#39;, &#39;apple&#39;}
-{&#39;lime&#39;, &#39;orange&#39;, &#39;lemon&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;banana&#39;}
-{&#39;orange&#39;, &#39;cherry&#39;, &#39;banana&#39;, &#39;apple&#39;}
-{&#39;orange&#39;, &#39;cherry&#39;, &#39;banana&#39;, &#39;lime&#39;, &#39;strawberry&#39;, &#39;lemon&#39;, &#39;apple&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;strawberry&#39;, &#39;orange&#39;}
+{&#39;cherry&#39;, &#39;banana&#39;, &#39;apple&#39;, &#39;lime&#39;, &#39;orange&#39;, &#39;lemon&#39;}
+{&#39;apple&#39;, &#39;orange&#39;, &#39;cherry&#39;, &#39;banana&#39;}
+{&#39;lime&#39;, &#39;banana&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;lemon&#39;}
 </pre></div>
 </div>
 </div>
@@ -1330,8 +1337,8 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;orange&#39;, &#39;cherry&#39;, &#39;banana&#39;, &#39;strawberry&#39;, &#39;apple&#39;}
-{&#39;cherry&#39;, &#39;banana&#39;, &#39;strawberry&#39;, &#39;apple&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;apple&#39;, &#39;cherry&#39;, &#39;strawberry&#39;, &#39;orange&#39;}
+{&#39;apple&#39;, &#39;cherry&#39;, &#39;strawberry&#39;, &#39;orange&#39;}
 </pre></div>
 </div>
 </div>
@@ -1350,7 +1357,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;strawberry&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;apple&#39;, &#39;cherry&#39;, &#39;orange&#39;, &#39;strawberry&#39;]
 </pre></div>
 </div>
 </div>
@@ -1372,8 +1379,8 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cherry&#39;, &#39;banana&#39;, &#39;apple&#39;, &#39;strawberry&#39;}
-{&#39;cherry&#39;, &#39;banana&#39;, &#39;apple&#39;, &#39;strawberry&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;apple&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;cherry&#39;}
+{&#39;apple&#39;, &#39;strawberry&#39;, &#39;orange&#39;, &#39;cherry&#39;}
 </pre></div>
 </div>
 </div>
@@ -1388,7 +1395,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;apple&#39;, &#39;strawberry&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;apple&#39;, &#39;strawberry&#39;, &#39;orange&#39;}
 </pre></div>
 </div>
 </div>
@@ -1992,8 +1999,8 @@ tasty cherry
 </div>
 </section>
 </section>
-<section id="function">
-<h2>Function<a class="headerlink" href="#function" title="Permalink to this heading">#</a></h2>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">def</span></code> statement is used to define functions, allowing the creation of reusable blocks of code. The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement is used within a function to specify the value to be outputted or returned. It provides the result back to the caller and terminates the function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2073,6 +2080,9 @@ tasty cherry
 </div>
 </div>
 </section>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h2>
+</section>
 <section id="class">
 <h2>Class<a class="headerlink" href="#class" title="Permalink to this heading">#</a></h2>
 <p>In Python, classes are blueprints for creating objects that encapsulate data and functionality. They define the structure and behavior of objects through attributes (variables) and methods (specific functions). Classes provide a way to organize and modularize code, promoting code reusability and maintainability. Objects created from classes have their own unique state and can interact with each other through method calls and attribute access.</p>
@@ -2141,6 +2151,9 @@ Hello, my name is John
 </div>
 </div>
 <p>There is a third kind of method called a static method. Static methods do not operate on either the instance or the class, they are just simple functions. But we might want to include them in the class because they are somehow related to the class. They are defined using the <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> decorator.</p>
+</section>
+<section id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -2226,8 +2239,10 @@ Hello, my name is John
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function">Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class">Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
 </ul>
   </nav></div>
 

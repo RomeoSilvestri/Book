@@ -32,8 +32,8 @@ print('Hello World!')
 
 ```{code-cell}
 one = 1
-print("Hello World! This is the number:", one)         # print with space
-print("Hello World! This is the number: " + str(one))  # print without space
+print('Hello World! This is the number:', one)         # print with space
+print('Hello World! This is the number: ' + str(one))  # print without space
 ```
 
 **Assignment**
@@ -52,6 +52,8 @@ a, b, c = fruits
 
 **Escape Characters**
 
+Escape characters in programming are special characters, typically preceded by a backslash (\). They are used to change the interpretation of the character that follows, often for including special characters in strings or representing hard-to-type characters in code.
+
 | Operator | Description   |
 | :------: | :---------:   |
 | `\'`     | single quote  |
@@ -59,6 +61,7 @@ a, b, c = fruits
 | `\\`     | backslash     |
 | `\n`     | newline       |
 | `\t`     | tab           |
+
 
 ## Basic Operations
 
@@ -89,34 +92,38 @@ a, b, c = fruits
 
 **Logical**
 
-| Operator | Description                          |
-| :------: | :---------:                          |
-| `x and y` | are `x` and `y` both True?          |
-| `x or y` | is at least one of `x` and `y` True? |
-| `not x` | is `x` False?                         |
+| Operator  | Description                          |
+| :------:  | :---------:                          |
+| `x and y` | are `x` and `y` both True?           |
+| `x or y`  | is at least one of `x` and `y` True? |
+| `not x`   | is `x` False?                        |
 
 **Membership**
 
-| Operator | Description            |
-| :------: | :---------:            |
-| `x in y` | is `x` in `y`?         |
+| Operator     | Description        |
+| :------:     | :---------:        |
+| `x in y`     | is `x` in `y`?     |
 | `x not in y` | is not `x` in `y`? |
 
 **Basic Arithmetic Functions**
 
-| Type                      | Library   | Function                                    |
-| :--:                      | :-----:   | :------:                                    |
-| Absolute Value            | /         | `abs`                                       |
-| Exponential and Logarithm | `math`    | `exp`, `log`                                |
-| Factorial                 | `math`    | `factorial`                                 |
-| Power and Square Root     | `math`    | `pow`, `sqrt`                               |
-| Rounding                  | /, `math` | `round`, `floor`, `ceil`, `trunc`           |
-| Trigonometryc             | `math`    | `sin`, `cos`, `tan`, `asin`, `acos`, `atan` |
+| Type                      | Library     | Function                                    |
+| :--:                      | :-----:     | :------:                                    |
+| Absolute Value            | `/`         | `abs`                                       |
+| Exponential and Logarithm | `math`      | `exp`, `log`                                |
+| Factorial                 | `math`      | `factorial`                                 |
+| Power and Square Root     | `math`      | `pow`, `sqrt`                               |
+| Rounding                  | `/`, `math` | `round`, `floor`, `ceil`, `trunc`           |
+| Trigonometryc             | `math`      | `sin`, `cos`, `tan`, `asin`, `acos`, `atan` |
 
 
 ## Variables
 
+In programming languages, variables are placeholders for storing and manipulating data.
+
 **Data Types**
+
+Data Types represent individual pieces of data and define the type of information they can hold. Common data types include integers, floating-point numbers, characters, and Boolean values.
 
 | Category | Type                      |
 | :------: | :--:                      |
@@ -128,6 +135,8 @@ a, b, c = fruits
 | String   | `str`                     |
 
 **Data Structures**
+
+Data Structures are more complex than basic data types and can hold collections of data.
 
 | Category | Structure          |
 | :------: | :-------:          |
@@ -144,6 +153,7 @@ Data Structures Features:
 
 Casting: refers to the explicit conversion of an object or value from one data type to another. It is achieved using functions like `int`, `float`, `str`, etc. Casting allows for changing the type of data, facilitating compatibility and desired operations between different data types.
 
+Basic Operations:\
 Get Type: `type` function\
 Get Length: `len` function
 
@@ -185,19 +195,19 @@ print(w3)
 
 | Method | Paramethers | Description |
 | :----: | :---------: | :---------: |
-| `capitalize`              | /                         | Converts the first character to upper case |
+| `capitalize`                | /                         | Converts the first character to upper case |
 | `casefold`, `lower`         | /                         | Converts string into lower case            |
-| `count`                   | value, start, end         | Returns the number of times a specified value occurs |   
+| `count`                     | value, start, end         | Returns the number of times a specified value occurs |   
 | `find`, `index`             | value, start, end         | Searches the string for a specified value and returns the position of where it was found |
-| `format`                  | value1, ..., valueN       | Formats specified values in a string       |
-| `join`                    | iterable                  | Joins the elements of an iterable to the end of the string |
-| `replace`                 | oldvalue, newvalue, count | Returns a string where a specified value is replaced with a specified value |
-| `rfind`, `rindex`          | value, start, end         | Searches the string for a specified value and returns the last position of where it was found |
-| `split`                   | separator, maxsplit       | Splits the string at the specified separator, and returns a list |
-| `splitlines`              | keeplinebreaks            | Splits the string at line breaks and returns a list |                           
+| `format`                    | value1, ..., valueN       | Formats specified values in a string       |
+| `join`                      | iterable                  | Joins the elements of an iterable to the end of the string |
+| `replace`                   | oldvalue, newvalue, count | Returns a string where a specified value is replaced with a specified value |
+| `rfind`, `rindex`           | value, start, end         | Searches the string for a specified value and returns the last position of where it was found |
+| `split`                     | separator, maxsplit       | Splits the string at the specified separator, and returns a list |
+| `splitlines`                | keeplinebreaks            | Splits the string at line breaks and returns a list |                           
 | `strip`, `lstrip`, `rstrip` | characters                | Returns a trimmed version of the string |
-| `title`                   | /                         | Converts the first character of each word to upper case |
-| `upper`                   | /                         | Converts a string into upper case |
+| `title`                     | /                         | Converts the first character of each word to upper case |
+| `upper`                     | /                         | Converts a string into upper case |
 
 
 ### Tuple
@@ -893,7 +903,7 @@ for x in adj:
 ```
 
 
-## Function
+## Functions
 
 The `def` statement is used to define functions, allowing the creation of reusable blocks of code. The `return` statement is used within a function to specify the value to be outputted or returned. It provides the result back to the caller and terminates the function.
 
@@ -935,6 +945,9 @@ def my_function(**kid):
 
 my_function(fname = 'Tobias', lname = 'Rossi')
 ```
+
+
+## Methods
 
 
 ## Class
@@ -989,3 +1002,7 @@ member_1.full_name()
 ```
 
 There is a third kind of method called a static method. Static methods do not operate on either the instance or the class, they are just simple functions. But we might want to include them in the class because they are somehow related to the class. They are defined using the `@staticmethod` decorator.
+
+
+## Libraries
+
