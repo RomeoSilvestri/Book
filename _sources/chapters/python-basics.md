@@ -179,8 +179,8 @@ print(sentence[-6:-1])
 ```
 
 ```{code-cell}
-print("World" in sentence)
-print("World" not in sentence)
+print('World' in sentence)
+print('World' not in sentence)
 ```
 
 ```{code-cell}
@@ -787,6 +787,8 @@ print(dc_new)
 
 ## Flow Control
 
+In programming, "flow control" refers to how a program manages the sequence of instructions or operations. It determines the order in which instructions are executed, allowing control over the path through which the program progresses. Flow control involves techniques such as conditions, loops, and control structures to direct program execution based on specific conditions or criteria. It is crucial for creating programs that perform desired operations consistently and handle different situations appropriately.
+
 ### If-Else
 
 `if`: executes a block of code if a certain condition is true\
@@ -905,6 +907,8 @@ for x in adj:
 
 ## Functions
 
+A function is a self-contained and reusable block of code that performs a specific task or set of tasks. Functions are designed to take input values (called parameters or arguments), process them, and often return a result. They are used to modularize code, promote reusability, and make programs more organized and maintainable. Functions play a fundamental role in structuring and managing the flow of a program's logic.
+
 The `def` statement is used to define functions, allowing the creation of reusable blocks of code. The `return` statement is used within a function to specify the value to be outputted or returned. It provides the result back to the caller and terminates the function.
 
 ```{code-cell}
@@ -949,8 +953,12 @@ my_function(fname = 'Tobias', lname = 'Rossi')
 
 ## Methods
 
+A method is a function that is associated with an object or a class. It defines the behavior or actions that objects of that class can perform. Methods operate on the data or attributes of an object and can be called to perform specific operations. Methods are a fundamental concept in object-oriented programming and help encapsulate behavior within objects, making code more organized and reusable.
 
-## Class
+In python, functions can be called directly by their name and they operate on the input arguments provided to them, instead methods are accessed through objects and are called using the dot notation.
+
+
+## Classes
 
 In Python, classes are blueprints for creating objects that encapsulate data and functionality. They define the structure and behavior of objects through attributes (variables) and methods (specific functions). Classes provide a way to organize and modularize code, promoting code reusability and maintainability. Objects created from classes have their own unique state and can interact with each other through method calls and attribute access.
 
@@ -1005,4 +1013,6 @@ There is a third kind of method called a static method. Static methods do not op
 
 
 ## Libraries
+
+Libraries are pre-written collections of code modules or functions that offer specific functionalities. They simplify development by providing ready-made solutions for common tasks, saving time and effort. Libraries are essential for reusing code, enhancing efficiency, and building upon existing code to create software applications.
 
