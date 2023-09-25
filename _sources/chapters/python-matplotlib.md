@@ -12,5 +12,7 @@ kernelspec:
   name: python3
 ---
 
+![](images/matplotlib.svg)
+
 # Matplotlib
 
