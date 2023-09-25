@@ -14,6 +14,8 @@ kernelspec:
 
 # Numpy
 
+![](images/numpy.png)
+
 NumPy is a powerful Python library for numerical computation. It provides efficient multi-dimensional array operations, along with a wide range of mathematical functions. NumPy's compact syntax and high-performance capabilities make it essential for scientific and data-related tasks.
 
 ```{code-cell}
