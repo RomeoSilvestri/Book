@@ -8,7 +8,6 @@ parts:
     - file: chapters/python-numpy
     - file: chapters/python-pandas
     - file: chapters/python-matplotlib
-    - file: chapters/RR
   - caption: Problem Definition
     chapters:
     - file: chapters/problem_definition
