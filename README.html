@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -77,6 +78,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -137,13 +147,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="The Data Science Odyssey - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="The Data Science Odyssey - Home"/>`);</script>
   
   
 </a></div>
@@ -291,10 +302,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -302,7 +313,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -335,47 +346,67 @@ document.write(`
 <h1>The Data Science Odyssey<a class="headerlink" href="#the-data-science-odyssey" title="Permalink to this heading">#</a></h1>
 <p><strong>Mastering Programming, Analytics, Machine Learning, and Cloud</strong></p>
 <p><strong>By <a class="reference external" href="https://www.linkedin.com/in/romeo-silvestri/">Romeo Silvestri</a> 🚀 and awailable at this <a class="reference external" href="https://romeosilvestri.github.io/Book/README.html">website</a> 🌐</strong></p>
-<p>Problem Definition:
-Identification of the problem to be solved
-Determination of project objectives
-Specification of project evaluation metrics</p>
-<p>Data Collection:
-Identification of data sources
-Data acquisition from identified sources
-Data quality control</p>
-<p>Data Pre-processing:
-Data cleaning: removal of missing, duplicate, noisy, or erroneous data
-Data integration: combining data from different sources
-Data transformation: converting data into a suitable format for analysis
-Data reduction: selecting the most relevant variables for analysis</p>
-<p>Exploratory Data Analysis (EDA):
-Data description: analysis of variable distributions, descriptive statistics, etc.
-Analysis of relationships between variables: identification of correlations, associations, or dependencies between variables
-Data visualization: graphical representation of data to identify patterns, trends, or relationships between variables</p>
-<p>Model Development:
-Selection of the most suitable model to solve the problem
-Possible data preparation for model training
-Model training on available data
-Model validation</p>
-<p>Model Evaluation:
-Evaluation of model performance on test data
-Selection of appropriate evaluation metrics for the type of problem being solved
-Comparison of model performance with that of other available models
-Possible model optimization</p>
-<p>Model Deployment:
-Integration of the model into the operational environment for which it was designed
-Definition of the model’s usage modes
-Verification of the model’s compatibility with the operational environment</p>
-<p>Model Monitoring and Maintenance:
-Data collection for model monitoring
-Analysis of model performance in production
-Identification of any anomalies or degradation in model performance
-Model updates to maintain its effectiveness in an evolving operational environment</p>
-<p>Results Communication:
-Selection of the appropriate communication format (reports, presentations, dashboards, etc.)
-Presentation of results in a clear, accurate, and understandable manner to the target audience
-Interpretation of results for business decision making
-Proposal of new actions based on the results</p>
+<p>Embark on a captivating journey through the intricate world of data science with our comprehensive guide, “The Data Science Odyssey”. In this book, we delve into the intricacies of the data science project lifecycle, breaking down each phase to provide a roadmap for success in the dynamic realm of data-driven decision-making. The book is then structured into 9 different stages corresponding to the phases of data science. For each stage we have identified the ideal tools for the development and advancement of a generic project.</p>
+<p>We will then navigate through the following stages:</p>
+<p>Problem Definition:</p>
+<ul class="simple">
+<li><p>Identification of the problem to be solved</p></li>
+<li><p>Determination of project objectives</p></li>
+<li><p>Specification of project evaluation metrics</p></li>
+</ul>
+<p>Data Collection:</p>
+<ul class="simple">
+<li><p>Identification of data sources</p></li>
+<li><p>Data acquisition from identified sources</p></li>
+<li><p>Data quality control</p></li>
+</ul>
+<p>Data Pre-processing:</p>
+<ul class="simple">
+<li><p>Data cleaning: removal of missing, duplicate, noisy, or erroneous data</p></li>
+<li><p>Data integration: combining data from different sources</p></li>
+<li><p>Data transformation: converting data into a suitable format for analysis</p></li>
+<li><p>Data reduction: selecting the most relevant variables for analysis</p></li>
+</ul>
+<p>Exploratory Data Analysis (EDA):</p>
+<ul class="simple">
+<li><p>Data description: analysis of variable distributions, descriptive statistics, etc.</p></li>
+<li><p>Analysis of relationships between variables: identification of correlations, associations, or dependencies between variables</p></li>
+<li><p>Data visualization: graphical representation of data to identify patterns, trends, or relationships between variables</p></li>
+</ul>
+<p>Model Development:</p>
+<ul class="simple">
+<li><p>Selection of the most suitable model to solve the problem</p></li>
+<li><p>Possible data preparation for model training</p></li>
+<li><p>Model training on available data</p></li>
+<li><p>Model validation</p></li>
+</ul>
+<p>Model Evaluation:</p>
+<ul class="simple">
+<li><p>Evaluation of model performance on test data</p></li>
+<li><p>Selection of appropriate evaluation metrics for the type of problem being solved</p></li>
+<li><p>Comparison of model performance with that of other available models</p></li>
+<li><p>Possible model optimization</p></li>
+</ul>
+<p>Model Deployment:</p>
+<ul class="simple">
+<li><p>Integration of the model into the operational environment for which it was designed</p></li>
+<li><p>Definition of the model’s usage modes</p></li>
+<li><p>Verification of the model’s compatibility with the operational environment</p></li>
+</ul>
+<p>Model Monitoring and Maintenance:</p>
+<ul class="simple">
+<li><p>Data collection for model monitoring</p></li>
+<li><p>Analysis of model performance in production</p></li>
+<li><p>Identification of any anomalies or degradation in model performance</p></li>
+<li><p>Model updates to maintain its effectiveness in an evolving operational environment</p></li>
+</ul>
+<p>Results Communication:</p>
+<ul class="simple">
+<li><p>Selection of the appropriate communication format (reports, presentations, dashboards, etc.)</p></li>
+<li><p>Presentation of results in a clear, accurate, and understandable manner to the target audience</p></li>
+<li><p>Interpretation of results for business decision making</p></li>
+<li><p>Proposal of new actions based on the results</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -407,11 +438,10 @@ Proposal of new actions based on the results</p>
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
        href="chapters/python-basics.html"
@@ -422,10 +452,7 @@ Proposal of new actions based on the results</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -474,8 +501,8 @@ By Romeo Silvestri
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
