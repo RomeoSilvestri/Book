@@ -346,7 +346,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-types">Plot Types</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">Barplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar Plot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">Histogram</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart">Pie Chart</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a></li>
@@ -354,6 +354,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot">3D Plot</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#color-palette">Color Palette</a></li>
 </ul>
             </nav>
         </div>
@@ -466,6 +467,7 @@ document.write(`
 <h2>Plot Types<a class="headerlink" href="#plot-types" title="Permalink to this heading">#</a></h2>
 <section id="scatterplot">
 <h3>Scatterplot<a class="headerlink" href="#scatterplot" title="Permalink to this heading">#</a></h3>
+<p>An scatterplot is a graphical representation of data points in a two-dimensional space, typically using Cartesian coordinates. Each point on the plot corresponds to the values of two variables, one plotted on the horizontal axis (X-axis) and the other on the vertical axis (Y-axis). The positioning of the points reveals any patterns, relationships, or trends that may exist between the variables. Scatterplots are commonly used in statistical analysis and data visualization to visually assess the correlation or association between two variables. They help identify the presence of outliers, clusters, or any other distinctive patterns within the data. The visual nature of scatterplots makes them effective tools for gaining insights into the nature of the relationship between variables, aiding researchers, analysts, and decision-makers in understanding and interpreting the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
@@ -502,8 +504,9 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="barplot">
-<h3>Barplot<a class="headerlink" href="#barplot" title="Permalink to this heading">#</a></h3>
+<section id="bar-plot">
+<h3>Bar Plot<a class="headerlink" href="#bar-plot" title="Permalink to this heading">#</a></h3>
+<p>A bar plot is a graphical representation of data where rectangular bars of equal width are drawn to represent the values of different categories or groups. The length of each bar corresponds to the magnitude or frequency of the data it represents. Bar plots are commonly used to compare the values of individual categories or groups, emphasizing the differences between them. Bar plots are particularly useful when dealing with categorical data or when comparing discrete groups. They provide a straightforward visual tool for illustrating the distribution, comparison, or relationships between different categories, making them valuable in both exploratory data analysis and presentation of results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xpoints</span><span class="p">,</span> <span class="n">ypoints</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -535,6 +538,7 @@ document.write(`
 </section>
 <section id="histogram">
 <h3>Histogram<a class="headerlink" href="#histogram" title="Permalink to this heading">#</a></h3>
+<p>An histogram is a graphical representation of the distribution of a dataset. It consists of a series of contiguous rectangular bars, where each bar represents a specific range or interval of values, and the height of the bar corresponds to the frequency or count of data points falling within that range. Unlike a bar plot, which is used for categorical data, histograms are primarily employed for visualizing the distribution of continuous numerical data. Histograms are useful in providing insights into the shape, central tendency, and spread of a dataset. They help identify patterns, clusters, and outliers within the data. By dividing the data into intervals and representing the frequency of observations in each interval, histograms allow for a visual assessment of the data’s underlying structure. They are commonly used in statistical analysis, exploratory data analysis, and data visualization to better understand the characteristics of a dataset and make informed decisions based on its distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -556,6 +560,7 @@ document.write(`
 </section>
 <section id="pie-chart">
 <h3>Pie Chart<a class="headerlink" href="#pie-chart" title="Permalink to this heading">#</a></h3>
+<p>A pie chart is a circular statistical graphic that is divided into slices to illustrate numerical proportions. In a pie chart, each slice represents a proportionate part of the whole, and the size of each slice is determined by the value it represents relative to the total. The entire circle represents 100% of the data. Pie charts are commonly used to display the composition or distribution of a categorical dataset. They are effective for conveying the relative sizes of different categories within a whole and are particularly useful when the emphasis is on the contribution of each category to the total. Pie charts are often employed in business reports, presentations, and other contexts where a quick and intuitive representation of proportional relationships is needed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
@@ -576,9 +581,10 @@ document.write(`
 </section>
 <section id="boxplot">
 <h3>Boxplot<a class="headerlink" href="#boxplot" title="Permalink to this heading">#</a></h3>
+<p>A boxplot, also known as a box-and-whisker plot, is a statistical graphic that provides a visual summary of the distribution of a dataset. It displays key characteristics such as the minimum, first quartile (Q1), median, third quartile (Q3), and maximum values. The plot consists of a rectangular “box” that spans the interquartile range (IQR) — the range between the first and third quartiles — and “whiskers” that extend from the box to the minimum and maximum values. Boxplots are particularly useful for identifying the central tendency, spread, and potential outliers in a dataset. They allow for a quick visual comparison of the distribution of different groups or datasets, making them valuable tools in exploratory data analysis and statistical reporting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">ypoints</span><span class="p">,</span> <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">))</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">ypoints</span><span class="p">)</span> 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Boxplot&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
@@ -588,12 +594,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/475af9033ad1086459650ea143e048e80cf028b3c29a54ba10e5cac334176ac0.png" src="../_images/475af9033ad1086459650ea143e048e80cf028b3c29a54ba10e5cac334176ac0.png" />
+<img alt="../_images/2d89f225300a0f7b0993b4633858f5c6574323da000916a09cff54796f920ad3.png" src="../_images/2d89f225300a0f7b0993b4633858f5c6574323da000916a09cff54796f920ad3.png" />
 </div>
 </div>
 </section>
 <section id="heatmap">
 <h3>Heatmap<a class="headerlink" href="#heatmap" title="Permalink to this heading">#</a></h3>
+<p>A heatmap is a graphical representation of data where values in a matrix are represented as colors. Typically, a two-dimensional grid of cells represents the data, and each cell’s color intensity reflects the magnitude of the corresponding value. Heatmaps are commonly used to visualize complex datasets, especially those with multiple variables or dimensions. Heatmaps are valuable for revealing patterns, trends, and relationships within the data. They are often employed in data analysis, biology, finance, and other fields to explore and understand the structure and interdependencies of variables. Heatmaps can highlight clusters, correlations, or areas of high and low activity, providing an intuitive and visually rich representation of information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -616,6 +623,7 @@ document.write(`
 </section>
 <section id="d-plot">
 <h3>3D Plot<a class="headerlink" href="#d-plot" title="Permalink to this heading">#</a></h3>
+<p>A 3D plot is a graphical representation of data in a three-dimensional space, typically using three axes: the x-axis, y-axis, and z-axis. Unlike traditional 2D plots that display data in a plane, 3D plots provide a way to visualize relationships among three variables. The visual representation includes points, lines, surfaces, or other geometric shapes that convey information about the dataset’s structure. 3D plots are used when there is a need to explore and understand relationships or trends involving three variables simultaneously. They are commonly employed in fields such as mathematics, physics, engineering, and computer graphics, where three-dimensional representations can offer a more comprehensive view of the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
@@ -638,6 +646,33 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
+<section id="color-palette">
+<h2>Color Palette<a class="headerlink" href="#color-palette" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
+
+<span class="c1"># Get a list of 10 distinct colors from the &#39;tab10&#39; colormap</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># Display the color palette with color names</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">to_hex</span><span class="p">(</span><span class="n">color</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+             <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f45ed28e1e6e05183c75e4eb3de6c49c3bd25ed9f690bdd4c87f2c63b59a9aa1.png" src="../_images/f45ed28e1e6e05183c75e4eb3de6c49c3bd25ed9f690bdd4c87f2c63b59a9aa1.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -710,7 +745,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-types">Plot Types</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">Barplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar Plot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">Histogram</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart">Pie Chart</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a></li>
@@ -718,6 +753,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot">3D Plot</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#color-palette">Color Palette</a></li>
 </ul>
   </nav></div>
 
