@@ -21,11 +21,11 @@ latex:
     targetname: book.tex
 
 
-# Force re-execution of notebooks on each build.
+# Execution of notebooks
 execute:
-  execute_notebooks         : "cache"  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
-  cache                     : "cache"
-
+  execute_notebooks: "force"  # Force execution of notebooks at build time
+  cache: "off"  # Turn off caching
+  
 
 # HTML-specific settings
 html:
