@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Problem Definition &#8212; The Data Science Odyssey</title>
+    <title>Matplotlib &#8212; The Data Science Odyssey</title>
   
   
   
@@ -62,12 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/problem_definition';</script>
-    <link rel="canonical" href="https://romeosilvestri.github.io/Data_Science-Book/.html/chapters/problem_definition.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/1.4 python-matplotlib';</script>
+    <link rel="canonical" href="https://romeosilvestri.github.io/Data_Science-Book/.html/chapters/1.4 python-matplotlib.html" />
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Matplotlib" href="python-matplotlib.html" />
+    <link rel="next" title="Problem Definition" href="2.1%20problem_definition.html" />
+    <link rel="prev" title="Pandas" href="1.3%20python-pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,15 +170,15 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming Basics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="python-basics.html">Python - Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python-numpy.html">Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python-pandas.html">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python-matplotlib.html">Matplotlib</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1.1%20python-basics.html">Python - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.2%20python-numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.3%20python-pandas.html">Pandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Matplotlib</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Definition</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Problem Definition</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2.1%20problem_definition.html">Problem Definition</a></li>
 </ul>
 
     </div>
@@ -247,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/chapters/problem_definition.md" target="_blank"
+      <li><a href="../_sources/chapters/1.4 python-matplotlib.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +317,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -327,11 +330,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Problem Definition</h1>
+    <h1>Matplotlib</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">Plot</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -341,20 +352,67 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="problem-definition">
-<h1>Problem Definition<a class="headerlink" href="#problem-definition" title="Permalink to this heading">#</a></h1>
-<p>Problem Definition is the crucial initial phase in the data science lifecycle. During this phase, the primary objective is to clearly and comprehensively identify and articulate the problem that data analysis aims to address. This involves the following key aspects:</p>
-<p><strong>1) Problem Identification</strong></p>
-<p>In the initial phase, the critical first step is to meticulously pinpoint and articulate the problem that necessitates resolution through data analysis. This entails crafting a precise and unambiguous description of the problem, leaving no room for interpretation or ambiguity. The clarity of this problem statement serves as the foundation upon which the entire data science project is built. Ambiguities or inaccuracies at this stage can lead to misguided efforts and suboptimal outcomes in subsequent phases.</p>
-<p><em>The problem is to develop a predictive model that can accurately estimate the prices of residential properties in different neighborhoods of Madrid, facilitating better decision-making for both buyers and sellers.</em></p>
-<p><strong>2) Project Objective Determination</strong></p>
-<p>Following the identification of the problem, the subsequent critical step is to establish well-defined project objectives. These objectives must adhere to the SMART criteria, ensuring that they are Specific, Measurable, Achievable, Relevant, and Time-bound. This approach ensures that the objectives are quantifiable, realistic, and closely aligned with the overarching business goals or specific contextual requirements. Well-defined objectives provide a clear sense of direction and serve as benchmarks for evaluating the project’s success. Ensure that the project’s objectives are attainable within the defined timeframe and allocated resources. The project timeline for model development, training, and evaluation will be designed to strike a balance between thorough analysis and efficient resource utilization.</p>
-<p><em>The primary objective is to minimize prediction error in estimating real estate prices across various neighborhoods in Madrid. The goal is to achieve a substantial reduction in prediction error when compared to baseline models, ultimately improving the accuracy of price predictions. Systematically compare the performance of spatial and non-spatial predictive models to identify the most accurate and effective approach for price prediction. Assess the accuracy of predictions at the neighborhood level within Madrid. The objective is to ensure that predictions are within a narrow margin of ±5% of the actual property prices for each neighborhood. This level of granularity will enable precise insights into property values within specific areas of the city.</em></p>
-<p><strong>3) Specification of Project Evaluation Metrics</strong></p>
-<p>Central to the problem definition phase is the specification of project evaluation metrics. These metrics serve as the yardsticks for gauging the project’s effectiveness and alignment with its objectives. They must be intricately tied to the project’s goals and capable of quantifying the performance of proposed solutions. In the case of a problem involving the classification of fraudulent financial transactions, evaluation metrics might encompass accuracy, precision, recall, and the F1-score of the model. These metrics are carefully selected to provide a comprehensive view of the model’s performance.</p>
-<p><em>To measure the success of the project and ensure alignment with the objectives, specific evaluation metrics are defined, including Mean Squared Error (MSE) and Mean Absolute Error (MAE): MSE quantifies the average squared difference between predicted and actual prices. The goal is to achieve an MSE of less than a specific value, for example 200.000 euros, indicating low overall prediction error, instead MAE measures the average absolute difference between predicted and actual prices. The target is to have an MAE of less than a specific value, demonstrating the model’s ability to make accurate predictions.</em></p>
-<p>The Problem Definition phase necessitates active engagement with key stakeholders, including the data science team, business decision-makers, and domain experts. This collaborative effort ensures a holistic understanding of the problem’s nuances, business context, and the desired outcomes. Furthermore, it is imperative to meticulously document this phase, creating a robust foundation to guide subsequent stages of the data science project and facilitating the validation of results upon project completion.</p>
-<p>Properly defined problems act as a North Star throughout the project’s lifecycle, steering it away from the pitfalls of “project drift,” wherein the project veers off course from its initial objectives. A well-crafted problem definition is indispensable for the overall success and efficacy of the data science endeavor, aligning efforts with business needs and delivering actionable insights.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="matplotlib">
+<h1>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this heading">#</a></h1>
+<p><img alt="" src="../_images/matplotlib.svg" /></p>
+<p>Matplotlib is a powerful Python library for creating a wide variety of data visualizations. Its key features include support for diverse plot types, extensive customization options, the ability to generate publication-quality graphics, extensibility, integration with NumPy, and interactive capabilities. It supports multiple output formats, has a large user community, and is open source. Matplotlib is an essential tool for data visualization and exploration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="plot">
+<h2>Plot<a class="headerlink" href="#plot" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">xpoints</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Apr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span> <span class="s1">&#39;Jul&#39;</span><span class="p">,</span> <span class="s1">&#39;Aug&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">,</span> <span class="s1">&#39;Dec&#39;</span><span class="p">]</span>
+<span class="n">ypoints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpoints</span><span class="p">,</span> <span class="n">ypoints</span><span class="p">)</span>  <span class="c1"># generic plot</span>
+
+<span class="c1"># Labels on the Axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+
+<span class="c1"># Title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Generic Plot&#39;</span><span class="p">)</span>
+
+<span class="c1"># Legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+</pre></div>
+</div>
+<img alt="../_images/b4ddd6623aea8fac1db621e0e40136cb1c2a19af373bf075133276ebc1d7ab24.png" src="../_images/b4ddd6623aea8fac1db621e0e40136cb1c2a19af373bf075133276ebc1d7ab24.png" />
+</div>
+</div>
+<p>plt.plot function</p>
+<ul class="simple">
+<li><p>x : data on the x-axe</p></li>
+<li><p>y : data on the y-axe</p></li>
+<li><p>scalex (default = True) : indicating whether the x-axe should be scaled based on the data</p></li>
+<li><p>scaley (default = True) : indicating whether the y-axe should be scaled based on the data</p></li>
+<li><p>data : optional object that can provide the data; if specified, the x and y, and other data-requiring arguments, can refer to columns of this object</p></li>
+<li><p>color : determines the color of the line</p>
+<ul>
+<li><p>o:</p></li>
+<li><p>a:</p></li>
+</ul>
+</li>
+<li><p>linestyle : determines the style of the line</p></li>
+<li><p>marker : specifies the type of markers used to highlight data points on the line</p></li>
+<li><p>label : provides a descriptive label for the line or marker in the plot</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -388,13 +446,22 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="python-matplotlib.html"
+       href="1.3%20python-pandas.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Matplotlib</p>
+        <p class="prev-next-title">Pandas</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="2.1%20problem_definition.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Problem Definition</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -402,6 +469,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">Plot</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
