@@ -340,7 +340,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">Plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-types">Plot Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">Barplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">Histogram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart">Pie Chart</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">Heatmap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot">3D Plot</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -374,44 +387,261 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpoints</span><span class="p">,</span> <span class="n">ypoints</span><span class="p">)</span>  <span class="c1"># generic plot</span>
 
+<span class="c1"># Title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Generic Plot&#39;</span><span class="p">)</span>
+
 <span class="c1"># Labels on the Axes</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
 
-<span class="c1"># Title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Generic Plot&#39;</span><span class="p">)</span>
+<span class="c1"># Grid</span>
+<span class="c1"># plt.grid()</span>
 
 <span class="c1"># Legend</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="c1"># plt.legend()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
-</pre></div>
-</div>
-<img alt="../_images/b4ddd6623aea8fac1db621e0e40136cb1c2a19af373bf075133276ebc1d7ab24.png" src="../_images/b4ddd6623aea8fac1db621e0e40136cb1c2a19af373bf075133276ebc1d7ab24.png" />
+<img alt="../_images/5106c8f520fa3ff91e6d1ba95404c8e73a43ab1f0f1ed018768f48b3dd9f7a01.png" src="../_images/5106c8f520fa3ff91e6d1ba95404c8e73a43ab1f0f1ed018768f48b3dd9f7a01.png" />
 </div>
 </div>
-<p>plt.plot function</p>
+<p><strong>plt.plot</strong></p>
+<p>It’s a fundamental tool for creating line plots, a key component in data visualization using the Matplotlib library. Its primary purpose is to visually represent relationships between variables or display trends in data through the use of points connected by lines.</p>
 <ul class="simple">
-<li><p>x : data on the x-axe</p></li>
-<li><p>y : data on the y-axe</p></li>
-<li><p>scalex (default = True) : indicating whether the x-axe should be scaled based on the data</p></li>
-<li><p>scaley (default = True) : indicating whether the y-axe should be scaled based on the data</p></li>
-<li><p>data : optional object that can provide the data; if specified, the x and y, and other data-requiring arguments, can refer to columns of this object</p></li>
-<li><p>color : determines the color of the line</p>
+<li><p>x: data on the x-axe</p></li>
+<li><p>y: data on the y-axe</p></li>
+<li><p>scalex (default = True): indicating whether the x-axe should be scaled based on the data</p></li>
+<li><p>scaley (default = True): indicating whether the y-axe should be scaled based on the data</p></li>
+<li><p>data: optional object that can provide the data; if specified, the x and y, and other data-requiring arguments, can refer to columns of this object</p></li>
+<li><p>label: provides a descriptive label for the line or marker in the plot</p></li>
+<li><p>linestyle or ls: determines the style of the line</p>
 <ul>
-<li><p>o:</p></li>
-<li><p>a:</p></li>
+<li><p>‘-’ (default): solid line</p></li>
+<li><p>‘:’: dotted line</p></li>
+<li><p>‘–’: dashed line</p></li>
+<li><p>‘-.’: dashed-dotted line</p></li>
+<li><p>‘’: none</p></li>
 </ul>
 </li>
-<li><p>linestyle : determines the style of the line</p></li>
-<li><p>marker : specifies the type of markers used to highlight data points on the line</p></li>
-<li><p>label : provides a descriptive label for the line or marker in the plot</p></li>
+<li><p>linewidth or lw: determines the width of the line</p></li>
+<li><p>color: determines the color of the line</p></li>
+<li><p>marker: specifies the type of markers used to highlight data points on the line</p>
+<ul>
+<li><p>‘o’: circle marker</p></li>
 </ul>
+</li>
+<li><p>markersize or ms: specifies the colors of the markers</p></li>
+<li><p>markerfacecolor or mfc: sets the color inside the edge of the markers</p></li>
+<li><p>markeredgecolor or mec: sets the color of the edge of the markers</p></li>
+</ul>
+<section id="subplots">
+<h3>Subplots<a class="headerlink" href="#subplots" title="Permalink to this heading">#</a></h3>
+<p>Subplots in the context of data visualization, particularly in libraries like Matplotlib in Python, refer to individual plots or charts that are organized within a larger, overarching figure. These subplots enable the simultaneous display of multiple graphs, allowing for a more comprehensive exploration of different aspects of the data. In essence, subplots provide a structured and organized way to present diverse information in a unified visual space. They facilitate the side-by-side comparison of various visualizations, enhancing the overall clarity and interpretability of the data being presented.</p>
+<p>The creation of subplots is commonly achieved using the subplots function, which establishes a grid of smaller plots within a single figure. Each subplot acts as an independent canvas for representing specific datasets, trends, or comparisons, contributing to a more detailed and nuanced visual narrative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpoints</span><span class="p">,</span> <span class="n">ypoints</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Plot 1&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpoints</span><span class="p">,</span> <span class="n">ypoints</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Plot 2&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Multiple Plots&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5042ad2cafe7cb1f322daf7deaa6c62f0009ab179bc858100379255122ebbfb8.png" src="../_images/5042ad2cafe7cb1f322daf7deaa6c62f0009ab179bc858100379255122ebbfb8.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="plot-types">
+<h2>Plot Types<a class="headerlink" href="#plot-types" title="Permalink to this heading">#</a></h2>
+<section id="scatterplot">
+<h3>Scatterplot<a class="headerlink" href="#scatterplot" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">99</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">86</span><span class="p">])</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatterplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/59cfba26e28491be17d81b527584243790e9e7e35064ae39d3e5d265a618db1a.png" src="../_images/59cfba26e28491be17d81b527584243790e9e7e35064ae39d3e5d265a618db1a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">75</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sizes</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9ecbe15a4e42f184d7fc5cd3ebeee6c0d4c906b42946a22d713188d0a956f198.png" src="../_images/9ecbe15a4e42f184d7fc5cd3ebeee6c0d4c906b42946a22d713188d0a956f198.png" />
+</div>
+</div>
+</section>
+<section id="barplot">
+<h3>Barplot<a class="headerlink" href="#barplot" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xpoints</span><span class="p">,</span> <span class="n">ypoints</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Barplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a848de0ec2b72fd455914107ef4cdc7ad60d99af8264a64dabe5176800f250e1.png" src="../_images/a848de0ec2b72fd455914107ef4cdc7ad60d99af8264a64dabe5176800f250e1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">xpoints</span><span class="p">,</span> <span class="n">ypoints</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/78a3a2470b95f614e61787604abaff92c422d3448cf504cfc7017d007d6905c3.png" src="../_images/78a3a2470b95f614e61787604abaff92c422d3448cf504cfc7017d007d6905c3.png" />
+</div>
+</div>
+</section>
+<section id="histogram">
+<h3>Histogram<a class="headerlink" href="#histogram" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3a90e9dc9a3fb37416957b898a484476ebe7b7c4ef70324f9bcfa25313f07ec2.png" src="../_images/3a90e9dc9a3fb37416957b898a484476ebe7b7c4ef70324f9bcfa25313f07ec2.png" />
+</div>
+</div>
+</section>
+<section id="pie-chart">
+<h3>Pie Chart<a class="headerlink" href="#pie-chart" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+<span class="n">lab</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Apples&#39;</span><span class="p">,</span> <span class="s1">&#39;Bananas&#39;</span><span class="p">,</span> <span class="s1">&#39;Cherries&#39;</span><span class="p">,</span> <span class="s1">&#39;Dates&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">lab</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pie Chart&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/101eb2458f442da87f7581b7e9a6a68d589cc7d93b32fded9c8133de43f6e106.png" src="../_images/101eb2458f442da87f7581b7e9a6a68d589cc7d93b32fded9c8133de43f6e106.png" />
+</div>
+</div>
+</section>
+<section id="boxplot">
+<h3>Boxplot<a class="headerlink" href="#boxplot" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">ypoints</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;skyblue&#39;</span><span class="p">)</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Boxplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">ypoints</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;skyblue&#39;</span><span class="p">)</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Boxplot&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: boxplot() got an unexpected keyword argument &#39;color&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="heatmap">
+<h3>Heatmap<a class="headerlink" href="#heatmap" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Heatmap&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-plot">
+<h3>3D Plot<a class="headerlink" href="#d-plot" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;3D Plot&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -478,7 +708,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">Plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-types">Plot Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot">Scatterplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">Barplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram">Histogram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart">Pie Chart</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">Boxplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">Heatmap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-plot">3D Plot</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
