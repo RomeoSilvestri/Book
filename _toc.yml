@@ -11,3 +11,6 @@ parts:
   - caption: Problem Definition
     chapters:
     - file: chapters/2.1 problem_definition
+    - file: chapters/2.2 problem_identification
+    - file: chapters/2.3 project_objective
+    - file: chapters/2.4 metrics
