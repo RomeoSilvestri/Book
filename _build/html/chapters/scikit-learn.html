@@ -1,0 +1,1866 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Scikit-Learn &#8212; The Data Science Odyssey</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/scikit-learn';</script>
+    <link rel="canonical" href="https://romeosilvestri.github.io/Data_Science-Book/.html/chapters/scikit-learn.html" />
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview" href="2.1%20problem_definition.html" />
+    <link rel="prev" title="Matplotlib" href="1.4%20python-matplotlib.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="The Data Science Odyssey - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="The Data Science Odyssey - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    The Data Science Odyssey
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming Basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1.1%20python-basics.html">Python - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.2%20python-numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.3%20python-pandas.html">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1.4%20python-matplotlib.html">Matplotlib</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Scikit-Learn</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Definition</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2.1%20problem_definition.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.2%20problem_identification.html">Problem Identification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.3%20project_objective.html">Project Objective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.4%20metrics.html">Metrics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/RomeoSilvestri/Data_Science-Book" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/scikit-learn.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Scikit-Learn</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-processing">Pre-Processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling">Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding">Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train-Test Split</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-development-predictions">Model Development &amp; Predictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">Model  Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tuning">Model Tuning</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scikit-learn">
+<h1>Scikit-Learn<a class="headerlink" href="#scikit-learn" title="Permalink to this heading">#</a></h1>
+<p><img alt="" src="../_images/scikit-learn.png" /></p>
+<p>Scikit-learn is a machine learning library in Python that provides simple and efficient tools for data analysis and modeling. It includes various modules for tasks such as regression, classification, clustering, dimensionality reduction, and model selection. The library emphasizes ease of use, high performance, and an extensive set of algorithms, making it a popular choice for both beginners and experienced practitioners in the field of machine learning.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Target&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;X1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;X2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;X3&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;X4&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">],</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;X5&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="s1">&#39;X1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="s1">&#39;X2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target</th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X3</th>
+      <th>X4</th>
+      <th>X5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>117.640523</td>
+      <td>0.720218</td>
+      <td>14.335329</td>
+      <td>A</td>
+      <td>X</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>104.001572</td>
+      <td>7.271368</td>
+      <td>94.466892</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>109.787380</td>
+      <td>NaN</td>
+      <td>52.184832</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>122.408932</td>
+      <td>0.608375</td>
+      <td>NaN</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>118.675580</td>
+      <td>2.219316</td>
+      <td>26.455561</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>90.227221</td>
+      <td>NaN</td>
+      <td>77.423369</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>109.500884</td>
+      <td>7.470395</td>
+      <td>NaN</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>98.486428</td>
+      <td>-1.025791</td>
+      <td>56.843395</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>98.967811</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A</td>
+      <td>X</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>104.105985</td>
+      <td>-4.270479</td>
+      <td>61.763550</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="pre-processing">
+<h2>Pre-Processing<a class="headerlink" href="#pre-processing" title="Permalink to this heading">#</a></h2>
+<p>Scikit-learn provides a comprehensive suite of preprocessing tools, including feature scaling, normalization, encoding of categorical variables, handling of missing data, and transformation of data into a suitable format for model training. These preprocessing steps are crucial for improving the performance and reliability of machine learning models by ensuring that the input data is appropriately formatted and scaled for the algorithms being employed.</p>
+<section id="missing-data">
+<h3>Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]])</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target</th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X3</th>
+      <th>X4</th>
+      <th>X5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>117.640523</td>
+      <td>0.720218</td>
+      <td>14.335329</td>
+      <td>A</td>
+      <td>X</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>104.001572</td>
+      <td>7.271368</td>
+      <td>94.466892</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>109.787380</td>
+      <td>1.856200</td>
+      <td>52.184832</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>122.408932</td>
+      <td>0.608375</td>
+      <td>54.781847</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>118.675580</td>
+      <td>2.219316</td>
+      <td>26.455561</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>90.227221</td>
+      <td>1.856200</td>
+      <td>77.423369</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>109.500884</td>
+      <td>7.470395</td>
+      <td>54.781847</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>98.486428</td>
+      <td>-1.025791</td>
+      <td>56.843395</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>98.967811</td>
+      <td>1.856200</td>
+      <td>54.781847</td>
+      <td>A</td>
+      <td>X</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>104.105985</td>
+      <td>-4.270479</td>
+      <td>61.763550</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="scaling">
+<h3>Scaling<a class="headerlink" href="#scaling" title="Permalink to this heading">#</a></h3>
+<p><strong>Standardization</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]])</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target</th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X3</th>
+      <th>X4</th>
+      <th>X5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>117.640523</td>
+      <td>-3.430349e-01</td>
+      <td>-1.888792</td>
+      <td>A</td>
+      <td>X</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>104.001572</td>
+      <td>1.635229e+00</td>
+      <td>1.853232</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>109.787380</td>
+      <td>1.341025e-16</td>
+      <td>-0.121277</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>122.408932</td>
+      <td>-3.768082e-01</td>
+      <td>0.000000</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>118.675580</td>
+      <td>1.096508e-01</td>
+      <td>-1.322795</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>90.227221</td>
+      <td>1.341025e-16</td>
+      <td>1.057325</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>109.500884</td>
+      <td>1.695330e+00</td>
+      <td>0.000000</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>98.486428</td>
+      <td>-8.702807e-01</td>
+      <td>0.096271</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>98.967811</td>
+      <td>1.341025e-16</td>
+      <td>0.000000</td>
+      <td>A</td>
+      <td>X</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>104.105985</td>
+      <td>-1.850085e+00</td>
+      <td>0.326035</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Normalization</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]])</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target</th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X3</th>
+      <th>X4</th>
+      <th>X5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>117.640523</td>
+      <td>0.425070</td>
+      <td>0.000000</td>
+      <td>A</td>
+      <td>X</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>104.001572</td>
+      <td>0.983048</td>
+      <td>1.000000</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>109.787380</td>
+      <td>0.521825</td>
+      <td>0.472342</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>122.408932</td>
+      <td>0.415544</td>
+      <td>0.504751</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>118.675580</td>
+      <td>0.552752</td>
+      <td>0.151254</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>90.227221</td>
+      <td>0.521825</td>
+      <td>0.787306</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>109.500884</td>
+      <td>1.000000</td>
+      <td>0.504751</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>98.486428</td>
+      <td>0.276358</td>
+      <td>0.530478</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>98.967811</td>
+      <td>0.521825</td>
+      <td>0.504751</td>
+      <td>A</td>
+      <td>X</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>104.105985</td>
+      <td>0.000000</td>
+      <td>0.591879</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="encoding">
+<h3>Encoding<a class="headerlink" href="#encoding" title="Permalink to this heading">#</a></h3>
+<p><strong>Binarization</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Binarizer</span>
+
+<span class="n">binarizer</span> <span class="o">=</span> <span class="n">Binarizer</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">binarizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">]])</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\sklearn\base.py:458: UserWarning: X has feature names, but Binarizer was fitted without feature names
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target</th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X3</th>
+      <th>X4</th>
+      <th>X5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>117.640523</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>A</td>
+      <td>X</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>104.001572</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>109.787380</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>A</td>
+      <td>Y</td>
+      <td>medium</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>122.408932</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>118.675580</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>B</td>
+      <td>Y</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>90.227221</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>109.500884</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>high</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>98.486428</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>A</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>98.967811</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>A</td>
+      <td>X</td>
+      <td>low</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>104.105985</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>B</td>
+      <td>Z</td>
+      <td>low</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>One-Hot</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="n">data_encoded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">]]),</span>
+                            <span class="n">columns</span><span class="o">=</span><span class="n">encoder</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">([</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">]))</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">]),</span> <span class="n">data_encoded</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target</th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X5</th>
+      <th>X3_B</th>
+      <th>X4_Y</th>
+      <th>X4_Z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>117.640523</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>medium</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>104.001572</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>low</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>109.787380</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>medium</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>122.408932</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>high</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>118.675580</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>low</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>90.227221</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>low</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>109.500884</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>high</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>98.486428</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>low</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>98.967811</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>low</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>104.105985</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>low</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Ordinal Encoder</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span>
+
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">]])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;X5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;X5&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target</th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X5</th>
+      <th>X3_B</th>
+      <th>X4_Y</th>
+      <th>X4_Z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>117.640523</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>104.001572</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>109.787380</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>122.408932</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>118.675580</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>90.227221</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>109.500884</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>98.486428</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>98.967811</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>104.105985</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="train-test-split">
+<h3>Train-Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Target&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="model-development-predictions">
+<h2>Model Development &amp; Predictions<a class="headerlink" href="#model-development-predictions" title="Permalink to this heading">#</a></h2>
+<p><strong>Regression</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Model</p></th>
+<th class="head text-center"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Linear</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">LinearRegression</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Poisson</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">PoissonRegressor</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Gamma</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">GammaRegressor</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Ridge</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">Ridge</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Lasso</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">Lasso</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Elastic Net</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">ElasticNet</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>K-Nearest Neighbors Regression (KNN)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.neighbors</span> <span class="pre">import</span> <span class="pre">KNeighborsRegressor</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Support Vector Regression (SVR)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.svm</span> <span class="pre">import</span> <span class="pre">SVR</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Decision Tree Regression</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.tree</span> <span class="pre">import</span> <span class="pre">DecisionTreeRegressor</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Random Forest</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.ensemble</span> <span class="pre">import</span> <span class="pre">RandomForestRegressor</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Ada-Boost</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.ensemble</span> <span class="pre">import</span> <span class="pre">AdaBoostRegressor</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>XG-Boost</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">xgboost</span> <span class="pre">import</span> <span class="pre">XGBRegressor</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Classification</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Model</p></th>
+<th class="head text-center"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Logistic Regression</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">LogisticRegression</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Binary Naive Bayes</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.naive_bayes</span> <span class="pre">import</span> <span class="pre">BernoulliNB</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Multinomial Naive Bayes</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.naive_bayes</span> <span class="pre">import</span> <span class="pre">MultinomialNB</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Ridge</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">RidgeClassifier</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Lasso</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">LogisticRegression</span></code> with <code class="docutils literal notranslate"><span class="pre">penalty='l1',</span> <span class="pre">solver='liblinear'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>ElasticNet</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">LogisticRegression</span></code> with <code class="docutils literal notranslate"><span class="pre">penalty='elasticnet',</span> <span class="pre">solver='saga',</span> <span class="pre">l1_ratio=0.5</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>K-Nearest Neighbors (KNN)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.neighbors</span> <span class="pre">import</span> <span class="pre">KNeighborsClassifier</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Support Vector Machine (SVM)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.svm</span> <span class="pre">import</span> <span class="pre">SVC</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Decision Tree</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.tree</span> <span class="pre">import</span> <span class="pre">DecisionTreeClassifier</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Random Forest</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.ensemble</span> <span class="pre">import</span> <span class="pre">RandomForestClassifier</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Ada-Boost</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.ensemble</span> <span class="pre">import</span> <span class="pre">AdaBoostClassifier</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>XG-Boost</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">xgboost</span> <span class="pre">import</span> <span class="pre">XGBClassifier</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Clustering</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Model</p></th>
+<th class="head text-center"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Agglomerative Hierarchical Clustering</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.cluster</span> <span class="pre">import</span> <span class="pre">AgglomerativeClustering</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>K-Means</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.cluster</span> <span class="pre">import</span> <span class="pre">KMeans</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Gaussian Mixture Model (GMM)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.mixture</span> <span class="pre">import</span> <span class="pre">GaussianMixture</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>DBSCAN</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.cluster</span> <span class="pre">import</span> <span class="pre">DBSCAN</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dimensionality Reduction</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Model</p></th>
+<th class="head text-center"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Principal Component Analysis (PCA)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.decomposition</span> <span class="pre">import</span> <span class="pre">PCA</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Factor Analysis</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.decomposition</span> <span class="pre">import</span> <span class="pre">FactorAnalysis</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>t-SNE</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.manifold</span> <span class="pre">import</span> <span class="pre">TSNE</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Truncated SVD</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.decomposition</span> <span class="pre">import</span> <span class="pre">TruncatedSVD</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsRegressor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-evaluation">
+<h2>Model  Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this heading">#</a></h2>
+<p><strong>Regression</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Metric</p></th>
+<th class="head text-center"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Mean Squared Error (MSE)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">mean_squared_error</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Mean Absolute Error (MAE)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">mean_absolute_error</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Coefficient of Determination (R²)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">r2_score</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Classification</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Metric</p></th>
+<th class="head text-center"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Accuracy</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">accuracy_score</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Precision</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">precision_score</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Recall</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">recall_score</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>F1-Score</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">f1_score</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Classification Report</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">classification_report</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Confusion Matrix</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">confusion_matrix</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>AUC &amp; ROC</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">roc_auc_score</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Clustering</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Metric</p></th>
+<th class="head text-center"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Adjusted Rand Index (ARI)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">adjusted_rand_score</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Homogeneity Score</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">homogeneity_score</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Silhouette Score</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">silhouette_score</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+<span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Squared Error (MSE): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mse</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Root Mean Squared Error (RMSE): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">rmse</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Absolute Error (MAE): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mae</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R-squared: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error (MSE): 8.86
+Root Mean Squared Error (RMSE): 2.98
+Mean Absolute Error (MAE): 2.47
+R-squared: 0.697
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+
+<span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">mse_train</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">)</span>
+
+<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="n">cv_mse</span> <span class="o">=</span> <span class="o">-</span><span class="n">cv_scores</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Train MSE: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mse_train</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cross-Validation MSE: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">cv_mse</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test MSE: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mse</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train MSE: 58.82
+Cross-Validation MSE: 75.43
+Test MSE: 8.86
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-tuning">
+<h2>Model Tuning<a class="headerlink" href="#model-tuning" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;weights&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;metric&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="s1">&#39;manhattan&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Migliori parametri:&quot;</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+
+<span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">mse_train</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">)</span>
+
+<span class="n">best_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">best_model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="n">cv_mse</span> <span class="o">=</span> <span class="o">-</span><span class="n">cv_scores</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Train MSE: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mse_train</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cross-Validation MSE: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">cv_mse</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test MSE: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mse</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Migliori parametri: {&#39;metric&#39;: &#39;manhattan&#39;, &#39;n_neighbors&#39;: 2, &#39;weights&#39;: &#39;uniform&#39;}
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Migliori parametri:&quot;</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">mse_train</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">best_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="ne">NameError</span>: name &#39;best_model&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
+
+<span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;weights&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;metric&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="s1">&#39;manhattan&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">random_search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">param_distributions</span><span class="o">=</span><span class="n">param_dist</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">random_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best parameters:&quot;</span><span class="p">,</span> <span class="n">random_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+
+<span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">mse_train</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">)</span>
+
+<span class="n">best_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">best_model</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">)</span>
+<span class="n">cv_mse</span> <span class="o">=</span> <span class="o">-</span><span class="n">cv_scores</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Train MSE: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mse_train</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cross-Validation MSE: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">cv_mse</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Test MSE: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mse</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1.4%20python-matplotlib.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Matplotlib</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2.1%20problem_definition.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-processing">Pre-Processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data">Missing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling">Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding">Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train-Test Split</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-development-predictions">Model Development &amp; Predictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">Model  Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tuning">Model Tuning</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Romeo Silvestri
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
