@@ -1,0 +1,59 @@
+Traceback (most recent call last):
+  File "C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\nbclient\client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\jupyter_core\utils\__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\asyncio\base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\nbclient\client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\nbclient\client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\nbclient\client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {
+    'n_neighbors': [2, 3, 4, 5],
+    'weights': ['uniform', 'distance'],
+    'metric': ['euclidean', 'manhattan']
+}
+
+grid_search = GridSearchCV(model, param_grid, cv=5, scoring='neg_mean_squared_error')
+grid_search.fit(X_train, y_train)
+print("Migliori parametri:", grid_search.best_params_)
+
+y_train_pred = best_model.predict(X_train)
+mse_train = mean_squared_error(y_train, y_train_pred)
+
+best_model = grid_search.best_estimator_
+cv_scores = cross_val_score(best_model, X_train, y_train, cv=5, scoring='neg_mean_squared_error')
+cv_mse = -cv_scores
+
+y_pred = grid_search.predict(X_test)
+mse = mean_squared_error(y_test, y_pred)
+
+print(f'Train MSE: {round(mse_train, 2)}')
+print(f'Cross-Validation MSE: {round(cv_mse.mean(), 2)}')
+print(f'Test MSE: {round(mse, 2)}')
+------------------
+
+----- stdout -----
+Migliori parametri: {'metric': 'manhattan', 'n_neighbors': 2, 'weights': 'uniform'}
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mNameError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[12], line 13[0m
+[0;32m     10[0m grid_search[38;5;241m.[39mfit(X_train, y_train)
+[0;32m     11[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mMigliori parametri:[39m[38;5;124m"[39m, grid_search[38;5;241m.[39mbest_params_)
+[1;32m---> 13[0m y_train_pred [38;5;241m=[39m [43mbest_model[49m[38;5;241m.[39mpredict(X_train)
+[0;32m     14[0m mse_train [38;5;241m=[39m mean_squared_error(y_train, y_train_pred)
+[0;32m     16[0m best_model [38;5;241m=[39m grid_search[38;5;241m.[39mbest_estimator_
+
+[1;31mNameError[0m: name 'best_model' is not defined
+
