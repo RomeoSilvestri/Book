@@ -14,7 +14,7 @@ kernelspec:
 
 # Scikit-Learn
 
-![](images/scikit-learn.png)
+<img src="images/scikit-learn.png" width="800" height="400"/>
 
 Scikit-learn is a machine learning library in Python that provides simple and efficient tools for data analysis and modeling. It includes various modules for tasks such as regression, classification, clustering, dimensionality reduction, and model selection. The library emphasizes ease of use, high performance, and an extensive set of algorithms, making it a popular choice for both beginners and experienced practitioners in the field of machine learning.
 
