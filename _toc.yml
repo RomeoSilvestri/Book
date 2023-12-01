@@ -2,16 +2,21 @@ format: jb-book
 root: README
 
 parts:
-  - caption: Programming Basics
-    chapters:
-    - file: chapters/1.1 python-basics
-    - file: chapters/1.2 python-numpy
-    - file: chapters/1.3 python-pandas
-    - file: chapters/1.4 python-matplotlib
-    - file: chapters/scikit-learn
   - caption: Problem Definition
     chapters:
-    - file: chapters/2.1 problem_definition
-    - file: chapters/2.2 problem_identification
-    - file: chapters/2.3 project_objective
-    - file: chapters/2.4 metrics
+    - file: chapters/chapter_1/1_overview
+    - file: chapters/chapter_1/2_python_basics
+    - file: chapters/chapter_1/3_problem_identification
+    - file: chapters/chapter_1/4_project_objective
+    - file: chapters/chapter_1/5_metrics
+  - caption: Data Pre-Processing
+    chapters:
+    - file: chapters/chapter_3/2_python_numpy
+    - file: chapters/chapter_3/3_python_pandas
+  - caption: Exploratory Data Analysis (EDA)
+    chapters:
+    - file: chapters/chapter_4/2_python_matplotlib
+  - caption: Model Development
+    chapters:
+    - file: chapters/chapter_5/2_python_statsmodels
+    - file: chapters/chapter_5/3_python_scikit-learn
