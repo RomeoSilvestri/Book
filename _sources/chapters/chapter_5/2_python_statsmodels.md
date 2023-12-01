@@ -35,6 +35,8 @@ data = pd.DataFrame({
     'X3': np.random.choice(['A', 'B'], 10)
 })
 
+data = pd.get_dummies(data, columns=['X3'], drop_first=True)
+
 data
 ```
 
