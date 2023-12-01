@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Problem Identification &#8212; The Data Science Odyssey</title>
+    <title>Metrics &#8212; The Data Science Odyssey</title>
   
   
   
@@ -19,56 +19,56 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/2.2 problem_identification';</script>
-    <link rel="canonical" href="https://romeosilvestri.github.io/Data_Science-Book/.html/chapters/2.2 problem_identification.html" />
-    <link rel="shortcut icon" href="../_static/logo.png"/>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Project Objective" href="2.3%20project_objective.html" />
-    <link rel="prev" title="Overview" href="2.1%20problem_definition.html" />
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter_1/5_metrics';</script>
+    <link rel="canonical" href="https://romeosilvestri.github.io/Data_Science-Book/.html/chapters/chapter_1/5_metrics.html" />
+    <link rel="shortcut icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Numpy" href="../chapter_3/2_python_numpy.html" />
+    <link rel="prev" title="Project Objective" href="4_project_objective.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -105,7 +105,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../search.html"
+      action="../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="../README.html">
+<a class="navbar-brand logo" href="../../README.html">
   
   
   
@@ -154,8 +154,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="The Data Science Odyssey - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="The Data Science Odyssey - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="The Data Science Odyssey - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="The Data Science Odyssey - Home"/>`);</script>
   
   
 </a></div>
@@ -164,25 +164,32 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../README.html">
+                <a class="reference internal" href="../../README.html">
                     The Data Science Odyssey
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programming Basics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1.1%20python-basics.html">Python - Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1.2%20python-numpy.html">Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1.3%20python-pandas.html">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1.4%20python-matplotlib.html">Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scikit-learn.html">Scikit-Learn</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Definition</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Definition</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="2.1%20problem_definition.html">Overview</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Problem Identification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.3%20project_objective.html">Project Objective</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.4%20metrics.html">Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_python_basics.html">Python - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_problem_identification.html">Problem Identification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_project_objective.html">Project Objective</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Metrics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Pre-Processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3/2_python_numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3/3_python_pandas.html">Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory Data Analysis (EDA)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4/2_python_matplotlib.html">Matplotlib</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5/2_python_statsmodels.html">Statsmodels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5/3_python_scikit-learn.html">Scikit-Learn</a></li>
 </ul>
 
     </div>
@@ -252,7 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/chapters/2.2 problem_identification.md" target="_blank"
+      <li><a href="../../_sources/chapters/chapter_1/5_metrics.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +339,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Problem Identification</h1>
+    <h1>Metrics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -346,22 +353,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="problem-identification">
-<h1>Problem Identification<a class="headerlink" href="#problem-identification" title="Permalink to this heading">#</a></h1>
-<p>In the realm of data science, the identification of the problem is the cornerstone of a successful project. This phase demands a meticulous examination of the business context, a deep understanding of stakeholder needs, and a keen awareness of the challenges at hand. Let’s delve into the key components of problem identification:</p>
-<p><strong>Contextual Understanding</strong></p>
-<p>Before embarking on the data science journey, it is imperative to grasp the intricacies of the problem within its broader business context. This involves close collaboration with domain experts, business decision-makers, and relevant stakeholders.</p>
-<p><em>In the case of predicting residential property prices in Madrid, understanding the real estate market, local economic factors, and the specific concerns of buyers and sellers is crucial. This contextual understanding lays the groundwork for framing the problem in a way that aligns with the overarching business objectives.</em></p>
-<p><strong>Stakeholder Involvement</strong></p>
-<p>Stakeholder engagement is not just a procedural step; it’s a vital element that ensures the problem is defined from diverse perspectives. The data science team must actively seek input from those who will ultimately use the insights generated.</p>
-<p><em>For the Madrid property price prediction project, involving real estate agents, property developers, and potential buyers/sellers ensures a comprehensive view of the problem. These stakeholders can provide valuable insights into the nuances of property valuation and the factors that influence buying decisions.</em></p>
-<p><strong>Problem Formulation</strong></p>
-<p>With a rich contextual understanding and stakeholder insights, the next step is to formulate the problem with precision. Ambiguities at this stage can lead to misguided analysis and, consequently, flawed solutions.</p>
-<p><em>In our example, the problem is precisely defined as developing a predictive model for estimating residential property prices in different neighborhoods of Madrid. This clarity is essential for the subsequent phases of the data science lifecycle.</em></p>
-<p><strong>Importance of Clear Problem Definition</strong></p>
-<p>The clarity attained in the problem identification phase serves as a guiding light throughout the project. It minimizes the risk of “solutioning” before fully understanding the problem, a common pitfall in data science projects. Moreover, a well-defined problem allows for the establishment of relevant metrics and objectives, ensuring that the project remains focused on delivering tangible value.</p>
-<p><strong>Iterative Nature of Problem Identification</strong></p>
-<p>It’s important to note that problem identification is not a one-time activity. As the project progresses, new insights may emerge, requiring a reassessment of the initial problem statement. Regular communication with stakeholders and continuous refinement of the problem definition ensure that the data science team remains aligned with the evolving needs of the business.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="metrics">
+<h1>Metrics<a class="headerlink" href="#metrics" title="Permalink to this heading">#</a></h1>
+<p>With the problem identified and project objectives determined, the next critical phase in the data science lifecycle is the specification of project evaluation metrics. These metrics serve as the yardsticks by which the success of the project is measured and provide a quantitative assessment of how well the objectives are met. Let’s delve into the key components of specifying project evaluation metrics:</p>
+<p><strong>Alignment with Objectives</strong></p>
+<p>The chosen evaluation metrics must align closely with the project objectives. In the case of predicting residential property prices in Madrid, where the primary objective is to minimize prediction error, the selected metrics should effectively quantify the accuracy and precision of the predictive models.</p>
+<p><strong>Quantifiable Measures</strong> and <strong>Business Relevance</strong></p>
+<p>Evaluation metrics should be quantifiable and provide a clear measure of the model’s performance. Evaluation metrics should not only be technically sound but also relevant to the business context. In the real estate market example, the selected metrics directly relate to the accuracy of property price predictions, a critical factor for both buyers and sellers in making informed decisions. For our example, two commonly used metrics are the MSE and the MAE.</p>
+<p><strong>Comprehensive and Dynamic View of Performance</strong></p>
+<p>The combination of MSE and MAE provides a comprehensive view of the model’s performance. MSE penalizes larger errors more heavily, while MAE provides a more straightforward measure of average prediction accuracy. Together, they offer insights into different aspects of the model’s predictive capabilities. The choice of evaluation metrics may evolve as the project progresses. It’s essential to remain flexible and adapt metrics based on the evolving needs of the project or new insights gained during the analysis.</p>
+<p><strong>Communication of Metrics</strong></p>
+<p>Clear communication of the selected evaluation metrics to all stakeholders is vital. This ensures that everyone involved has a shared understanding of how success will be measured and what specific aspects of model performance are most critical.</p>
+<p><strong>Continuous Monitoring</strong></p>
+<p>Project evaluation is not a one-time activity. Continuous monitoring of the selected metrics throughout the project allows for early detection of issues and timely adjustments to improve model performance.</p>
+<p>In conclusion, the specification of project evaluation metrics is a strategic step that ensures the project remains on track towards achieving its objectives. By aligning metrics with project goals, making them quantifiable and relevant, and establishing clear thresholds for success, the project team can systematically assess and improve the performance of predictive models.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -377,7 +382,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./chapters"
+            path: "./chapters\chapter_1"
         },
         predefinedOutput: true
     }
@@ -395,20 +400,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="2.1%20problem_definition.html"
+       href="4_project_objective.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Overview</p>
+        <p class="prev-next-title">Project Objective</p>
       </div>
     </a>
     <a class="right-next"
-       href="2.3%20project_objective.html"
+       href="../chapter_3/2_python_numpy.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Project Objective</p>
+        <p class="prev-next-title">Numpy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -461,8 +466,8 @@ By Romeo Silvestri
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
