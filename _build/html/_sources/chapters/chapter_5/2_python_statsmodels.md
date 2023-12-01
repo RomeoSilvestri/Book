@@ -14,7 +14,7 @@ kernelspec:
 
 # Statsmodels
 
-![](images/statsmodeld.png)
+![](images/statsmodels.png)
 
 Statsmodels provides statistical models and tools for data analysis. It is designed to support the estimation and testing of statistical models in various contexts, including econometrics, linear and non-linear regression, time series analysis, and more. The library is divided into different modules that cover a wide range of statistical techniques and allows users to perform hypothesis testing, statistical modeling, and exploration of relationships within datasets. 
 

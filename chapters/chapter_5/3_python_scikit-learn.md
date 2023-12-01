@@ -267,16 +267,17 @@ param_grid = {
 
 grid_search = GridSearchCV(model, param_grid, cv=5, scoring='neg_mean_squared_error')
 grid_search.fit(X_train, y_train)
-print("Migliori parametri:", grid_search.best_params_)
+best_model = grid_search.best_estimator_
+best_parameters = grid_search.best_params_
+print('Best Parameters:', best_parameters)
 
 y_train_pred = best_model.predict(X_train)
 mse_train = mean_squared_error(y_train, y_train_pred)
 
-best_model = grid_search.best_estimator_
 cv_scores = cross_val_score(best_model, X_train, y_train, cv=5, scoring='neg_mean_squared_error')
 cv_mse = -cv_scores
 
-y_pred = grid_search.predict(X_test)
+y_pred = best_model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 
 print(f'Train MSE: {round(mse_train, 2)}')
@@ -295,16 +296,17 @@ param_dist = {
 
 random_search = RandomizedSearchCV(model, param_distributions=param_dist, n_iter=10, cv=5, scoring='neg_mean_squared_error', random_state=0)
 random_search.fit(X_train, y_train)
-print("Best parameters:", random_search.best_params_)
+best_model = random_search.best_estimator_
+best_parameters = random_search.best_params_
+print('Best parameters:', best_parameters)
 
 y_train_pred = best_model.predict(X_train)
 mse_train = mean_squared_error(y_train, y_train_pred)
 
-best_model = grid_search.best_estimator_
 cv_scores = cross_val_score(best_model, X_train, y_train, cv=5, scoring='neg_mean_squared_error')
 cv_mse = -cv_scores
 
-y_pred = grid_search.predict(X_test)
+y_pred = best_model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 
 print(f'Train MSE: {round(mse_train, 2)}')
