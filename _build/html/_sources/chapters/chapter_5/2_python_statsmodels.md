@@ -22,9 +22,21 @@ Statsmodels provides statistical models and tools for data analysis. It is desig
 import statsmodels.api as sm
 ```
 
-## Tests
+```{code-cell}
+import numpy as np
+import pandas as pd
 
-**ANOVA test**
+np.random.seed(0)
+
+data = pd.DataFrame({
+    'Target': np.random.normal(100, 10, 10),
+    'X1': np.random.normal(0, 5, 10),
+    'X2': np.random.uniform(0, 100, 10),
+    'X3': np.random.choice(['A', 'B'], 10)
+})
+
+data
+```
 
 ## Regression & Classification
 
@@ -41,15 +53,25 @@ import statsmodels.api as sm
 | Quantile Regression | `sm.QuantReg` |
 
 
+```{code-cell}
+model = sm.OLS(data['Target'], data[['X1', 'X2', 'X3']])
+model.fit()
+
+model.summary()
+```
+
+
 ## ANOVA & ANCOVA
 
 **ANOVA**
 ```{code-cell}
 from statsmodels.formula.api import ols
 
-model = ols( ~ , data=data)
+model = ols('Target ~ X3', data=data)
 model.fit()
-model.summary()
+
+anova_table = sm.stats.anova_lm(model, typ=2)
+anova_table
 ```
 
 **ANCOVA**
@@ -57,9 +79,11 @@ cambia solo in ols
 ```{code-cell}
 from statsmodels.formula.api import ols
 
-model = ols( ~ , data=data)
+model = ols('Target ~ X1 + X2 + X3', data=data)
 model.fit()
-model.summary()
+
+anova_table = sm.stats.anova_lm(model, typ=2)
+anova_table
 ```
 
 ## Time Series
@@ -71,4 +95,22 @@ model.summary()
 
 ## Panel Data
 
+
+## Tests
+
+| Category | Type | Function |
+| :------: | :--: | :------: | 
+| ANOVA & ANCOVA    |                        | `sm.stats.anova_lm`         |
+| Autocorrelation   | Ljung-Box              | `sm.stats.diagnostic.acorr_ljungbox` |
+| Homoschedasticity | Breusch–Pagan          | `sm.stats.het_breuschpagan` |
+|                   | White                  | `sm.stats.het_white`        |
+| Normality         | D'Agostino-Pearson     | `sm.stats.normaltest`       |
+|                   | Kolmogorov-Smirnov     | `sm.stats.kstest`           |
+|                   | Shapiro-Wilk           | `sm.stats.shapiro`          |
+| Parameter Values  | Likelihood Ratio       | `compare_lr_test`           |
+|                   | Lagrange Multipliers   | `score_test`                |
+|                   | Wald                   | `wald_test`                 |
+| Seasonality       | Kwiatkowski-Phillips-Schmidt-Shin (KPSS) | `sm.tsa.kpss` |
+| Stationarity      | Dickey-Fuller (ADF)    | `sm.tsa.stattools.adfuller` |
+| Time Series Causality | Granger            | `sm.tsa.stattools.grangercausalitytests` |
 

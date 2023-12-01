@@ -351,7 +351,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-classification">Regression &amp; Classification</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova-ancova">ANOVA &amp; ANCOVA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">Time Series</a><ul class="nav section-nav flex-column">
@@ -361,6 +360,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-data">Panel Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests</a></li>
 </ul>
             </nav>
         </div>
@@ -383,10 +383,124 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="tests">
-<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this heading">#</a></h2>
-<p><strong>ANOVA test</strong></p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Target&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;X1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;X2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;X3&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target</th>
+      <th>X1</th>
+      <th>X2</th>
+      <th>X3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>117.640523</td>
+      <td>0.720218</td>
+      <td>14.335329</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>104.001572</td>
+      <td>7.271368</td>
+      <td>94.466892</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>109.787380</td>
+      <td>3.805189</td>
+      <td>52.184832</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>122.408932</td>
+      <td>0.608375</td>
+      <td>41.466194</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>118.675580</td>
+      <td>2.219316</td>
+      <td>26.455561</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>90.227221</td>
+      <td>1.668372</td>
+      <td>77.423369</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>109.500884</td>
+      <td>7.470395</td>
+      <td>45.615033</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>98.486428</td>
+      <td>-1.025791</td>
+      <td>56.843395</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>98.967811</td>
+      <td>1.565339</td>
+      <td>1.878980</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>104.105985</td>
+      <td>-4.270479</td>
+      <td>61.763550</td>
+      <td>B</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <section id="regression-classification">
 <h2>Regression &amp; Classification<a class="headerlink" href="#regression-classification" title="Permalink to this heading">#</a></h2>
 <table class="table">
@@ -425,6 +539,90 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="s1">&#39;X3&#39;</span><span class="p">]])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="s1">&#39;X3&#39;</span><span class="p">]])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\regression\linear_model.py:922,</span> in <span class="ni">OLS.__init__</span><span class="nt">(self, endog, exog, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">919</span>     <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Weights are not supported in OLS and will be ignored&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">920</span>            <span class="s2">&quot;An exception will be raised in the next version.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">921</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">ValueWarning</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">922</span> <span class="nb">super</span><span class="p">(</span><span class="n">OLS</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">923</span>                           <span class="n">hasconst</span><span class="o">=</span><span class="n">hasconst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">924</span> <span class="k">if</span> <span class="s2">&quot;weights&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_keys</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">925</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_init_keys</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;weights&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\regression\linear_model.py:748,</span> in <span class="ni">WLS.__init__</span><span class="nt">(self, endog, exog, weights, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">746</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span>     <span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">748</span> <span class="nb">super</span><span class="p">(</span><span class="n">WLS</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">749</span>                           <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">hasconst</span><span class="o">=</span><span class="n">hasconst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">750</span> <span class="n">nobs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">751</span> <span class="n">weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\regression\linear_model.py:202,</span> in <span class="ni">RegressionModel.__init__</span><span class="nt">(self, endog, exog, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">202</span>     <span class="nb">super</span><span class="p">(</span><span class="n">RegressionModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span>     <span class="bp">self</span><span class="o">.</span><span class="n">pinv_wexog</span><span class="p">:</span> <span class="n">Float64Array</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_data_attr</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;pinv_wexog&#39;</span><span class="p">,</span> <span class="s1">&#39;wendog&#39;</span><span class="p">,</span> <span class="s1">&#39;wexog&#39;</span><span class="p">,</span> <span class="s1">&#39;weights&#39;</span><span class="p">])</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\model.py:270,</span> in <span class="ni">LikelihoodModel.__init__</span><span class="nt">(self, endog, exog, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">270</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>     <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\model.py:95,</span> in <span class="ni">Model.__init__</span><span class="nt">(self, endog, exog, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="n">missing</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;missing&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="n">hasconst</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;hasconst&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">95</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_data</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="p">,</span> <span class="n">hasconst</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>                               <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_constant</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">k_constant</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">exog</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\model.py:135,</span> in <span class="ni">Model._handle_data</span><span class="nt">(self, endog, exog, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">def</span> <span class="nf">_handle_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="p">,</span> <span class="n">hasconst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">135</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">handle_data</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="p">,</span> <span class="n">hasconst</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>     <span class="c1"># kwargs arrays could have changed, easier to just attach here</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\data.py:675,</span> in <span class="ni">handle_data</span><span class="nt">(endog, exog, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="n">exog</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">exog</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span> <span class="n">klass</span> <span class="o">=</span> <span class="n">handle_data_class_factory</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">675</span> <span class="k">return</span> <span class="n">klass</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">exog</span><span class="p">,</span> <span class="n">missing</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">hasconst</span><span class="o">=</span><span class="n">hasconst</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">676</span>              <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\data.py:84,</span> in <span class="ni">ModelData.__init__</span><span class="nt">(self, endog, exog, missing, hasconst, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="bp">self</span><span class="o">.</span><span class="n">orig_endog</span> <span class="o">=</span> <span class="n">endog</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>     <span class="bp">self</span><span class="o">.</span><span class="n">orig_exog</span> <span class="o">=</span> <span class="n">exog</span>
+<span class="ne">---&gt; </span><span class="mi">84</span>     <span class="bp">self</span><span class="o">.</span><span class="n">endog</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_endog_exog</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="bp">self</span><span class="o">.</span><span class="n">const_idx</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_constant</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\data.py:509,</span> in <span class="ni">PandasData._convert_endog_exog</span><span class="nt">(self, endog, exog)</span>
+<span class="g g-Whitespace">    </span><span class="mi">507</span> <span class="n">exog</span> <span class="o">=</span> <span class="n">exog</span> <span class="k">if</span> <span class="n">exog</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">exog</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">508</span> <span class="k">if</span> <span class="n">endog</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span> <span class="ow">or</span> <span class="n">exog</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">exog</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">509</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Pandas data cast to numpy dtype of object. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">510</span>                      <span class="s2">&quot;Check input data with np.asarray(data).&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span> <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">PandasData</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_convert_endog_exog</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="n">exog</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: Pandas data cast to numpy dtype of object. Check input data with np.asarray(data).
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="anova-ancova">
 <h2>ANOVA &amp; ANCOVA<a class="headerlink" href="#anova-ancova" title="Permalink to this heading">#</a></h2>
@@ -433,17 +631,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span> <span class="o">~</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Target ~ X3&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span> <span class="o">~</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-                   <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+
+<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">anova_table</span>
 </pre></div>
 </div>
 </div>
@@ -454,9 +646,11 @@ cambia solo in ols</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span> <span class="o">~</span> <span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Target ~ X1 + X2 + X3&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">anova_table</span>
 </pre></div>
 </div>
 </div>
@@ -476,6 +670,71 @@ cambia solo in ols</p>
 </section>
 <section id="panel-data">
 <h2>Panel Data<a class="headerlink" href="#panel-data" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Category</p></th>
+<th class="head text-center"><p>Type</p></th>
+<th class="head text-center"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>ANOVA &amp; ANCOVA</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.stats.anova_lm</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Autocorrelation</p></td>
+<td class="text-center"><p>Ljung-Box</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.stats.diagnostic.acorr_ljungbox</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Homoschedasticity</p></td>
+<td class="text-center"><p>Breusch–Pagan</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.stats.het_breuschpagan</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>White</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.stats.het_white</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Normality</p></td>
+<td class="text-center"><p>D’Agostino-Pearson</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.stats.normaltest</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Kolmogorov-Smirnov</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.stats.kstest</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Shapiro-Wilk</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.stats.shapiro</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Parameter Values</p></td>
+<td class="text-center"><p>Likelihood Ratio</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">compare_lr_test</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Lagrange Multipliers</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">score_test</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Wald</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">wald_test</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Seasonality</p></td>
+<td class="text-center"><p>Kwiatkowski-Phillips-Schmidt-Shin (KPSS)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.tsa.kpss</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Stationarity</p></td>
+<td class="text-center"><p>Dickey-Fuller (ADF)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.tsa.stattools.adfuller</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Time Series Causality</p></td>
+<td class="text-center"><p>Granger</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">sm.tsa.stattools.grangercausalitytests</span></code></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 
@@ -542,7 +801,6 @@ cambia solo in ols</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-classification">Regression &amp; Classification</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova-ancova">ANOVA &amp; ANCOVA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">Time Series</a><ul class="nav section-nav flex-column">
@@ -552,6 +810,7 @@ cambia solo in ols</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#panel-data">Panel Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">Tests</a></li>
 </ul>
   </nav></div>
 
