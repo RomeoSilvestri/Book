@@ -15,17 +15,81 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from statsmodels.formula.api import ols
-
-model = ols( ~ , data=data)
+model = sm.OLS(data['Target'], data[['X1', 'X2', 'X3']])
 model.fit()
+
 model.summary()
 ------------------
 
 
-[1;36m  Cell [1;32mIn[2], line 3[1;36m[0m
-[1;33m    model = ols( ~ , data=data)[0m
-[1;37m                   ^[0m
-[1;31mSyntaxError[0m[1;31m:[0m invalid syntax
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+Cell [1;32mIn[3], line 1[0m
+[1;32m----> 1[0m model [38;5;241m=[39m [43msm[49m[38;5;241;43m.[39;49m[43mOLS[49m[43m([49m[43mdata[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mTarget[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m[43m [49m[43mdata[49m[43m[[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mX1[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mX2[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mX3[39;49m[38;5;124;43m'[39;49m[43m][49m[43m][49m[43m)[49m
+[0;32m      2[0m model[38;5;241m.[39mfit()
+[0;32m      4[0m model[38;5;241m.[39msummary()
 
+File [1;32m~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\regression\linear_model.py:922[0m, in [0;36mOLS.__init__[1;34m(self, endog, exog, missing, hasconst, **kwargs)[0m
+[0;32m    919[0m     msg [38;5;241m=[39m ([38;5;124m"[39m[38;5;124mWeights are not supported in OLS and will be ignored[39m[38;5;124m"[39m
+[0;32m    920[0m            [38;5;124m"[39m[38;5;124mAn exception will be raised in the next version.[39m[38;5;124m"[39m)
+[0;32m    921[0m     warnings[38;5;241m.[39mwarn(msg, ValueWarning)
+[1;32m--> 922[0m [38;5;28;43msuper[39;49m[43m([49m[43mOLS[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m)[49m[38;5;241;43m.[39;49m[38;5;21;43m__init__[39;49m[43m([49m[43mendog[49m[43m,[49m[43m [49m[43mexog[49m[43m,[49m[43m [49m[43mmissing[49m[38;5;241;43m=[39;49m[43mmissing[49m[43m,[49m
+[0;32m    923[0m [43m                          [49m[43mhasconst[49m[38;5;241;43m=[39;49m[43mhasconst[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[0;32m    924[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mweights[39m[38;5;124m"[39m [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39m_init_keys:
+[0;32m    925[0m     [38;5;28mself[39m[38;5;241m.[39m_init_keys[38;5;241m.[39mremove([38;5;124m"[39m[38;5;124mweights[39m[38;5;124m"[39m)
+
+File [1;32m~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\regression\linear_model.py:748[0m, in [0;36mWLS.__init__[1;34m(self, endog, exog, weights, missing, hasconst, **kwargs)[0m
+[0;32m    746[0m [38;5;28;01melse[39;00m:
+[0;32m    747[0m     weights [38;5;241m=[39m weights[38;5;241m.[39msqueeze()
+[1;32m--> 748[0m [38;5;28;43msuper[39;49m[43m([49m[43mWLS[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m)[49m[38;5;241;43m.[39;49m[38;5;21;43m__init__[39;49m[43m([49m[43mendog[49m[43m,[49m[43m [49m[43mexog[49m[43m,[49m[43m [49m[43mmissing[49m[38;5;241;43m=[39;49m[43mmissing[49m[43m,[49m
+[0;32m    749[0m [43m                          [49m[43mweights[49m[38;5;241;43m=[39;49m[43mweights[49m[43m,[49m[43m [49m[43mhasconst[49m[38;5;241;43m=[39;49m[43mhasconst[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[0;32m    750[0m nobs [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mexog[38;5;241m.[39mshape[[38;5;241m0[39m]
+[0;32m    751[0m weights [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mweights
+
+File [1;32m~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\regression\linear_model.py:202[0m, in [0;36mRegressionModel.__init__[1;34m(self, endog, exog, **kwargs)[0m
+[0;32m    201[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m([38;5;28mself[39m, endog, exog, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[1;32m--> 202[0m     [38;5;28;43msuper[39;49m[43m([49m[43mRegressionModel[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m)[49m[38;5;241;43m.[39;49m[38;5;21;43m__init__[39;49m[43m([49m[43mendog[49m[43m,[49m[43m [49m[43mexog[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[0;32m    203[0m     [38;5;28mself[39m[38;5;241m.[39mpinv_wexog: Float64Array [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[0;32m    204[0m     [38;5;28mself[39m[38;5;241m.[39m_data_attr[38;5;241m.[39mextend([[38;5;124m'[39m[38;5;124mpinv_wexog[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mwendog[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mwexog[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mweights[39m[38;5;124m'[39m])
+
+File [1;32m~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\model.py:270[0m, in [0;36mLikelihoodModel.__init__[1;34m(self, endog, exog, **kwargs)[0m
+[0;32m    269[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m([38;5;28mself[39m, endog, exog[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[1;32m--> 270[0m     [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[38;5;21;43m__init__[39;49m[43m([49m[43mendog[49m[43m,[49m[43m [49m[43mexog[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[0;32m    271[0m     [38;5;28mself[39m[38;5;241m.[39minitialize()
+
+File [1;32m~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\model.py:95[0m, in [0;36mModel.__init__[1;34m(self, endog, exog, **kwargs)[0m
+[0;32m     93[0m missing [38;5;241m=[39m kwargs[38;5;241m.[39mpop([38;5;124m'[39m[38;5;124mmissing[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mnone[39m[38;5;124m'[39m)
+[0;32m     94[0m hasconst [38;5;241m=[39m kwargs[38;5;241m.[39mpop([38;5;124m'[39m[38;5;124mhasconst[39m[38;5;124m'[39m, [38;5;28;01mNone[39;00m)
+[1;32m---> 95[0m [38;5;28mself[39m[38;5;241m.[39mdata [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_handle_data[49m[43m([49m[43mendog[49m[43m,[49m[43m [49m[43mexog[49m[43m,[49m[43m [49m[43mmissing[49m[43m,[49m[43m [49m[43mhasconst[49m[43m,[49m
+[0;32m     96[0m [43m                              [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[0;32m     97[0m [38;5;28mself[39m[38;5;241m.[39mk_constant [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mdata[38;5;241m.[39mk_constant
+[0;32m     98[0m [38;5;28mself[39m[38;5;241m.[39mexog [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mdata[38;5;241m.[39mexog
+
+File [1;32m~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\model.py:135[0m, in [0;36mModel._handle_data[1;34m(self, endog, exog, missing, hasconst, **kwargs)[0m
+[0;32m    134[0m [38;5;28;01mdef[39;00m [38;5;21m_handle_data[39m([38;5;28mself[39m, endog, exog, missing, hasconst, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[1;32m--> 135[0m     data [38;5;241m=[39m [43mhandle_data[49m[43m([49m[43mendog[49m[43m,[49m[43m [49m[43mexog[49m[43m,[49m[43m [49m[43mmissing[49m[43m,[49m[43m [49m[43mhasconst[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[0;32m    136[0m     [38;5;66;03m# kwargs arrays could have changed, easier to just attach here[39;00m
+[0;32m    137[0m     [38;5;28;01mfor[39;00m key [38;5;129;01min[39;00m kwargs:
+
+File [1;32m~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\data.py:675[0m, in [0;36mhandle_data[1;34m(endog, exog, missing, hasconst, **kwargs)[0m
+[0;32m    672[0m     exog [38;5;241m=[39m np[38;5;241m.[39masarray(exog)
+[0;32m    674[0m klass [38;5;241m=[39m handle_data_class_factory(endog, exog)
+[1;32m--> 675[0m [38;5;28;01mreturn[39;00m [43mklass[49m[43m([49m[43mendog[49m[43m,[49m[43m [49m[43mexog[49m[38;5;241;43m=[39;49m[43mexog[49m[43m,[49m[43m [49m[43mmissing[49m[38;5;241;43m=[39;49m[43mmissing[49m[43m,[49m[43m [49m[43mhasconst[49m[38;5;241;43m=[39;49m[43mhasconst[49m[43m,[49m
+[0;32m    676[0m [43m             [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [1;32m~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\data.py:84[0m, in [0;36mModelData.__init__[1;34m(self, endog, exog, missing, hasconst, **kwargs)[0m
+[0;32m     82[0m     [38;5;28mself[39m[38;5;241m.[39morig_endog [38;5;241m=[39m endog
+[0;32m     83[0m     [38;5;28mself[39m[38;5;241m.[39morig_exog [38;5;241m=[39m exog
+[1;32m---> 84[0m     [38;5;28mself[39m[38;5;241m.[39mendog, [38;5;28mself[39m[38;5;241m.[39mexog [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_convert_endog_exog[49m[43m([49m[43mendog[49m[43m,[49m[43m [49m[43mexog[49m[43m)[49m
+[0;32m     86[0m [38;5;28mself[39m[38;5;241m.[39mconst_idx [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[0;32m     87[0m [38;5;28mself[39m[38;5;241m.[39mk_constant [38;5;241m=[39m [38;5;241m0[39m
+
+File [1;32m~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\base\data.py:509[0m, in [0;36mPandasData._convert_endog_exog[1;34m(self, endog, exog)[0m
+[0;32m    507[0m exog [38;5;241m=[39m exog [38;5;28;01mif[39;00m exog [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;28;01melse[39;00m np[38;5;241m.[39masarray(exog)
+[0;32m    508[0m [38;5;28;01mif[39;00m endog[38;5;241m.[39mdtype [38;5;241m==[39m [38;5;28mobject[39m [38;5;129;01mor[39;00m exog [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m exog[38;5;241m.[39mdtype [38;5;241m==[39m [38;5;28mobject[39m:
+[1;32m--> 509[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mPandas data cast to numpy dtype of object. [39m[38;5;124m"[39m
+[0;32m    510[0m                      [38;5;124m"[39m[38;5;124mCheck input data with np.asarray(data).[39m[38;5;124m"[39m)
+[0;32m    511[0m [38;5;28;01mreturn[39;00m [38;5;28msuper[39m(PandasData, [38;5;28mself[39m)[38;5;241m.[39m_convert_endog_exog(endog, exog)
+
+[1;31mValueError[0m: Pandas data cast to numpy dtype of object. Check input data with np.asarray(data).
 
