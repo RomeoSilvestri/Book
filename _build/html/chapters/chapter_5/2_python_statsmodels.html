@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter_5/2_python_statsmodels';</script>
     <link rel="canonical" href="https://romeosilvestri.github.io/Data_Science-Book/.html/chapters/chapter_5/2_python_statsmodels.html" />
     <link rel="shortcut icon" href="../../_static/logo.png"/>
@@ -190,6 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Statsmodels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3_python_scikit-learn.html">Scikit-Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_focus_time_series.html">Focus: Time Series</a></li>
 </ul>
 
     </div>
@@ -356,6 +359,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">Time Series</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arima">ARIMA</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima">SARIMA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arimax-sarimax">ARIMAX &amp; SARIMAX</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#var">VAR</a></li>
 </ul>
 </li>
@@ -398,6 +402,7 @@ document.write(`
 <span class="p">})</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;X3_B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;X3_B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 
 <span class="n">data</span>
 </pre></div>
@@ -434,70 +439,70 @@ document.write(`
       <td>117.640523</td>
       <td>0.720218</td>
       <td>14.335329</td>
-      <td>False</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>104.001572</td>
       <td>7.271368</td>
       <td>94.466892</td>
-      <td>False</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>109.787380</td>
       <td>3.805189</td>
       <td>52.184832</td>
-      <td>False</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>122.408932</td>
       <td>0.608375</td>
       <td>41.466194</td>
-      <td>True</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>118.675580</td>
       <td>2.219316</td>
       <td>26.455561</td>
-      <td>True</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>5</th>
       <td>90.227221</td>
       <td>1.668372</td>
       <td>77.423369</td>
-      <td>False</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>6</th>
       <td>109.500884</td>
       <td>7.470395</td>
       <td>45.615033</td>
-      <td>True</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>7</th>
       <td>98.486428</td>
       <td>-1.025791</td>
       <td>56.843395</td>
-      <td>False</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>8</th>
       <td>98.967811</td>
       <td>1.565339</td>
       <td>1.878980</td>
-      <td>False</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>9</th>
       <td>104.105985</td>
       <td>-4.270479</td>
       <td>61.763550</td>
-      <td>True</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -543,45 +548,76 @@ document.write(`
 </table>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="s1">&#39;X3&#39;</span><span class="p">]])</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="s1">&#39;X3_B&#39;</span><span class="p">]])</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="s1">&#39;X3&#39;</span><span class="p">]])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-
-<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\pandas\core\frame.py:3767,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3765</span>     <span class="k">if</span> <span class="n">is_iterator</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3766</span>         <span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3767</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">_get_indexer_strict</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;columns&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">3769</span> <span class="c1"># take() does not accept boolean indexers</span>
-<span class="g g-Whitespace">   </span><span class="mi">3770</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
-
-<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\pandas\core\indexes\base.py:5877,</span> in <span class="ni">Index._get_indexer_strict</span><span class="nt">(self, key, axis_name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5874</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">5875</span>     <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">new_indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_non_unique</span><span class="p">(</span><span class="n">keyarr</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">5877</span> <span class="bp">self</span><span class="o">.</span><span class="n">_raise_if_missing</span><span class="p">(</span><span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">axis_name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5879</span> <span class="n">keyarr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5880</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Index</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5881</span>     <span class="c1"># GH 42790 - Preserve name from an Index</span>
-
-<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\pandas\core\indexes\base.py:5941,</span> in <span class="ni">Index._raise_if_missing</span><span class="nt">(self, key, indexer, axis_name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5938</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;None of [</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">] are in the [</span><span class="si">{</span><span class="n">axis_name</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5940</span> <span class="n">not_found</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ensure_index</span><span class="p">(</span><span class="n">key</span><span class="p">)[</span><span class="n">missing_mask</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-<span class="ne">-&gt; </span><span class="mi">5941</span> <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">not_found</span><span class="si">}</span><span class="s2"> not in index&quot;</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &quot;[&#39;X3&#39;] not in index&quot;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\scipy\stats\_stats_py.py:1736: UserWarning: kurtosistest only valid for n&gt;=20 ... continuing anyway, n=10
+  warnings.warn(&quot;kurtosistest only valid for n&gt;=20 ... continuing &quot;
 </pre></div>
 </div>
-</div>
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>         <td>Target</td>      <th>  R-squared (uncentered):</th>      <td>   0.802</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared (uncentered):</th> <td>   0.717</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th>          <td>   9.444</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sun, 03 Dec 2023</td> <th>  Prob (F-statistic):</th>           <td>0.00741</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>23:58:13</td>     <th>  Log-Likelihood:    </th>          <td> -52.899</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>    10</td>      <th>  AIC:               </th>          <td>   111.8</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>     7</td>      <th>  BIC:               </th>          <td>   112.7</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     3</td>      <th>                     </th>              <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>              <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+    <td></td>      <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>X1</th>   <td>    2.7610</td> <td>    5.473</td> <td>    0.505</td> <td> 0.629</td> <td>  -10.180</td> <td>   15.702</td>
+</tr>
+<tr>
+  <th>X2</th>   <td>    1.2587</td> <td>    0.446</td> <td>    2.820</td> <td> 0.026</td> <td>    0.203</td> <td>    2.314</td>
+</tr>
+<tr>
+  <th>X3_B</th> <td>   54.3494</td> <td>   33.395</td> <td>    1.627</td> <td> 0.148</td> <td>  -24.617</td> <td>  133.315</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 1.154</td> <th>  Durbin-Watson:     </th> <td>   1.854</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.562</td> <th>  Jarque-Bera (JB):  </th> <td>   0.864</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.599</td> <th>  Prob(JB):          </th> <td>   0.649</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 2.203</td> <th>  Cond. No.          </th> <td>    99.9</td>
+</tr>
+</table><br/><br/>Notes:<br/>[1] R² is computed without centering (uncentered) since the model does not contain a constant.<br/>[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
 </div>
 </section>
 <section id="anova-ancova">
@@ -591,41 +627,514 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Target ~ X3&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Target ~ X3_B&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">anova_table</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sum_sq</th>
+      <th>df</th>
+      <th>F</th>
+      <th>PR(&gt;F)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>X3_B</th>
+      <td>263.979903</td>
+      <td>1.0</td>
+      <td>3.146072</td>
+      <td>0.114038</td>
+    </tr>
+    <tr>
+      <th>Residual</th>
+      <td>671.262297</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-<p><strong>ANCOVA</strong>
-cambia solo in ols</p>
+<p><strong>ANCOVA</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Target ~ X1 + X2 + X3&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s1">&#39;Target ~ X3_B + X1&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
-<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">anova_table</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">anova_table</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sum_sq</th>
+      <th>df</th>
+      <th>F</th>
+      <th>PR(&gt;F)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>X3_B</th>
+      <td>276.635923</td>
+      <td>1.0</td>
+      <td>2.961864</td>
+      <td>0.128928</td>
+    </tr>
+    <tr>
+      <th>X1</th>
+      <td>17.467390</td>
+      <td>1.0</td>
+      <td>0.187018</td>
+      <td>0.678420</td>
+    </tr>
+    <tr>
+      <th>Residual</th>
+      <td>653.794908</td>
+      <td>7.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="time-series">
 <h2>Time Series<a class="headerlink" href="#time-series" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">trend</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">t</span>
+<span class="n">season</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">trend</span> <span class="o">+</span> <span class="n">noise</span>
+<span class="n">y_season</span> <span class="o">=</span> <span class="n">trend</span> <span class="o">+</span> <span class="n">season</span> <span class="o">+</span> <span class="n">noise</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Time&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;Value_Season&#39;</span><span class="p">:</span> <span class="n">y_season</span><span class="p">,</span> <span class="s1">&#39;Exo_Var&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">})</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Time</th>
+      <th>Value</th>
+      <th>Value_Season</th>
+      <th>Exo_Var</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1.787484</td>
+      <td>1.787484</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-0.069517</td>
+      <td>4.930483</td>
+      <td>-1.224647e-15</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1.175387</td>
+      <td>9.835641</td>
+      <td>-2.449294e-15</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>1.037494</td>
+      <td>11.037494</td>
+      <td>-3.673940e-15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0.914199</td>
+      <td>9.574453</td>
+      <td>-4.898587e-15</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>95</td>
+      <td>47.935183</td>
+      <td>42.935183</td>
+      <td>-9.760036e-15</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>96</td>
+      <td>47.954252</td>
+      <td>47.954252</td>
+      <td>-1.175661e-13</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>97</td>
+      <td>48.549898</td>
+      <td>53.549898</td>
+      <td>-2.253721e-13</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>98</td>
+      <td>48.064470</td>
+      <td>56.724724</td>
+      <td>-3.331782e-13</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>99</td>
+      <td>49.787388</td>
+      <td>59.787388</td>
+      <td>1.274499e-13</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 4 columns</p>
+</div></div></div>
+</div>
 <section id="arima">
 <h3>ARIMA<a class="headerlink" href="#arima" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>SARIMAX Results</caption>
+<tr>
+  <th>Dep. Variable:</th>         <td>Value</td>      <th>  No. Observations:  </th>    <td>100</td>  
+</tr>
+<tr>
+  <th>Model:</th>            <td>ARIMA(1, 1, 1)</td>  <th>  Log Likelihood     </th> <td>-165.516</td>
+</tr>
+<tr>
+  <th>Date:</th>            <td>Sun, 03 Dec 2023</td> <th>  AIC                </th>  <td>337.031</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>23:58:13</td>     <th>  BIC                </th>  <td>344.817</td>
+</tr>
+<tr>
+  <th>Sample:</th>                  <td>0</td>        <th>  HQIC               </th>  <td>340.181</td>
+</tr>
+<tr>
+  <th></th>                      <td> - 100</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+     <td></td>       <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>ar.L1</th>  <td>   -0.4647</td> <td>    0.222</td> <td>   -2.096</td> <td> 0.036</td> <td>   -0.899</td> <td>   -0.030</td>
+</tr>
+<tr>
+  <th>ma.L1</th>  <td>    0.0899</td> <td>    0.256</td> <td>    0.352</td> <td> 0.725</td> <td>   -0.411</td> <td>    0.591</td>
+</tr>
+<tr>
+  <th>sigma2</th> <td>    1.6556</td> <td>    0.276</td> <td>    5.990</td> <td> 0.000</td> <td>    1.114</td> <td>    2.197</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Ljung-Box (L1) (Q):</th>     <td>10.42</td> <th>  Jarque-Bera (JB):  </th> <td>0.98</td> 
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.00</td>  <th>  Prob(JB):          </th> <td>0.61</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>1.40</td>  <th>  Skew:              </th> <td>-0.24</td>
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.33</td>  <th>  Kurtosis:          </th> <td>2.88</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).</div></div>
+</div>
 </section>
 <section id="sarima">
 <h3>SARIMA<a class="headerlink" href="#sarima" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.sarimax</span> <span class="kn">import</span> <span class="n">SARIMAX</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value_Season&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>SARIMAX Results</caption>
+<tr>
+  <th>Dep. Variable:</th>            <td>Value_Season</td>          <th>  No. Observations:  </th>    <td>100</td>  
+</tr>
+<tr>
+  <th>Model:</th>           <td>SARIMAX(1, 1, 1)x(1, 1, 1, 12)</td> <th>  Log Likelihood     </th> <td>-125.397</td>
+</tr>
+<tr>
+  <th>Date:</th>                   <td>Sun, 03 Dec 2023</td>        <th>  AIC                </th>  <td>260.794</td>
+</tr>
+<tr>
+  <th>Time:</th>                       <td>23:58:14</td>            <th>  BIC                </th>  <td>273.123</td>
+</tr>
+<tr>
+  <th>Sample:</th>                         <td>0</td>               <th>  HQIC               </th>  <td>265.758</td>
+</tr>
+<tr>
+  <th></th>                             <td> - 100</td>             <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>               <td>opg</td>              <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>        <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>ar.L1</th>    <td>   -0.0647</td> <td>    0.123</td> <td>   -0.528</td> <td> 0.598</td> <td>   -0.305</td> <td>    0.176</td>
+</tr>
+<tr>
+  <th>ma.L1</th>    <td>   -0.9438</td> <td>    0.076</td> <td>  -12.340</td> <td> 0.000</td> <td>   -1.094</td> <td>   -0.794</td>
+</tr>
+<tr>
+  <th>ar.S.L12</th> <td>   -0.0445</td> <td>    0.174</td> <td>   -0.256</td> <td> 0.798</td> <td>   -0.385</td> <td>    0.296</td>
+</tr>
+<tr>
+  <th>ma.S.L12</th> <td>   -0.9854</td> <td>    3.389</td> <td>   -0.291</td> <td> 0.771</td> <td>   -7.628</td> <td>    5.658</td>
+</tr>
+<tr>
+  <th>sigma2</th>   <td>    0.7542</td> <td>    2.483</td> <td>    0.304</td> <td> 0.761</td> <td>   -4.113</td> <td>    5.621</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Ljung-Box (L1) (Q):</th>     <td>0.00</td> <th>  Jarque-Bera (JB):  </th> <td>1.15</td> 
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.96</td> <th>  Prob(JB):          </th> <td>0.56</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>1.67</td> <th>  Skew:              </th> <td>-0.22</td>
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.17</td> <th>  Kurtosis:          </th> <td>2.66</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).</div></div>
+</div>
+</section>
+<section id="arimax-sarimax">
+<h3>ARIMAX &amp; SARIMAX<a class="headerlink" href="#arimax-sarimax" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">exog</span><span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Exo_Var&#39;</span><span class="p">]])</span>
+<span class="c1"># model = SARIMAX(data[&#39;Value_Season&#39;], order=(1, 1, 1), seasonal_order=(1, 1, 1, 12))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>SARIMAX Results</caption>
+<tr>
+  <th>Dep. Variable:</th>         <td>Value</td>      <th>  No. Observations:  </th>    <td>100</td>  
+</tr>
+<tr>
+  <th>Model:</th>            <td>ARIMA(1, 1, 1)</td>  <th>  Log Likelihood     </th> <td>-162.957</td>
+</tr>
+<tr>
+  <th>Date:</th>            <td>Sun, 03 Dec 2023</td> <th>  AIC                </th>  <td>333.915</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>23:58:14</td>     <th>  BIC                </th>  <td>344.295</td>
+</tr>
+<tr>
+  <th>Sample:</th>                  <td>0</td>        <th>  HQIC               </th>  <td>338.115</td>
+</tr>
+<tr>
+  <th></th>                      <td> - 100</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+     <td></td>        <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Exo_Var</th> <td> 1.954e+12</td> <td> 2.18e-14</td> <td> 8.97e+25</td> <td> 0.000</td> <td> 1.95e+12</td> <td> 1.95e+12</td>
+</tr>
+<tr>
+  <th>ar.L1</th>   <td>   -0.5121</td> <td>    0.219</td> <td>   -2.341</td> <td> 0.019</td> <td>   -0.941</td> <td>   -0.083</td>
+</tr>
+<tr>
+  <th>ma.L1</th>   <td>    0.1342</td> <td>    0.255</td> <td>    0.526</td> <td> 0.599</td> <td>   -0.366</td> <td>    0.634</td>
+</tr>
+<tr>
+  <th>sigma2</th>  <td>    1.5720</td> <td>    0.268</td> <td>    5.868</td> <td> 0.000</td> <td>    1.047</td> <td>    2.097</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Ljung-Box (L1) (Q):</th>     <td>10.99</td> <th>  Jarque-Bera (JB):  </th> <td>1.26</td> 
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.00</td>  <th>  Prob(JB):          </th> <td>0.53</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>1.34</td>  <th>  Skew:              </th> <td>-0.27</td>
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.40</td>  <th>  Kurtosis:          </th> <td>2.91</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).<br/>[2] Covariance matrix is singular or near-singular, with condition number 5.9e+28. Standard errors may be unstable.</div></div>
+</div>
 </section>
 <section id="var">
 <h3>VAR<a class="headerlink" href="#var" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.api</span> <span class="kn">import</span> <span class="n">VAR</span>
+
+<span class="n">var_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="s1">&#39;Exo_Var&#39;</span><span class="p">]]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">VAR</span><span class="p">(</span><span class="n">var_data</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Summary of Regression Results   
+==================================
+Model:                         VAR
+Method:                        OLS
+Date:           Sun, 03, Dec, 2023
+Time:                     23:58:14
+--------------------------------------------------------------------
+No. of Equations:         2.00000    BIC:                   -59.2358
+Nobs:                     99.0000    HQIC:                  -59.3294
+Log likelihood:           2665.01    FPE:                1.60673e-26
+AIC:                     -59.3930    Det(Omega_mle):     1.51360e-26
+--------------------------------------------------------------------
+Results for equation Value
+========================================================================================
+                      coefficient            std. error           t-stat            prob
+----------------------------------------------------------------------------------------
+const                    0.527636              0.261169            2.020           0.043
+L1.Value                 0.992909              0.010100           98.311           0.000
+L1.Exo_Var  -1910883832505.852539  1461402552441.010742           -1.308           0.191
+========================================================================================
+
+Results for equation Exo_Var
+=============================================================================
+                coefficient       std. error           t-stat            prob
+-----------------------------------------------------------------------------
+const             -0.000000         0.000000           -0.093           0.926
+L1.Value          -0.000000         0.000000           -4.129           0.000
+L1.Exo_Var        -0.114682         0.104965           -1.093           0.275
+=============================================================================
+
+Correlation matrix of residuals
+              Value   Exo_Var
+Value      1.000000  0.156168
+Exo_Var    0.156168  1.000000
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="panel-data">
@@ -766,6 +1275,7 @@ cambia solo in ols</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series">Time Series</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arima">ARIMA</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima">SARIMA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arimax-sarimax">ARIMAX &amp; SARIMAX</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#var">VAR</a></li>
 </ul>
 </li>
