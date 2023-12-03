@@ -1,0 +1,1855 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; The Data Science Odyssey</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter_5/Untitled';</script>
+    <link rel="canonical" href="https://romeosilvestri.github.io/Data_Science-Book/.html/chapters/chapter_5/Untitled.html" />
+    <link rel="shortcut icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="The Data Science Odyssey - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="The Data Science Odyssey - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    The Data Science Odyssey
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Problem Definition</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1/1_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1/2_python_basics.html">Python - Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1/3_problem_identification.html">Problem Identification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1/4_project_objective.html">Project Objective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1/5_metrics.html">Metrics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Pre-Processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3/2_python_numpy.html">Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3/3_python_pandas.html">Pandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory Data Analysis (EDA)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4/2_python_matplotlib.html">Matplotlib</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2_python_statsmodels.html">Statsmodels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_python_scikit-learn.html">Scikit-Learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_focus_time_series.html">Focus: Time Series</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/RomeoSilvestri/Data_Science-Book" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/chapter_5/Untitled.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">trend</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">t</span>
+<span class="n">season</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">trend</span> <span class="o">+</span> <span class="n">noise</span>
+<span class="n">y_season</span> <span class="o">=</span> <span class="n">trend</span> <span class="o">+</span> <span class="n">season</span> <span class="o">+</span> <span class="n">noise</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Time&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;Value_Season&#39;</span><span class="p">:</span> <span class="n">y_season</span><span class="p">,</span> <span class="s1">&#39;Exo_Var&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">})</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Time</th>
+      <th>Value</th>
+      <th>Value_Season</th>
+      <th>Exo_Var</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-1.069020</td>
+      <td>-1.069020</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.725504</td>
+      <td>5.725504</td>
+      <td>-1.224647e-15</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.219341</td>
+      <td>8.879595</td>
+      <td>-2.449294e-15</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>2.437837</td>
+      <td>12.437837</td>
+      <td>-3.673940e-15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>2.599972</td>
+      <td>11.260226</td>
+      <td>-4.898587e-15</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>95</td>
+      <td>48.410054</td>
+      <td>43.410054</td>
+      <td>-9.760036e-15</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>96</td>
+      <td>48.014079</td>
+      <td>48.014079</td>
+      <td>-1.175661e-13</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>97</td>
+      <td>48.599291</td>
+      <td>53.599291</td>
+      <td>-2.253721e-13</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>98</td>
+      <td>48.937944</td>
+      <td>57.598198</td>
+      <td>-3.331782e-13</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>99</td>
+      <td>50.479636</td>
+      <td>60.479636</td>
+      <td>1.274499e-13</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/75c023075ee93fc195de24bc5fa701451a8d89e2660a5a8916e9e90e108be2a7.png" src="../../_images/75c023075ee93fc195de24bc5fa701451a8d89e2660a5a8916e9e90e108be2a7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
+
+<span class="n">acf_original</span> <span class="o">=</span> <span class="n">plot_acf</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value_Season&#39;</span><span class="p">])</span>
+
+<span class="n">pacf_original</span> <span class="o">=</span> <span class="n">plot_pacf</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/58d2b77a5f3c42ba2ee74c1401a5603003a413101796468dd521db267b97c882.png" src="../../_images/58d2b77a5f3c42ba2ee74c1401a5603003a413101796468dd521db267b97c882.png" />
+<img alt="../../_images/fa47afcf61b10b71afaba208ae1179cac9ae9553714f5e8a3149d62fb00545af.png" src="../../_images/fa47afcf61b10b71afaba208ae1179cac9ae9553714f5e8a3149d62fb00545af.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+<span class="n">adf_test</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p-value: </span><span class="si">{</span><span class="n">adf_test</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value: 0.9804706760578226
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+<span class="n">adf_test</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p-value: </span><span class="si">{</span><span class="n">adf_test</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value: 1.5491081577324096e-10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_train_diff</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df_train_diff</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/12ee03538e4146513760e95edce33834f3ac04d964eaed78ecc6eda798862df4.png" src="../../_images/12ee03538e4146513760e95edce33834f3ac04d964eaed78ecc6eda798862df4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acf_diff</span> <span class="o">=</span> <span class="n">plot_acf</span><span class="p">(</span><span class="n">df_train_diff</span><span class="p">)</span>
+
+<span class="n">pacf_diff</span> <span class="o">=</span> <span class="n">plot_pacf</span><span class="p">(</span><span class="n">df_train_diff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b1c485db3bcf4f7135aab4b10ed410edee3f6334525c316c76d19a4079889e43.png" src="../../_images/b1c485db3bcf4f7135aab4b10ed410edee3f6334525c316c76d19a4079889e43.png" />
+<img alt="../../_images/d10046b90706041e4e61224b3ce5d7883ed4cf83d939723b2a03fed618505781.png" src="../../_images/d10046b90706041e4e61224b3ce5d7883ed4cf83d939723b2a03fed618505781.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_fit</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                  Value   No. Observations:                  100
+Model:                 ARIMA(0, 1, 2)   Log Likelihood                -176.077
+Date:                Sun, 03 Dec 2023   AIC                            358.155
+Time:                        23:58:34   BIC                            365.940
+Sample:                             0   HQIC                           361.305
+                                - 100                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+ma.L1         -0.4761      0.098     -4.853      0.000      -0.668      -0.284
+ma.L2          0.3014      0.107      2.808      0.005       0.091       0.512
+sigma2         2.0460      0.319      6.413      0.000       1.421       2.671
+===================================================================================
+Ljung-Box (L1) (Q):                   5.07   Jarque-Bera (JB):                 3.00
+Prob(Q):                              0.02   Prob(JB):                         0.22
+Heteroskedasticity (H):               1.29   Skew:                            -0.31
+Prob(H) (two-sided):                  0.47   Kurtosis:                         3.58
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmdarima</span> <span class="k">as</span> <span class="nn">pm</span>
+<span class="n">auto_arima</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">auto_arima</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">],</span> <span class="n">stepwise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">auto_arima</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre> ARIMA(5,1,0)(0,0,0)[0] intercept</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">ARIMA</label><div class="sk-toggleable__content"><pre> ARIMA(5,1,0)(0,0,0)[0] intercept</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_fit</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                  Value   No. Observations:                  100
+Model:                 ARIMA(5, 1, 0)   Log Likelihood                -172.350
+Date:                Sun, 03 Dec 2023   AIC                            356.700
+Time:                        23:58:37   BIC                            372.270
+Sample:                             0   HQIC                           363.000
+                                - 100                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+ar.L1         -0.5177      0.105     -4.928      0.000      -0.724      -0.312
+ar.L2          0.1069      0.132      0.807      0.420      -0.153       0.366
+ar.L3          0.2887      0.125      2.309      0.021       0.044       0.534
+ar.L4          0.2951      0.118      2.505      0.012       0.064       0.526
+ar.L5          0.1108      0.096      1.153      0.249      -0.077       0.299
+sigma2         1.8907      0.294      6.438      0.000       1.315       2.466
+===================================================================================
+Ljung-Box (L1) (Q):                   1.68   Jarque-Bera (JB):                 2.56
+Prob(Q):                              0.20   Prob(JB):                         0.28
+Heteroskedasticity (H):               1.27   Skew:                            -0.35
+Prob(H) (two-sided):                  0.49   Kurtosis:                         3.35
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.seasonal</span> <span class="kn">import</span> <span class="n">seasonal_decompose</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Creazione di dati sintetici</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">date_rng</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2022-01-01&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2023-12-31&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">date_rng</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value_Season&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">date_rng</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">365</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">date_rng</span><span class="p">))</span>
+
+<span class="c1"># Imposta l&#39;indice temporale</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+
+<span class="c1"># Decomposizione della serie temporale</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value_Season&#39;</span><span class="p">],</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;additive&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot della decomposizione</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># Serie originale</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value_Season&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Series&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Trend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">trend</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trend&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Stagionalità</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">seasonal</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Seasonal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Residui</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Residuals&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3fad04a781d8b27f90985349d5c63f5951434d801d3327009a09ce02ac0c6349.png" src="../../_images/3fad04a781d8b27f90985349d5c63f5951434d801d3327009a09ce02ac0c6349.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pmdarima</span> <span class="k">as</span> <span class="nn">pm</span>
+<span class="n">auto_arima</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">auto_arima</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value_Season&#39;</span><span class="p">],</span> <span class="n">stepwise</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">auto_arima</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-2 {color: black;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre> ARIMA(1,1,2)(0,0,0)[0] intercept</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">ARIMA</label><div class="sk-toggleable__content"><pre> ARIMA(1,1,2)(0,0,0)[0] intercept</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.sarimax</span> <span class="kn">import</span> <span class="n">SARIMAX</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value_Season&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\tsa\base\tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
+  self._init_dates(dates, freq)
+C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\tsa\base\tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
+  self._init_dates(dates, freq)
+C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:966: UserWarning: Non-stationary starting autoregressive parameters found. Using zeros as starting parameters.
+  warn(&#39;Non-stationary starting autoregressive parameters&#39;
+C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:978: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
+  warn(&#39;Non-invertible starting MA parameters found.&#39;
+</pre></div>
+</div>
+<div class="output text_html"><table class="simpletable">
+<caption>SARIMAX Results</caption>
+<tr>
+  <th>Dep. Variable:</th>             <td>Value_Season</td>           <th>  No. Observations:  </th>    <td>730</td>  
+</tr>
+<tr>
+  <th>Model:</th>           <td>SARIMAX(1, 1, 2)x(0, 1, [1], 12)</td> <th>  Log Likelihood     </th> <td>-204.260</td>
+</tr>
+<tr>
+  <th>Date:</th>                    <td>Sun, 03 Dec 2023</td>         <th>  AIC                </th>  <td>418.520</td>
+</tr>
+<tr>
+  <th>Time:</th>                        <td>23:58:49</td>             <th>  BIC                </th>  <td>441.395</td>
+</tr>
+<tr>
+  <th>Sample:</th>                     <td>01-01-2022</td>            <th>  HQIC               </th>  <td>427.352</td>
+</tr>
+<tr>
+  <th></th>                           <td>- 12-31-2023</td>           <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>                <td>opg</td>               <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>        <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>ar.L1</th>    <td>    0.9889</td> <td>    0.009</td> <td>  105.831</td> <td> 0.000</td> <td>    0.971</td> <td>    1.007</td>
+</tr>
+<tr>
+  <th>ma.L1</th>    <td>   -1.9146</td> <td>    0.015</td> <td> -129.879</td> <td> 0.000</td> <td>   -1.944</td> <td>   -1.886</td>
+</tr>
+<tr>
+  <th>ma.L2</th>    <td>    0.9218</td> <td>    0.014</td> <td>   63.959</td> <td> 0.000</td> <td>    0.894</td> <td>    0.950</td>
+</tr>
+<tr>
+  <th>ma.S.L12</th> <td>   -0.9985</td> <td>    0.287</td> <td>   -3.473</td> <td> 0.001</td> <td>   -1.562</td> <td>   -0.435</td>
+</tr>
+<tr>
+  <th>sigma2</th>   <td>    0.0968</td> <td>    0.027</td> <td>    3.614</td> <td> 0.000</td> <td>    0.044</td> <td>    0.149</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Ljung-Box (L1) (Q):</th>     <td>0.11</td> <th>  Jarque-Bera (JB):  </th> <td>1.17</td> 
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.74</td> <th>  Prob(JB):          </th> <td>0.56</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>1.19</td> <th>  Skew:              </th> <td>-0.08</td>
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.19</td> <th>  Kurtosis:          </th> <td>3.11</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Value_Season&#39;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\tsa\base\tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
+  self._init_dates(dates, freq)
+C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\tsa\base\tsa_model.py:473: ValueWarning: No frequency information was provided, so inferred frequency D will be used.
+  self._init_dates(dates, freq)
+C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:966: UserWarning: Non-stationary starting autoregressive parameters found. Using zeros as starting parameters.
+  warn(&#39;Non-stationary starting autoregressive parameters&#39;
+C:\Users\silve\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\statsmodels\tsa\statespace\sarimax.py:978: UserWarning: Non-invertible starting MA parameters found. Using zeros as starting parameters.
+  warn(&#39;Non-invertible starting MA parameters found.&#39;
+</pre></div>
+</div>
+<div class="output text_html"><table class="simpletable">
+<caption>SARIMAX Results</caption>
+<tr>
+  <th>Dep. Variable:</th>     <td>Value_Season</td>   <th>  No. Observations:  </th>    <td>730</td>  
+</tr>
+<tr>
+  <th>Model:</th>           <td>SARIMAX(1, 1, 2)</td> <th>  Log Likelihood     </th> <td>-183.534</td>
+</tr>
+<tr>
+  <th>Date:</th>            <td>Sun, 03 Dec 2023</td> <th>  AIC                </th>  <td>375.068</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>23:58:50</td>     <th>  BIC                </th>  <td>393.435</td>
+</tr>
+<tr>
+  <th>Sample:</th>             <td>01-01-2022</td>    <th>  HQIC               </th>  <td>382.154</td>
+</tr>
+<tr>
+  <th></th>                   <td>- 12-31-2023</td>   <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+     <td></td>       <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>ar.L1</th>  <td>    0.9843</td> <td>    0.010</td> <td>  101.623</td> <td> 0.000</td> <td>    0.965</td> <td>    1.003</td>
+</tr>
+<tr>
+  <th>ma.L1</th>  <td>   -1.9129</td> <td>    0.015</td> <td> -129.975</td> <td> 0.000</td> <td>   -1.942</td> <td>   -1.884</td>
+</tr>
+<tr>
+  <th>ma.L2</th>  <td>    0.9206</td> <td>    0.014</td> <td>   64.160</td> <td> 0.000</td> <td>    0.892</td> <td>    0.949</td>
+</tr>
+<tr>
+  <th>sigma2</th> <td>    0.0965</td> <td>    0.005</td> <td>   18.600</td> <td> 0.000</td> <td>    0.086</td> <td>    0.107</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Ljung-Box (L1) (Q):</th>     <td>0.10</td> <th>  Jarque-Bera (JB):  </th> <td>0.56</td> 
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.75</td> <th>  Prob(JB):          </th> <td>0.75</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>1.10</td> <th>  Skew:              </th> <td>-0.05</td>
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.45</td> <th>  Kurtosis:          </th> <td>2.90</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;BTC-USD.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;BTC-USD.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">df</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\pandas\io\parsers\readers.py:912,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">899</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">901</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">908</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">909</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">910</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">912</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\pandas\io\parsers\readers.py:577,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">577</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\pandas\io\parsers\readers.py:1407,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1404</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1406</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1407</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\pandas\io\parsers\readers.py:1661,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1659</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1660</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1661</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1662</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1663</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1664</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1665</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1666</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1667</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1668</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1669</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1670</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1671</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1672</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~\AppData\Roaming\jupyterlab-desktop\jlab_server\lib\site-packages\pandas\io\common.py:859,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">859</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;BTC-USD.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span> <span class="s1">&#39;Close&#39;</span><span class="p">]]</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Close</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>457.334015</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>424.440002</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>394.795990</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>408.903992</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>398.821014</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3359</th>
+      <td>37831.085938</td>
+    </tr>
+    <tr>
+      <th>3360</th>
+      <td>37858.492188</td>
+    </tr>
+    <tr>
+      <th>3361</th>
+      <td>37712.746094</td>
+    </tr>
+    <tr>
+      <th>3362</th>
+      <td>38688.750000</td>
+    </tr>
+    <tr>
+      <th>3363</th>
+      <td>38792.355469</td>
+    </tr>
+  </tbody>
+</table>
+<p>3364 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="k">def</span> <span class="nf">str_to_datetime</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+  <span class="n">split</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+  <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">split</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">split</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">split</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+  <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="n">day</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">str_to_datetime</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\silve\AppData\Local\Temp\ipykernel_9520\741250315.py:8: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df[&#39;Date&#39;] = df[&#39;Date&#39;].apply(str_to_datetime)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Close</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-09-17</th>
+      <td>457.334015</td>
+    </tr>
+    <tr>
+      <th>2014-09-18</th>
+      <td>424.440002</td>
+    </tr>
+    <tr>
+      <th>2014-09-19</th>
+      <td>394.795990</td>
+    </tr>
+    <tr>
+      <th>2014-09-20</th>
+      <td>408.903992</td>
+    </tr>
+    <tr>
+      <th>2014-09-21</th>
+      <td>398.821014</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2023-11-28</th>
+      <td>37831.085938</td>
+    </tr>
+    <tr>
+      <th>2023-11-29</th>
+      <td>37858.492188</td>
+    </tr>
+    <tr>
+      <th>2023-11-30</th>
+      <td>37712.746094</td>
+    </tr>
+    <tr>
+      <th>2023-12-01</th>
+      <td>38688.750000</td>
+    </tr>
+    <tr>
+      <th>2023-12-02</th>
+      <td>38792.355469</td>
+    </tr>
+  </tbody>
+</table>
+<p>3364 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Close    float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/fb60bd57f7cf7c5002a36a17d67d8491d9440a8d4d9dd4957ada08a10737b7c2.png" src="../../_images/fb60bd57f7cf7c5002a36a17d67d8491d9440a8d4d9dd4957ada08a10737b7c2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/cb45419c39c0e10644cb644563b54aff9ecab49499daa61c564d7c487f4f5d09.png" src="../../_images/cb45419c39c0e10644cb644563b54aff9ecab49499daa61c564d7c487f4f5d09.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msk</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">))</span>
+<span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">msk</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">msk</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
+
+<span class="n">acf_original</span> <span class="o">=</span> <span class="n">plot_acf</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span>
+
+<span class="n">pacf_original</span> <span class="o">=</span> <span class="n">plot_pacf</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">49</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">acf_original</span> <span class="o">=</span> <span class="n">plot_acf</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">pacf_original</span> <span class="o">=</span> <span class="n">plot_pacf</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">jupyterlab</span><span class="o">-</span><span class="n">desktop</span>\<span class="n">jlab_server</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">statsmodels</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">statsmodels.compat.patsy</span> <span class="kn">import</span> <span class="n">monkey_patch_cat_dtype</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">statsmodels._version</span> <span class="kn">import</span> <span class="n">__version__</span><span class="p">,</span> <span class="n">__version_tuple__</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">__version_info__</span> <span class="o">=</span> <span class="n">__version_tuple__</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">jupyterlab</span><span class="o">-</span><span class="n">desktop</span>\<span class="n">jlab_server</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">statsmodels</span>\<span class="n">compat</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">statsmodels.tools._testing</span> <span class="kn">import</span> <span class="n">PytestTester</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">.python</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">PY37</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">asunicode</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">lfilter</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="s2">&quot;PY37&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="s2">&quot;asunicode&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="p">]</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">jupyterlab</span><span class="o">-</span><span class="n">desktop</span>\<span class="n">jlab_server</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">statsmodels</span>\<span class="n">tools</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">add_constant</span><span class="p">,</span> <span class="n">categorical</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">statsmodels.tools._testing</span> <span class="kn">import</span> <span class="n">PytestTester</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;add_constant&#39;</span><span class="p">,</span> <span class="s1">&#39;categorical&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">test</span> <span class="o">=</span> <span class="n">PytestTester</span><span class="p">()</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">jupyterlab</span><span class="o">-</span><span class="n">desktop</span>\<span class="n">jlab_server</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">statsmodels</span>\<span class="n">tools</span>\<span class="n">_testing</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">packaging.version</span> <span class="kn">import</span> <span class="n">Version</span><span class="p">,</span> <span class="n">parse</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="kn">import</span> <span class="n">assert_allclose</span><span class="p">,</span> <span class="n">assert_</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="k">class</span> <span class="nc">PytestTester</span><span class="p">:</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">jupyterlab</span><span class="o">-</span><span class="n">desktop</span>\<span class="n">jlab_server</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">numpy</span>\<span class="n">testing</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_private</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">._private.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">._private.utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">_assert_valid_refcount</span><span class="p">,</span> <span class="n">_gen_alignment_data</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">._private</span> <span class="kn">import</span> <span class="n">extbuild</span><span class="p">,</span> <span class="n">decorators</span> <span class="k">as</span> <span class="n">dec</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">jupyterlab</span><span class="o">-</span><span class="n">desktop</span>\<span class="n">jlab_server</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">numpy</span>\<span class="n">testing</span>\<span class="n">_private</span>\<span class="n">utils</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">23</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">numpy.core</span> <span class="kn">import</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>      <span class="n">intp</span><span class="p">,</span> <span class="n">float32</span><span class="p">,</span> <span class="n">empty</span><span class="p">,</span> <span class="n">arange</span><span class="p">,</span> <span class="n">array_repr</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">isnat</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">23</span> <span class="kn">import</span> <span class="nn">numpy.linalg.lapack_lite</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>         <span class="s1">&#39;assert_equal&#39;</span><span class="p">,</span> <span class="s1">&#39;assert_almost_equal&#39;</span><span class="p">,</span> <span class="s1">&#39;assert_approx_equal&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>         <span class="s1">&#39;assert_array_equal&#39;</span><span class="p">,</span> <span class="s1">&#39;assert_array_less&#39;</span><span class="p">,</span> <span class="s1">&#39;assert_string_equal&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="s1">&#39;_OLD_PROMOTION&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>         <span class="p">]</span>
+
+<span class="ne">ImportError</span>: DLL load failed while importing lapack_lite: Impossibile trovare il modulo specificato.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">df_to_windowed_df</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">first_date_str</span><span class="p">,</span> <span class="n">last_date_str</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+  <span class="n">first_date</span> <span class="o">=</span> <span class="n">str_to_datetime</span><span class="p">(</span><span class="n">first_date_str</span><span class="p">)</span>
+  <span class="n">last_date</span>  <span class="o">=</span> <span class="n">str_to_datetime</span><span class="p">(</span><span class="n">last_date_str</span><span class="p">)</span>
+
+  <span class="n">target_date</span> <span class="o">=</span> <span class="n">first_date</span>
+  
+  <span class="n">dates</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+  <span class="n">last_time</span> <span class="o">=</span> <span class="kc">False</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">df_subset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="n">target_date</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_subset</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: Window of size </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1"> is too large for date </span><span class="si">{</span><span class="n">target_date</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+      <span class="k">return</span>
+
+    <span class="n">values</span> <span class="o">=</span> <span class="n">df_subset</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">dates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">target_date</span><span class="p">)</span>
+    <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="n">next_week</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">target_date</span><span class="p">:</span><span class="n">target_date</span><span class="o">+</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)]</span>
+    <span class="n">next_datetime_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">next_week</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">next_date_str</span> <span class="o">=</span> <span class="n">next_datetime_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">year_month_day</span> <span class="o">=</span> <span class="n">next_date_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="n">year_month_day</span>
+    <span class="n">next_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">day</span><span class="p">),</span> <span class="n">month</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">),</span> <span class="n">year</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">last_time</span><span class="p">:</span>
+      <span class="k">break</span>
+    
+    <span class="n">target_date</span> <span class="o">=</span> <span class="n">next_date</span>
+
+    <span class="k">if</span> <span class="n">target_date</span> <span class="o">==</span> <span class="n">last_date</span><span class="p">:</span>
+      <span class="n">last_time</span> <span class="o">=</span> <span class="kc">True</span>
+    
+  <span class="n">ret_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({})</span>
+  <span class="n">ret_df</span><span class="p">[</span><span class="s1">&#39;Target Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dates</span>
+  
+  <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+    <span class="n">ret_df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Target-</span><span class="si">{</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+  
+  <span class="n">ret_df</span><span class="p">[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span>
+
+  <span class="k">return</span> <span class="n">ret_df</span>
+
+<span class="c1"># Start day second time around: &#39;2021-03-25&#39;</span>
+<span class="n">windowed_df</span> <span class="o">=</span> <span class="n">df_to_windowed_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> 
+                                <span class="s1">&#39;2022-01-01&#39;</span><span class="p">,</span> 
+                                <span class="s1">&#39;2022-12-31&#39;</span><span class="p">,</span> 
+                                <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">windowed_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target Date</th>
+      <th>Target-3</th>
+      <th>Target-2</th>
+      <th>Target-1</th>
+      <th>Target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-01-01</td>
+      <td>46444.710938</td>
+      <td>47178.125000</td>
+      <td>46306.445313</td>
+      <td>47686.812500</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-01-02</td>
+      <td>47178.125000</td>
+      <td>46306.445313</td>
+      <td>47686.812500</td>
+      <td>47345.218750</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-01-03</td>
+      <td>46306.445313</td>
+      <td>47686.812500</td>
+      <td>47345.218750</td>
+      <td>46458.117188</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-01-04</td>
+      <td>47686.812500</td>
+      <td>47345.218750</td>
+      <td>46458.117188</td>
+      <td>45897.574219</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-01-05</td>
+      <td>47345.218750</td>
+      <td>46458.117188</td>
+      <td>45897.574219</td>
+      <td>43569.003906</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>360</th>
+      <td>2022-12-27</td>
+      <td>16847.755859</td>
+      <td>16841.986328</td>
+      <td>16919.804688</td>
+      <td>16717.173828</td>
+    </tr>
+    <tr>
+      <th>361</th>
+      <td>2022-12-28</td>
+      <td>16841.986328</td>
+      <td>16919.804688</td>
+      <td>16717.173828</td>
+      <td>16552.572266</td>
+    </tr>
+    <tr>
+      <th>362</th>
+      <td>2022-12-29</td>
+      <td>16919.804688</td>
+      <td>16717.173828</td>
+      <td>16552.572266</td>
+      <td>16642.341797</td>
+    </tr>
+    <tr>
+      <th>363</th>
+      <td>2022-12-30</td>
+      <td>16717.173828</td>
+      <td>16552.572266</td>
+      <td>16642.341797</td>
+      <td>16602.585938</td>
+    </tr>
+    <tr>
+      <th>364</th>
+      <td>2022-12-31</td>
+      <td>16552.572266</td>
+      <td>16642.341797</td>
+      <td>16602.585938</td>
+      <td>16547.496094</td>
+    </tr>
+  </tbody>
+</table>
+<p>365 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">windowed_df_to_date_X_y</span><span class="p">(</span><span class="n">windowed_dataframe</span><span class="p">):</span>
+  <span class="n">df_as_np</span> <span class="o">=</span> <span class="n">windowed_dataframe</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+  <span class="n">dates</span> <span class="o">=</span> <span class="n">df_as_np</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+  <span class="n">middle_matrix</span> <span class="o">=</span> <span class="n">df_as_np</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">middle_matrix</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">),</span> <span class="n">middle_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+
+  <span class="n">Y</span> <span class="o">=</span> <span class="n">df_as_np</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+  <span class="k">return</span> <span class="n">dates</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="n">Y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="n">dates</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">windowed_df_to_date_X_y</span><span class="p">(</span><span class="n">windowed_df</span><span class="p">)</span>
+
+<span class="n">dates</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((365,), (365, 3, 1), (365,))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q_80</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.8</span><span class="p">)</span>
+<span class="n">q_90</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span> <span class="o">*</span> <span class="mf">.9</span><span class="p">)</span>
+
+<span class="n">dates_train</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[:</span><span class="n">q_80</span><span class="p">],</span> <span class="n">X</span><span class="p">[:</span><span class="n">q_80</span><span class="p">],</span> <span class="n">y</span><span class="p">[:</span><span class="n">q_80</span><span class="p">]</span>
+
+<span class="n">dates_val</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[</span><span class="n">q_80</span><span class="p">:</span><span class="n">q_90</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">q_80</span><span class="p">:</span><span class="n">q_90</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">q_80</span><span class="p">:</span><span class="n">q_90</span><span class="p">]</span>
+<span class="n">dates_test</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[</span><span class="n">q_90</span><span class="p">:],</span> <span class="n">X</span><span class="p">[</span><span class="n">q_90</span><span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="n">q_90</span><span class="p">:]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation&#39;</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1e6990575e0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/7f9bc694e76966102205d8085cf172bc27420a070490b638f2152ea8a8ba11b8.png" src="../../_images/7f9bc694e76966102205d8085cf172bc27420a070490b638f2152ea8a8ba11b8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+                    <span class="n">layers</span><span class="o">.</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span>
+                    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+                    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+                    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> 
+              <span class="n">optimizer</span><span class="o">=</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">),</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean_absolute_error&#39;</span><span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">),</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/100
+10/10 [==============================] - 3s 56ms/step - loss: 1044386624.0000 - mean_absolute_error: 30817.0078 - val_loss: 348675808.0000 - val_mean_absolute_error: 18577.3457
+Epoch 2/100
+10/10 [==============================] - 0s 6ms/step - loss: 1044360384.0000 - mean_absolute_error: 30816.5781 - val_loss: 348660608.0000 - val_mean_absolute_error: 18576.9355
+Epoch 3/100
+10/10 [==============================] - 0s 7ms/step - loss: 1044333312.0000 - mean_absolute_error: 30816.1445 - val_loss: 348641632.0000 - val_mean_absolute_error: 18576.4277
+Epoch 4/100
+10/10 [==============================] - 0s 6ms/step - loss: 1044295936.0000 - mean_absolute_error: 30815.5410 - val_loss: 348613568.0000 - val_mean_absolute_error: 18575.6699
+Epoch 5/100
+10/10 [==============================] - 0s 6ms/step - loss: 1044242560.0000 - mean_absolute_error: 30814.6719 - val_loss: 348574752.0000 - val_mean_absolute_error: 18574.6270
+Epoch 6/100
+10/10 [==============================] - 0s 8ms/step - loss: 1044170496.0000 - mean_absolute_error: 30813.5000 - val_loss: 348523680.0000 - val_mean_absolute_error: 18573.2520
+Epoch 7/100
+10/10 [==============================] - 0s 6ms/step - loss: 1044075456.0000 - mean_absolute_error: 30811.9590 - val_loss: 348456864.0000 - val_mean_absolute_error: 18571.4512
+Epoch 8/100
+10/10 [==============================] - 0s 7ms/step - loss: 1043952128.0000 - mean_absolute_error: 30809.9629 - val_loss: 348370976.0000 - val_mean_absolute_error: 18569.1387
+Epoch 9/100
+10/10 [==============================] - 0s 6ms/step - loss: 1043793472.0000 - mean_absolute_error: 30807.4043 - val_loss: 348262016.0000 - val_mean_absolute_error: 18566.2051
+Epoch 10/100
+10/10 [==============================] - 0s 6ms/step - loss: 1043596032.0000 - mean_absolute_error: 30804.1855 - val_loss: 348126592.0000 - val_mean_absolute_error: 18562.5566
+Epoch 11/100
+10/10 [==============================] - 0s 7ms/step - loss: 1043350720.0000 - mean_absolute_error: 30800.1953 - val_loss: 347959456.0000 - val_mean_absolute_error: 18558.0566
+Epoch 12/100
+10/10 [==============================] - 0s 7ms/step - loss: 1043052544.0000 - mean_absolute_error: 30795.3262 - val_loss: 347757952.0000 - val_mean_absolute_error: 18552.6270
+Epoch 13/100
+10/10 [==============================] - 0s 9ms/step - loss: 1042691008.0000 - mean_absolute_error: 30789.5039 - val_loss: 347518784.0000 - val_mean_absolute_error: 18546.1797
+Epoch 14/100
+10/10 [==============================] - 0s 9ms/step - loss: 1042264896.0000 - mean_absolute_error: 30782.5586 - val_loss: 347233984.0000 - val_mean_absolute_error: 18538.4980
+Epoch 15/100
+10/10 [==============================] - 0s 6ms/step - loss: 1041758912.0000 - mean_absolute_error: 30774.3555 - val_loss: 346901504.0000 - val_mean_absolute_error: 18529.5293
+Epoch 16/100
+10/10 [==============================] - 0s 7ms/step - loss: 1041176128.0000 - mean_absolute_error: 30764.9180 - val_loss: 346523456.0000 - val_mean_absolute_error: 18519.3262
+Epoch 17/100
+10/10 [==============================] - 0s 7ms/step - loss: 1040505536.0000 - mean_absolute_error: 30754.0234 - val_loss: 346082880.0000 - val_mean_absolute_error: 18507.4277
+Epoch 18/100
+10/10 [==============================] - 0s 6ms/step - loss: 1039739648.0000 - mean_absolute_error: 30741.3867 - val_loss: 345577632.0000 - val_mean_absolute_error: 18493.7734
+Epoch 19/100
+10/10 [==============================] - 0s 7ms/step - loss: 1038850752.0000 - mean_absolute_error: 30727.1035 - val_loss: 345013248.0000 - val_mean_absolute_error: 18478.5078
+Epoch 20/100
+10/10 [==============================] - 0s 8ms/step - loss: 1037877568.0000 - mean_absolute_error: 30711.0957 - val_loss: 344381568.0000 - val_mean_absolute_error: 18461.4082
+Epoch 21/100
+10/10 [==============================] - 0s 8ms/step - loss: 1036774272.0000 - mean_absolute_error: 30693.2012 - val_loss: 343677728.0000 - val_mean_absolute_error: 18442.3359
+Epoch 22/100
+10/10 [==============================] - 0s 12ms/step - loss: 1035546816.0000 - mean_absolute_error: 30673.3398 - val_loss: 342901024.0000 - val_mean_absolute_error: 18421.2637
+Epoch 23/100
+10/10 [==============================] - 0s 7ms/step - loss: 1034201088.0000 - mean_absolute_error: 30651.3008 - val_loss: 342039936.0000 - val_mean_absolute_error: 18397.8770
+Epoch 24/100
+10/10 [==============================] - 0s 6ms/step - loss: 1032724800.0000 - mean_absolute_error: 30627.2012 - val_loss: 341110144.0000 - val_mean_absolute_error: 18372.5918
+Epoch 25/100
+10/10 [==============================] - 0s 7ms/step - loss: 1031108992.0000 - mean_absolute_error: 30600.8965 - val_loss: 340090048.0000 - val_mean_absolute_error: 18344.8105
+Epoch 26/100
+10/10 [==============================] - 0s 6ms/step - loss: 1029352960.0000 - mean_absolute_error: 30572.0488 - val_loss: 338978176.0000 - val_mean_absolute_error: 18314.4785
+Epoch 27/100
+10/10 [==============================] - 0s 7ms/step - loss: 1027446784.0000 - mean_absolute_error: 30540.8555 - val_loss: 337785696.0000 - val_mean_absolute_error: 18281.8965
+Epoch 28/100
+10/10 [==============================] - 0s 7ms/step - loss: 1025390976.0000 - mean_absolute_error: 30507.1602 - val_loss: 336494400.0000 - val_mean_absolute_error: 18246.5449
+Epoch 29/100
+10/10 [==============================] - 0s 6ms/step - loss: 1023169152.0000 - mean_absolute_error: 30470.6230 - val_loss: 335102112.0000 - val_mean_absolute_error: 18208.3535
+Epoch 30/100
+10/10 [==============================] - 0s 7ms/step - loss: 1020749568.0000 - mean_absolute_error: 30431.2871 - val_loss: 333607104.0000 - val_mean_absolute_error: 18167.2520
+Epoch 31/100
+10/10 [==============================] - 0s 7ms/step - loss: 1018184704.0000 - mean_absolute_error: 30389.0039 - val_loss: 332011584.0000 - val_mean_absolute_error: 18123.2891
+Epoch 32/100
+10/10 [==============================] - 0s 6ms/step - loss: 1015432512.0000 - mean_absolute_error: 30343.9355 - val_loss: 330315968.0000 - val_mean_absolute_error: 18076.4473
+Epoch 33/100
+10/10 [==============================] - 0s 7ms/step - loss: 1012523136.0000 - mean_absolute_error: 30295.6133 - val_loss: 328499712.0000 - val_mean_absolute_error: 18026.1387
+Epoch 34/100
+10/10 [==============================] - 0s 6ms/step - loss: 1009406912.0000 - mean_absolute_error: 30244.2129 - val_loss: 326589248.0000 - val_mean_absolute_error: 17973.0703
+Epoch 35/100
+10/10 [==============================] - 0s 7ms/step - loss: 1006107328.0000 - mean_absolute_error: 30189.9629 - val_loss: 324572576.0000 - val_mean_absolute_error: 17916.8828
+Epoch 36/100
+10/10 [==============================] - 0s 7ms/step - loss: 1002666816.0000 - mean_absolute_error: 30132.3184 - val_loss: 322446240.0000 - val_mean_absolute_error: 17857.4453
+Epoch 37/100
+10/10 [==============================] - 0s 6ms/step - loss: 999020352.0000 - mean_absolute_error: 30072.0957 - val_loss: 320236896.0000 - val_mean_absolute_error: 17795.4766
+Epoch 38/100
+10/10 [==============================] - 0s 7ms/step - loss: 995183808.0000 - mean_absolute_error: 30008.1270 - val_loss: 317872576.0000 - val_mean_absolute_error: 17728.9199
+Epoch 39/100
+10/10 [==============================] - 0s 7ms/step - loss: 991085696.0000 - mean_absolute_error: 29940.2227 - val_loss: 315391616.0000 - val_mean_absolute_error: 17658.8105
+Epoch 40/100
+10/10 [==============================] - 0s 6ms/step - loss: 986806208.0000 - mean_absolute_error: 29867.6270 - val_loss: 312733760.0000 - val_mean_absolute_error: 17583.3926
+Epoch 41/100
+10/10 [==============================] - 0s 8ms/step - loss: 982220544.0000 - mean_absolute_error: 29791.4316 - val_loss: 310002240.0000 - val_mean_absolute_error: 17505.5488
+Epoch 42/100
+10/10 [==============================] - 0s 7ms/step - loss: 977485120.0000 - mean_absolute_error: 29712.0410 - val_loss: 307154048.0000 - val_mean_absolute_error: 17424.0078
+Epoch 43/100
+10/10 [==============================] - 0s 6ms/step - loss: 972579136.0000 - mean_absolute_error: 29629.3145 - val_loss: 304201216.0000 - val_mean_absolute_error: 17339.0645
+Epoch 44/100
+10/10 [==============================] - 0s 6ms/step - loss: 967431424.0000 - mean_absolute_error: 29542.1270 - val_loss: 301088384.0000 - val_mean_absolute_error: 17249.0703
+Epoch 45/100
+10/10 [==============================] - 0s 7ms/step - loss: 962025024.0000 - mean_absolute_error: 29450.7188 - val_loss: 297862400.0000 - val_mean_absolute_error: 17155.3027
+Epoch 46/100
+10/10 [==============================] - 0s 6ms/step - loss: 956417216.0000 - mean_absolute_error: 29354.9766 - val_loss: 294495680.0000 - val_mean_absolute_error: 17056.8965
+Epoch 47/100
+10/10 [==============================] - 0s 7ms/step - loss: 950588928.0000 - mean_absolute_error: 29254.3770 - val_loss: 290989952.0000 - val_mean_absolute_error: 16953.8203
+Epoch 48/100
+10/10 [==============================] - 0s 7ms/step - loss: 944442880.0000 - mean_absolute_error: 29150.5000 - val_loss: 287414304.0000 - val_mean_absolute_error: 16848.0332
+Epoch 49/100
+10/10 [==============================] - 0s 6ms/step - loss: 938235136.0000 - mean_absolute_error: 29043.0449 - val_loss: 283728864.0000 - val_mean_absolute_error: 16738.3047
+Epoch 50/100
+10/10 [==============================] - 0s 7ms/step - loss: 931776512.0000 - mean_absolute_error: 28931.8320 - val_loss: 279936608.0000 - val_mean_absolute_error: 16624.6387
+Epoch 51/100
+10/10 [==============================] - 0s 7ms/step - loss: 925081088.0000 - mean_absolute_error: 28816.5352 - val_loss: 276035232.0000 - val_mean_absolute_error: 16506.8848
+Epoch 52/100
+10/10 [==============================] - 0s 8ms/step - loss: 918214976.0000 - mean_absolute_error: 28697.6289 - val_loss: 272061088.0000 - val_mean_absolute_error: 16386.0645
+Epoch 53/100
+10/10 [==============================] - 0s 8ms/step - loss: 911200000.0000 - mean_absolute_error: 28574.3594 - val_loss: 267921216.0000 - val_mean_absolute_error: 16259.2500
+Epoch 54/100
+10/10 [==============================] - 0s 9ms/step - loss: 903775424.0000 - mean_absolute_error: 28444.9375 - val_loss: 263622976.0000 - val_mean_absolute_error: 16126.5293
+Epoch 55/100
+10/10 [==============================] - 0s 6ms/step - loss: 896205696.0000 - mean_absolute_error: 28310.5859 - val_loss: 259233728.0000 - val_mean_absolute_error: 15989.8613
+Epoch 56/100
+10/10 [==============================] - 0s 7ms/step - loss: 888465600.0000 - mean_absolute_error: 28173.0410 - val_loss: 254816768.0000 - val_mean_absolute_error: 15851.1445
+Epoch 57/100
+10/10 [==============================] - 0s 7ms/step - loss: 880518656.0000 - mean_absolute_error: 28032.5254 - val_loss: 250269520.0000 - val_mean_absolute_error: 15707.0518
+Epoch 58/100
+10/10 [==============================] - 0s 6ms/step - loss: 872220096.0000 - mean_absolute_error: 27885.4160 - val_loss: 245548352.0000 - val_mean_absolute_error: 15556.0381
+Epoch 59/100
+10/10 [==============================] - 0s 7ms/step - loss: 863776768.0000 - mean_absolute_error: 27733.3105 - val_loss: 240778416.0000 - val_mean_absolute_error: 15401.9619
+Epoch 60/100
+10/10 [==============================] - 0s 7ms/step - loss: 855113216.0000 - mean_absolute_error: 27576.4844 - val_loss: 235881200.0000 - val_mean_absolute_error: 15242.1514
+Epoch 61/100
+10/10 [==============================] - 0s 6ms/step - loss: 846386816.0000 - mean_absolute_error: 27415.6270 - val_loss: 230955232.0000 - val_mean_absolute_error: 15079.6963
+Epoch 62/100
+10/10 [==============================] - 0s 7ms/step - loss: 837453184.0000 - mean_absolute_error: 27252.7246 - val_loss: 226009600.0000 - val_mean_absolute_error: 14914.8105
+Epoch 63/100
+10/10 [==============================] - 0s 10ms/step - loss: 828241280.0000 - mean_absolute_error: 27084.6191 - val_loss: 220892560.0000 - val_mean_absolute_error: 14742.2705
+Epoch 64/100
+10/10 [==============================] - 0s 8ms/step - loss: 818745088.0000 - mean_absolute_error: 26909.9277 - val_loss: 215672480.0000 - val_mean_absolute_error: 14564.1494
+Epoch 65/100
+10/10 [==============================] - 0s 9ms/step - loss: 809069760.0000 - mean_absolute_error: 26729.1660 - val_loss: 210352720.0000 - val_mean_absolute_error: 14380.3584
+Epoch 66/100
+10/10 [==============================] - 0s 6ms/step - loss: 799276544.0000 - mean_absolute_error: 26543.5332 - val_loss: 204992816.0000 - val_mean_absolute_error: 14192.7725
+Epoch 67/100
+10/10 [==============================] - 0s 6ms/step - loss: 789292416.0000 - mean_absolute_error: 26355.6914 - val_loss: 199653712.0000 - val_mean_absolute_error: 14003.4180
+Epoch 68/100
+10/10 [==============================] - 0s 7ms/step - loss: 779206144.0000 - mean_absolute_error: 26164.4512 - val_loss: 194251872.0000 - val_mean_absolute_error: 13809.1943
+Epoch 69/100
+10/10 [==============================] - 0s 6ms/step - loss: 769037120.0000 - mean_absolute_error: 25967.8672 - val_loss: 188772288.0000 - val_mean_absolute_error: 13609.3457
+Epoch 70/100
+10/10 [==============================] - 0s 7ms/step - loss: 758628672.0000 - mean_absolute_error: 25766.8672 - val_loss: 183304688.0000 - val_mean_absolute_error: 13406.9648
+Epoch 71/100
+10/10 [==============================] - 0s 7ms/step - loss: 748208064.0000 - mean_absolute_error: 25563.3418 - val_loss: 177824768.0000 - val_mean_absolute_error: 13201.0127
+Epoch 72/100
+10/10 [==============================] - 0s 7ms/step - loss: 737459072.0000 - mean_absolute_error: 25354.5312 - val_loss: 172262112.0000 - val_mean_absolute_error: 12988.6143
+Epoch 73/100
+10/10 [==============================] - 0s 7ms/step - loss: 726607360.0000 - mean_absolute_error: 25139.6934 - val_loss: 166634144.0000 - val_mean_absolute_error: 12770.1270
+Epoch 74/100
+10/10 [==============================] - 0s 7ms/step - loss: 715678144.0000 - mean_absolute_error: 24918.6172 - val_loss: 160986512.0000 - val_mean_absolute_error: 12547.0508
+Epoch 75/100
+10/10 [==============================] - 0s 6ms/step - loss: 704596160.0000 - mean_absolute_error: 24698.1328 - val_loss: 155484960.0000 - val_mean_absolute_error: 12325.8643
+Epoch 76/100
+10/10 [==============================] - 0s 7ms/step - loss: 693548608.0000 - mean_absolute_error: 24469.2070 - val_loss: 149751792.0000 - val_mean_absolute_error: 12091.0615
+Epoch 77/100
+10/10 [==============================] - 0s 6ms/step - loss: 682104896.0000 - mean_absolute_error: 24236.2383 - val_loss: 144189408.0000 - val_mean_absolute_error: 11858.8105
+Epoch 78/100
+10/10 [==============================] - 0s 6ms/step - loss: 670842624.0000 - mean_absolute_error: 24002.6133 - val_loss: 138626240.0000 - val_mean_absolute_error: 11621.8867
+Epoch 79/100
+10/10 [==============================] - 0s 7ms/step - loss: 659307520.0000 - mean_absolute_error: 23761.6094 - val_loss: 132989840.0000 - val_mean_absolute_error: 11376.8105
+Epoch 80/100
+10/10 [==============================] - 0s 6ms/step - loss: 647849408.0000 - mean_absolute_error: 23515.4844 - val_loss: 127420584.0000 - val_mean_absolute_error: 11129.3564
+Epoch 81/100
+10/10 [==============================] - 0s 7ms/step - loss: 636038656.0000 - mean_absolute_error: 23267.6035 - val_loss: 121918760.0000 - val_mean_absolute_error: 10879.3721
+Epoch 82/100
+10/10 [==============================] - 0s 7ms/step - loss: 624387712.0000 - mean_absolute_error: 23014.8027 - val_loss: 116398888.0000 - val_mean_absolute_error: 10622.6582
+Epoch 83/100
+10/10 [==============================] - 0s 7ms/step - loss: 612568128.0000 - mean_absolute_error: 22754.5098 - val_loss: 110888168.0000 - val_mean_absolute_error: 10360.0273
+Epoch 84/100
+10/10 [==============================] - 0s 6ms/step - loss: 600589568.0000 - mean_absolute_error: 22494.3750 - val_loss: 105559048.0000 - val_mean_absolute_error: 10099.5557
+Epoch 85/100
+10/10 [==============================] - 0s 7ms/step - loss: 588812224.0000 - mean_absolute_error: 22228.9141 - val_loss: 100165224.0000 - val_mean_absolute_error: 9828.8965
+Epoch 86/100
+10/10 [==============================] - 0s 8ms/step - loss: 576775232.0000 - mean_absolute_error: 21958.2363 - val_loss: 94905416.0000 - val_mean_absolute_error: 9557.5830
+Epoch 87/100
+10/10 [==============================] - 0s 7ms/step - loss: 564984704.0000 - mean_absolute_error: 21687.1367 - val_loss: 89794784.0000 - val_mean_absolute_error: 9286.3750
+Epoch 88/100
+10/10 [==============================] - 0s 7ms/step - loss: 553232896.0000 - mean_absolute_error: 21416.4199 - val_loss: 84805552.0000 - val_mean_absolute_error: 9013.7412
+Epoch 89/100
+10/10 [==============================] - 0s 6ms/step - loss: 541440192.0000 - mean_absolute_error: 21139.2539 - val_loss: 79826088.0000 - val_mean_absolute_error: 8733.1602
+Epoch 90/100
+10/10 [==============================] - 0s 6ms/step - loss: 529761376.0000 - mean_absolute_error: 20858.6113 - val_loss: 75018272.0000 - val_mean_absolute_error: 8453.4180
+Epoch 91/100
+10/10 [==============================] - 0s 8ms/step - loss: 518271776.0000 - mean_absolute_error: 20579.7207 - val_loss: 70364840.0000 - val_mean_absolute_error: 8173.5444
+Epoch 92/100
+10/10 [==============================] - 0s 6ms/step - loss: 506605408.0000 - mean_absolute_error: 20296.3496 - val_loss: 65758572.0000 - val_mean_absolute_error: 7886.7324
+Epoch 93/100
+10/10 [==============================] - 0s 7ms/step - loss: 494979328.0000 - mean_absolute_error: 20010.0176 - val_loss: 61306068.0000 - val_mean_absolute_error: 7599.2144
+Epoch 94/100
+10/10 [==============================] - 0s 7ms/step - loss: 483658592.0000 - mean_absolute_error: 19720.6191 - val_loss: 56979248.0000 - val_mean_absolute_error: 7308.9824
+Epoch 95/100
+10/10 [==============================] - 0s 6ms/step - loss: 472294784.0000 - mean_absolute_error: 19432.4160 - val_loss: 52861160.0000 - val_mean_absolute_error: 7021.6191
+Epoch 96/100
+10/10 [==============================] - 0s 7ms/step - loss: 461135744.0000 - mean_absolute_error: 19141.8535 - val_loss: 48819708.0000 - val_mean_absolute_error: 6727.6812
+Epoch 97/100
+10/10 [==============================] - 0s 8ms/step - loss: 449884896.0000 - mean_absolute_error: 18844.1309 - val_loss: 44861200.0000 - val_mean_absolute_error: 6426.7554
+Epoch 98/100
+10/10 [==============================] - 0s 8ms/step - loss: 438738528.0000 - mean_absolute_error: 18544.4883 - val_loss: 41119260.0000 - val_mean_absolute_error: 6128.7231
+Epoch 99/100
+10/10 [==============================] - 0s 9ms/step - loss: 427835744.0000 - mean_absolute_error: 18246.7734 - val_loss: 37537356.0000 - val_mean_absolute_error: 5829.1802
+Epoch 100/100
+10/10 [==============================] - 0s 7ms/step - loss: 416665760.0000 - mean_absolute_error: 17947.7168 - val_loss: 34117820.0000 - val_mean_absolute_error: 5528.0918
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.src.callbacks.History at 0x1e6a463cee0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates_train</span><span class="p">,</span> <span class="n">train_predictions</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Training Predictions&#39;</span><span class="p">,</span> <span class="s1">&#39;Training Observations&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10/10 [==============================] - 0s 2ms/step
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1e6a8c2adc0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/1422b3dc099bf0786a6085b33b239c7bb2b428ee4112bcb26b414e16be164480.png" src="../../_images/1422b3dc099bf0786a6085b33b239c7bb2b428ee4112bcb26b414e16be164480.png" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters\chapter_5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Romeo Silvestri
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

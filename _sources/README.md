@@ -9,13 +9,13 @@ Embark on a captivating journey through the intricate world of data science with
 We will then navigate through the following stages:
 
 Problem Definition:
-- Identification of the problem to be solved
+- Identification of the problem
 - Determination of project objectives
 - Specification of project evaluation metrics
 
 Data Collection:
 - Identification of data sources
-- Data acquisition from identified sources
+- Data acquisition
 - Data quality control
 
 Data Pre-processing:

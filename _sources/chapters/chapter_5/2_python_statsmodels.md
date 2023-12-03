@@ -36,6 +36,7 @@ data = pd.DataFrame({
 })
 
 data = pd.get_dummies(data, columns=['X3'], drop_first=True)
+data['X3_B'] = data['X3_B'].astype(float)
 
 data
 ```
@@ -56,10 +57,10 @@ data
 
 
 ```{code-cell}
-model = sm.OLS(data['Target'], data[['X1', 'X2', 'X3']])
-model.fit()
+model = sm.OLS(data['Target'], data[['X1', 'X2', 'X3_B']])
+results = model.fit()
 
-model.summary()
+results.summary()
 ```
 
 
@@ -69,30 +70,84 @@ model.summary()
 ```{code-cell}
 from statsmodels.formula.api import ols
 
-model = ols('Target ~ X3', data=data)
-model.fit()
+model = ols('Target ~ X3_B', data=data)
+results = model.fit()
 
-anova_table = sm.stats.anova_lm(model, typ=2)
+anova_table = sm.stats.anova_lm(results, typ=2)
 anova_table
 ```
 
 **ANCOVA**
-cambia solo in ols
 ```{code-cell}
 from statsmodels.formula.api import ols
 
-model = ols('Target ~ X1 + X2 + X3', data=data)
-model.fit()
+model = ols('Target ~ X3_B + X1', data=data)
+results = model.fit()
 
-anova_table = sm.stats.anova_lm(model, typ=2)
+anova_table = sm.stats.anova_lm(results, typ=2)
 anova_table
 ```
 
+
 ## Time Series
 
+```{code-cell}
+t = np.arange(100)
+trend = 0.5 * t
+season = 10 * np.sin(2 * np.pi * t / 12)
+noise = np.random.normal(0, 1, 100)
+
+y = trend + noise
+y_season = trend + season + noise
+x = 5 * np.sin(2 * np.pi * t)
+
+data = pd.DataFrame({'Time': t, 'Value': y, 'Value_Season': y_season, 'Exo_Var': x})
+data
+```
+
 ### ARIMA
+
+```{code-cell}
+from statsmodels.tsa.arima.model import ARIMA
+
+model = ARIMA(data['Value'], order=(1, 1, 1))
+results = model.fit()
+
+results.summary()
+```
+
 ### SARIMA
+
+```{code-cell}
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+model = SARIMAX(data['Value_Season'], order=(1, 1, 1), seasonal_order=(1, 1, 1, 12))
+results = model.fit()
+
+results.summary()
+```
+
+### ARIMAX & SARIMAX
+
+```{code-cell}
+model = ARIMA(data['Value'], order=(1, 1, 1), exog=data[['Exo_Var']])
+# model = SARIMAX(data['Value_Season'], order=(1, 1, 1), seasonal_order=(1, 1, 1, 12))
+results = model.fit()
+
+results.summary()
+```
+
 ### VAR
+
+```{code-cell}
+from statsmodels.tsa.api import VAR
+
+var_data = data[['Value', 'Exo_Var']]
+model = VAR(var_data)
+results = model.fit()
+
+results.summary()
+```
 
 
 ## Panel Data
